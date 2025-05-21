@@ -52,3 +52,23 @@ export default tseslint.config({
   },
 })
 ```
+
+Nosso sistema tera apenas uma tela de login sem cadastro e sem esqueci senha
+Separação:
+Raila-header, suporte ao design
+Max - Grafico Despesas form
+Vanessa - vendas form
+Gabriel - pagina de receitas
+Helisson- modais
+Jander- supervisão -Dashboard
+Eduardo - Despesas form
+lucas- supervisão suporte
+
+Color piker Codi
+#6EC1E4 - PRIMARY
+#54595F - SECUNDARY
+#A243D2 - CODI
+#111827 - GRAY-900
+#1F2937 - GRAY-800
+#F3F5F5 - GRAY-100
+#D0B6DE - CODI SECONDARY
