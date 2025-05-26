@@ -11,45 +11,51 @@ export function Charts() {
   const courseSalesData = [
     {
       month: 'January',
-      frontendPresencial: 3200,
-      frontendEad: 5400,
-      fullstackPresencial: 4600,
-      fullstackEad: 7800,
+      frontendPresencial: 2200,
+      frontendEad: 1800,
+      fullstackPresencial: 2500,
+      fullstackEad: 6800,
+      total: 3100,
     },
     {
       month: 'February',
-      frontendPresencial: 4100,
-      frontendEad: 6200,
-      fullstackPresencial: 5100,
-      fullstackEad: 8200,
+      frontendPresencial: 2200,
+      frontendEad: 0,
+      fullstackPresencial: 0,
+      fullstackEad: 6800,
+      total: 9000,
     },
     {
       month: 'March',
-      frontendPresencial: 3700,
-      frontendEad: 5800,
-      fullstackPresencial: 4900,
-      fullstackEad: 8000,
+      frontendPresencial: 0,
+      frontendEad: 1800,
+      fullstackPresencial: 0,
+      fullstackEad: 6800,
+      total: 8600,
     },
     {
       month: 'April',
-      frontendPresencial: 2900,
-      frontendEad: 5300,
-      fullstackPresencial: 4200,
-      fullstackEad: 7600,
+      frontendPresencial: 2200,
+      frontendEad: 1800,
+      fullstackPresencial: 2500,
+      fullstackEad: 6800,
+      total: 13300,
     },
     {
       month: 'May',
-      frontendPresencial: 3500,
-      frontendEad: 6100,
-      fullstackPresencial: 4700,
-      fullstackEad: 8100,
+      frontendPresencial: 2200,
+      frontendEad: 1800,
+      fullstackPresencial: 2500,
+      fullstackEad: 0,
+      total: 6500,
     },
     {
       month: 'June',
-      frontendPresencial: 3800,
-      frontendEad: 6400,
-      fullstackPresencial: 5000,
-      fullstackEad: 8500,
+      frontendPresencial: 0,
+      frontendEad: 0,
+      fullstackPresencial: 0,
+      fullstackEad: 6800,
+      total: 6800,
     },
   ]
 
@@ -60,7 +66,8 @@ export function Charts() {
     },
     frontendEad: {
       label: 'Frontend EAD',
-      color: '#22c55e', // verde claro
+      color: '#22c55e',
+      // verde claro
     },
     fullstackPresencial: {
       label: 'Fullstack Presencial',
@@ -69,6 +76,10 @@ export function Charts() {
     fullstackEad: {
       label: 'Fullstack EAD',
       color: '#c084fc', // roxo claro
+    },
+    total: {
+      label: 'Total',
+      color: '#3b82f6', // azul
     },
   } satisfies ChartConfig
   return (
@@ -97,7 +108,7 @@ export function Charts() {
           content={<ChartTooltipContent indicator='line' />}
         />
         <Area
-          dataKey='frontendPresencial'
+          dataKey='total'
           type='natural'
           fill='#16a34a'
           fillOpacity={0.4}
