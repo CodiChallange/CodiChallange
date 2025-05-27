@@ -85,7 +85,7 @@ export function Charts() {
   return (
     <ChartContainer
       config={courseSalesConfig}
-      className=' min-h-[12.5rem] w-full'
+      className=' flex  justify-center h-30'
     >
       <AreaChart
         data={courseSalesData}

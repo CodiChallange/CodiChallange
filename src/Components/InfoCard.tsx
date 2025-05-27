@@ -6,6 +6,7 @@ import {
   CardTitle,
   CardDescription,
   CardContent,
+  CardFooter,
 } from './ui/card'
 
 import type { IconBaseProps } from 'react-icons'
@@ -14,29 +15,20 @@ interface InfoCardProps {
   name: string
   icon?: React.ComponentType<IconBaseProps>
   value: string
-  description?: string
+
   color?: string
 }
-export function InfoCard({
-  name,
-  icon: Icon,
-  value,
-  description,
-  color,
-}: InfoCardProps) {
+export function InfoCard({ name, icon: Icon, value, color }: InfoCardProps) {
   return (
-    <Card className={`flex flex-col gap-4  w-120 h-60 m-8 text-[${color}]`}>
-      <CardHeader className='flex flex-row  gap-42'>
+    <Card className={` gap-1  w-80 h-53 m-8  text-[${color}]`}>
+      <CardHeader className='flex flex-row  gap-28'>
         {Icon && <Icon size={24} />}
         <CardTitle>{name}</CardTitle>
       </CardHeader>
-      <CardContent className='flex flex-col gap-2 justify-center items-center'>
-        <p className='text-2xl'>{value}</p>
-        <CardDescription className={`text-[${color}]`}>
-          {description}
-        </CardDescription>
+      <CardContent className='flex flex-col  justify-center items-center'>
+        <p className='text-2xl'> Total {value}</p>
       </CardContent>
-      <CardContent className='flex mt-2 fixed ml-6'>
+      <CardContent className='w-80 flex justify-center '>
         <Charts />
       </CardContent>
     </Card>
