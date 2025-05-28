@@ -6,9 +6,10 @@ type cardProps = {
   role: string
   key: string
   onEdit: () => void
+  onRemove: () => void
 }
 
-export function UserCard({ name, role, onEdit }: cardProps) {
+export function UserCard({ name, role, onEdit, onRemove }: cardProps) {
   return (
     <div className=' relative'>
       <div
@@ -51,7 +52,10 @@ export function UserCard({ name, role, onEdit }: cardProps) {
           >
             <Settings />
           </button>
-          <button className='bg-red-700  px-4  rounded-lg font-medium  items-center hover:bg-red-800  duration-[0.5s] text-white cursor-pointer'>
+          <button
+            onClick={onRemove}
+            className='bg-red-700  px-4  rounded-lg font-medium  items-center hover:bg-red-800  duration-[0.5s] text-white cursor-pointer'
+          >
             <CircleX />
           </button>
         </div>

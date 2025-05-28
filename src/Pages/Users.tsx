@@ -2,6 +2,7 @@ import { CodiLogo } from '@/assests/CodiLogo2'
 import { Aside } from '@/Components/Aside'
 import { ModalAdd } from '@/Components/modal/AddModal'
 import { AlterarModal } from '@/Components/modal/AlterarModal'
+import { RemoverModal } from '@/Components/modal/RemoverModal'
 
 import { UserCard } from '@/Components/UsersCard'
 import { useState } from 'react'
@@ -54,6 +55,16 @@ export function Users() {
     setSelectedUser(null)
   }
 
+  const [isOpenRemove, setIsOpenRemove] = useState(false)
+  function handleOpenRemoveModal(userId: string) {
+    setIsOpenRemove(true)
+    setSelectedUser(userList.find((user) => user.id === userId) || null)
+  }
+  function handleCloseModalRemove() {
+    setIsOpenRemove(false)
+    setSelectedUser(null)
+  }
+
   const userList = [
     { name: 'Eduardo', role: 'ADM', email: 'eduardo@gmail.com', id: '1' },
     { name: 'Jander', role: 'FIN', email: 'Jander@gmail.com', id: '2' },
@@ -93,6 +104,7 @@ export function Users() {
                 name={user.name}
                 role={user.role}
                 onEdit={() => handleOpenModalEdit(user.id)}
+                onRemove={() => handleOpenRemoveModal(user.id)}
               />
             ))}
           </div>
@@ -103,6 +115,9 @@ export function Users() {
       {isOpenNew && <ModalAdd haandleOpenModalNew={handleOpenModalNew} />}
       {isOpenEdit && (
         <AlterarModal close={handleCloseModalEdit} user={selectedUser} />
+      )}
+      {isOpenRemove && (
+        <RemoverModal close={handleCloseModalRemove} user={selectedUser} />
       )}
     </div>
   )
