@@ -55,22 +55,17 @@ export function Users() {
   }
 
   const userList = [
-    {
-      name: 'Eduardo',
-      role: 'ADM',
-      email: 'eduardohill@gmail.com',
-      id: '1',
-    },
-    { name: 'Jander', role: 'FIN', email: 'eduardohill@gmail.com', id: '2' },
-    { name: 'Bruno', role: 'FIN', email: 'eduardohill@gmail.com', id: '3' },
-    { name: 'Hellison', role: 'PROF', email: 'eduardohill@gmail.com', id: '4' },
-    { name: 'Lucas', role: 'FIN', email: 'eduardohill@gmail.com', id: '5' },
-    { name: 'Vanessa', role: 'PROF', email: 'eduardohill@gmail.com', id: '6' },
-    { name: 'Gabriel', role: 'PROF', email: 'eduardohill@gmail.com', id: '7' },
-    { name: 'Max', role: 'FIN', email: 'eduardohill@gmail.com', id: '8' },
-    { name: 'Yuri', role: 'ADM', email: 'eduardohill@gmail.com', id: '9' },
-    { name: 'Cesar', role: 'FIN', email: 'eduardohill@gmail.com', id: '10' },
-    { name: 'Gustavo', role: 'PROF', email: 'eduardohill@gmail.com', id: '11' },
+    { name: 'Eduardo', role: 'ADM', email: 'eduardo@gmail.com', id: '1' },
+    { name: 'Jander', role: 'FIN', email: 'Jander@gmail.com', id: '2' },
+    { name: 'Bruno', role: 'FIN', email: 'Bruno@gmail.com', id: '3' },
+    { name: 'Hellison', role: 'PROF', email: 'Hellison@gmail.com', id: '4' },
+    { name: 'Lucas', role: 'FIN', email: 'Lucas@gmail.com', id: '5' },
+    { name: 'Vanessa', role: 'PROF', email: 'Vanessa@gmail.com', id: '6' },
+    { name: 'Gabriel', role: 'PROF', email: 'Gabriel@gmail.com', id: '7' },
+    { name: 'Max', role: 'FIN', email: 'Max@gmail.com', id: '8' },
+    { name: 'Yuri', role: 'ADM', email: 'Yuri@gmail.com', id: '9' },
+    { name: 'Cesar', role: 'FIN', email: 'Cesar@gmail.com', id: '10' },
+    { name: 'Gustavo', role: 'PROF', email: 'Gustavo@gmail.com', id: '11' },
   ]
   return (
     <div className='relative'>
