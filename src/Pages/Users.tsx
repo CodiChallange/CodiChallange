@@ -1,43 +1,114 @@
 import { CodiLogo } from '@/assests/CodiLogo2'
 import { Aside } from '@/Components/Aside'
+import { ModalAdd } from '@/Components/modal/AddModal'
+import { AlterarModal } from '@/Components/modal/AlterarModal'
 
 import { UserCard } from '@/Components/UsersCard'
+import { useState } from 'react'
 
+{
+  /* tipos dos dados dos usuarios */
+}
+type User = {
+  id: string
+  name: string
+  role: string
+  email: string
+}
 export function Users() {
+  {
+    /* usState para abri modal de novo cadastro */
+  }
+  const [isOpenNew, setIsOpenNew] = useState(false)
+
+  {
+    /* Função para abrir o modal de novo cadastro */
+  }
+  function handleOpenModalNew() {
+    setIsOpenNew(!isOpenNew)
+  }
+
+  {
+    /* useState para abrir e fechar modal de edição */
+  }
+  const [isOpenEdit, setIsOpenEdit] = useState(false)
+
+  {
+    /* useState para pegar os dados do usuario selecionado */
+  }
+  const [selectedUser, setSelectedUser] = useState<User | null>(null)
+
+  {
+    /* função para abrir e pegar os dados do usuario selecionado */
+  }
+  function handleOpenModalEdit(userId: string) {
+    setIsOpenEdit(true)
+    setSelectedUser(userList.find((user) => user.id === userId) || null)
+  }
+
+  {
+    /* useState para fechar o modal */
+  }
+  function handleCloseModalEdit() {
+    setIsOpenEdit(false)
+    setSelectedUser(null)
+  }
+
   const userList = [
-    { name: 'Eduardo Hill', role: 'ADM', email: 'eduardohill@gmail.com' },
-    { name: 'Jander', role: 'FIN', email: 'eduardohill@gmail.com' },
-    { name: 'Bruno', role: 'FIN', email: 'eduardohill@gmail.com' },
-    { name: 'Hellison', role: 'PROF', email: 'eduardohill@gmail.com' },
-    { name: 'Lucas', role: 'FIN', email: 'eduardohill@gmail.com' },
-    { name: 'Vanessa', role: 'PROF', email: 'eduardohill@gmail.com' },
-    { name: 'Gabriel', role: 'PROF', email: 'eduardohill@gmail.com' },
-    { name: 'Max', role: 'FIN', email: 'eduardohill@gmail.com' },
-    { name: 'Yuri', role: 'ADM', email: 'eduardohill@gmail.com' },
-    { name: 'Cesar', role: 'FIN', email: 'eduardohill@gmail.com' },
-    { name: 'Gustavo', role: 'PROF', email: 'eduardohill@gmail.com' },
+    {
+      name: 'Eduardo',
+      role: 'ADM',
+      email: 'eduardohill@gmail.com',
+      id: '1',
+    },
+    { name: 'Jander', role: 'FIN', email: 'eduardohill@gmail.com', id: '2' },
+    { name: 'Bruno', role: 'FIN', email: 'eduardohill@gmail.com', id: '3' },
+    { name: 'Hellison', role: 'PROF', email: 'eduardohill@gmail.com', id: '4' },
+    { name: 'Lucas', role: 'FIN', email: 'eduardohill@gmail.com', id: '5' },
+    { name: 'Vanessa', role: 'PROF', email: 'eduardohill@gmail.com', id: '6' },
+    { name: 'Gabriel', role: 'PROF', email: 'eduardohill@gmail.com', id: '7' },
+    { name: 'Max', role: 'FIN', email: 'eduardohill@gmail.com', id: '8' },
+    { name: 'Yuri', role: 'ADM', email: 'eduardohill@gmail.com', id: '9' },
+    { name: 'Cesar', role: 'FIN', email: 'eduardohill@gmail.com', id: '10' },
+    { name: 'Gustavo', role: 'PROF', email: 'eduardohill@gmail.com', id: '11' },
   ]
   return (
-    <div className='flex h-screen w-screen '>
-      <Aside />
-      <div className='flex flex-col w-full p-5'>
-        <div className='flex justify-between w-full items-center h-fit'>
-          <h1 className=' uppercase text-[#A243D2] text-4xl font-bold '>
-            Sua Equipe
-          </h1>
-          <CodiLogo />
-        </div>
-        <div className='w-fit h-fit mb-3  '>
-          <button className='bg-[#131836] text-white font-bold  rounded-lg p-4 cursor-pointer'>
-            Adicionar Colaborador
-          </button>
-        </div>
-        <div className=' h-full rounded-2xl border-6 border-[#A243D2] p-6 grid grid-cols-5 overflow-auto  gap-4  '>
-          {userList.map((user) => (
-            <UserCard key={user.email} name={user.name} role={user.role} />
-          ))}
+    <div className='relative'>
+      <div className='flex lg:h-screen w-screen md:h-full '>
+        <Aside />
+        <div className='flex flex-col w-full p-5'>
+          <div className='flex justify-between w-full items-center h-fit'>
+            <h1 className=' uppercase text-[#A243D2] text-4xl font-bold '>
+              Sua Equipe
+            </h1>
+            <CodiLogo />
+          </div>
+          <div className='w-fit h-fit mb-3  '>
+            <button
+              onClick={handleOpenModalNew}
+              className='bg-[#131836] text-white font-bold  rounded-lg p-4 cursor-pointer'
+            >
+              Adicionar Colaborador
+            </button>
+          </div>
+          <div className=' h-full rounded-2xl border-6 border-[#A243D2] p-6 overflow-auto  gap-4 grid lg:grid-cols-5 md:grid-cols-1   '>
+            {userList.map((user) => (
+              <UserCard
+                key={user.id}
+                name={user.name}
+                role={user.role}
+                onEdit={() => handleOpenModalEdit(user.id)}
+              />
+            ))}
+          </div>
         </div>
       </div>
+
+      {/* Renderizando os modais na tela */}
+      {isOpenNew && <ModalAdd haandleOpenModalNew={handleOpenModalNew} />}
+      {isOpenEdit && (
+        <AlterarModal close={handleCloseModalEdit} user={selectedUser} />
+      )}
     </div>
   )
 }
