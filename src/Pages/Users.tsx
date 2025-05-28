@@ -5,6 +5,7 @@ import { AlterarModal } from '@/Components/modal/AlterarModal'
 import { RemoverModal } from '@/Components/modal/RemoverModal'
 
 import { UserCard } from '@/Components/UsersCard'
+import { Search } from 'lucide-react'
 import { useState } from 'react'
 
 {
@@ -89,13 +90,21 @@ export function Users() {
             </h1>
             <CodiLogo />
           </div>
-          <div className='w-fit h-fit mb-3  '>
+          <div className='w-full h-fit mb-3 justify-between items-center flex '>
             <button
               onClick={handleOpenModalNew}
               className='bg-[#131836] text-white font-bold  rounded-lg p-4 cursor-pointer'
             >
               Adicionar Colaborador
             </button>
+            <div className='group relative max-w-12 hover:max-w-[300px] transition-all duration-300 ease-in-out bg-black rounded-full p-2 flex items-center'>
+              <Search className='text-white ' />
+              <input
+                type='text'
+                placeholder='Search...'
+                className='w-0 group-hover:w-full px-0 group-hover:px-4 overflow-hidden transition-all duration-300 ease-in-out bg-transparent outline-none border-none placeholder-white text-white'
+              />
+            </div>
           </div>
           <div className=' h-full rounded-2xl border-6 border-[#A243D2] p-6 overflow-auto  gap-4 grid lg:grid-cols-5 md:grid-cols-1   '>
             {userList.map((user) => (
