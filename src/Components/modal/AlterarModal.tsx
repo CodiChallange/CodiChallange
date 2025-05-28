@@ -1,4 +1,4 @@
-import { X } from 'lucide-react'
+import { GitCompareArrows, X } from 'lucide-react'
 
 type User = {
   id: string
@@ -27,17 +27,36 @@ export function AlterarModal({ close, user }: modalProps) {
         </div>
         <div className='text-white space-y-2 justify-center items-center w-full flex flex-col'>
           <p className='flex flex-col items-center w-fit'>
-            <strong>ID:</strong> {user?.id}
+            <strong className='text-[#A243D2] font-bold text-2xl'>ID:</strong>{' '}
+            <span className='border border-[#A243D2] rounded-lg w-[200px] h-[30px] items-center justify-center flex bg-[#3a4061] '>
+              {user?.id}
+            </span>
           </p>
           <p className='flex flex-col items-center w-fit'>
-            <strong>Nome:</strong> {user?.name}
+            <strong className='text-[#A243D2] font-bold text-2xl'>Nome:</strong>{' '}
+            <span className='border border-[#A243D2] rounded-lg w-[200px] h-[30px] items-center justify-center flex bg-[#3a4061] '>
+              {user?.name}
+            </span>
           </p>
           <p className='flex flex-col items-center w-fit'>
-            <strong>Email:</strong> {user?.email}
+            <strong className='text-[#A243D2] font-bold text-2xl'>
+              Email:
+            </strong>{' '}
+            <span className='border border-[#A243D2] rounded-lg w-[200px] h-[30px] items-center justify-center flex bg-[#3a4061] '>
+              {user?.email}
+            </span>
           </p>
-          <p className='flex flex-col items-center w-fit'>
-            <strong>Role:</strong> {user?.role}
-          </p>
+          <div className='flex flex-col items-center w-fit'>
+            <strong className='text-[#A243D2] font-bold text-2xl'>Role:</strong>{' '}
+            <div className='flex gap-4 w-[250px] items-center ml-13'>
+              <div className='border border-[#A243D2] rounded-lg w-[200px] h-[30px] items-center justify-center flex bg-[#3a4061] '>
+                {user?.role}
+              </div>
+              <button className='w-auto border border-[#A243D2] rounded-[50%] p-2 bg-[#A243D2]'>
+                <GitCompareArrows />
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

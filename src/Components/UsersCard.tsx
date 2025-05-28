@@ -1,3 +1,4 @@
+import { CircleX, Settings } from 'lucide-react'
 import CodiIcon from '../assests/CodiLogoAside.png'
 
 type cardProps = {
@@ -46,12 +47,12 @@ export function UserCard({ name, role, onEdit }: cardProps) {
         <div className='flex justify-between w-full gap-3'>
           <button
             onClick={onEdit}
-            className='bg-[#A243D2] w-2/4 rounded-lg font-medium px-4 hover:bg-[#8138a5] duration-[0.5s] text-white cursor-pointer'
+            className='bg-blue-700  rounded-lg font-medium p-4 hover:bg-blue-800 duration-[0.5s] text-white cursor-pointer'
           >
-            Alterar
+            <Settings />
           </button>
-          <button className='bg-red-700 w-2/4 h-[40px] rounded-lg font-medium  items-center hover:bg-red-800  duration-[0.5s] text-white cursor-pointer'>
-            Remover
+          <button className='bg-red-700  px-4  rounded-lg font-medium  items-center hover:bg-red-800  duration-[0.5s] text-white cursor-pointer'>
+            <CircleX />
           </button>
         </div>
       </div>
