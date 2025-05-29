@@ -1,6 +1,5 @@
 import { X } from 'lucide-react'
 import React, { useState } from 'react'
-import Select from 'react-select'
 
 type modalProps = {
   haandleOpenModalNew: () => void
@@ -16,12 +15,6 @@ type FormData = {
 }
 
 export function ModalAdd({ haandleOpenModalNew }: modalProps) {
-  const options: OptionType[] = [
-    { value: 'ADM', label: 'ADM' },
-    { value: 'PROF', label: 'Professor' },
-    { value: 'FIN', label: 'Financeiro' },
-  ]
-
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -62,28 +55,6 @@ export function ModalAdd({ haandleOpenModalNew }: modalProps) {
           </div>
           <div className='flex flex-col items-center '>
             <label>Role:</label>
-            <Select
-              styles={{
-                control: () => ({}),
-                menu: () => ({}),
-                option: () => ({}),
-                singleValue: () => ({}),
-              }}
-              isSearchable={false}
-              classNames={{
-                control: () =>
-                  'flex bg-white border-4 border-[#A243D2] shadow-none rounded-2xl w-[150px] text-black items-center justify-center',
-                menu: () => 'bg-white text-black rounded-md mt-2 absolute',
-                option: ({ isFocused }) =>
-                  `px-2 py-3 cursor-pointer ${
-                    isFocused ? 'bg-violet-500' : ''
-                  }`,
-                singleValue: () =>
-                  'text-black items-center justify-center mt-[-20px] ',
-              }}
-              options={options}
-              onChange={(selected) => console.log(selected)}
-            />
           </div>
           <button className=' flex  bg-[#A243D2]  items-center justify-center p-3 rounded-2xl   '>
             Adicionar

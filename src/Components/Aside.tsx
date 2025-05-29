@@ -1,5 +1,13 @@
 import { useState } from 'react'
-import { Home, Users, Settings, LogOut } from 'lucide-react'
+import {
+  Home,
+  Users,
+  Settings,
+  SunIcon,
+  ShoppingCart,
+  CreditCard,
+  ChartPie,
+} from 'lucide-react'
 import CodiIcon from '../assests/CodiLogoAside.png'
 import { Link, useLocation } from 'react-router-dom'
 
@@ -10,9 +18,37 @@ type pathProps = {
 export function Aside() {
   const [isOpen, setIsOpen] = useState(false)
   const menuItems = [
-    { icon: <Home />, label: 'Dashboards', path: '/dashboard' },
-    { icon: <Users />, label: 'Equipe', path: '/users' },
-    { icon: <Settings />, label: 'Configurações', path: '/configs' },
+    {
+      icon: <Home size={22} />,
+      label: 'Dashboards',
+      path: '/dashboard',
+      count: '0',
+    },
+    {
+      icon: <ShoppingCart size={22} />,
+      label: 'Vendas',
+      path: '/dashboard',
+      count: '12',
+    },
+    {
+      icon: <CreditCard size={22} />,
+      label: 'Gastos',
+      path: '/dashboard',
+      count: '0',
+    },
+    {
+      icon: <ChartPie size={22} />,
+      label: 'Relatórios',
+      path: '/dashboard',
+      count: '0',
+    },
+    { icon: <Users size={22} />, label: 'Equipe', path: '/users', count: '1' },
+    {
+      icon: <Settings size={22} />,
+      label: 'Configurações',
+      path: '/configs',
+      count: '0',
+    },
   ]
 
   const location = useLocation()
@@ -20,20 +56,28 @@ export function Aside() {
 
   return (
     <aside
-      className={`flex flex-col items-center px-3 justify-between bg-[#131836] shadow-md transition-all duration-300 ${
-        isOpen ? 'w-64' : 'w-20'
+      className={`flex flex-col items-center  justify-between bg-white shadow-md transition-all duration-300 ${
+        isOpen ? 'w-72' : 'w-20'
       }`}
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
-      <div>
+      <div className='w-full'>
         {/* Header */}
-        <div className='flex items-center justify-center h-16  '>
+        <div className='flex items-center justify-center h-16 border-b  '>
           {isOpen ? (
-            <h1 className='text-xl font-semibold text-white flex justify-center items-center gap-2'>
+            <div className='flex items-center gap-3'>
               <img src={CodiIcon} alt='' className='w-[40px] h-[40px] ' />
-              Codi Academy
-            </h1>
+              <div className='flex flex-col items-baseline'>
+                <h1 className='text-[18px] font-bold text-[#A243D2] flex justify-center items-center gap-2'>
+                  Codi Cash
+                </h1>
+                <span className='text-[12px] '>Gestão Financeira</span>
+              </div>
+              <button className='flex hover:bg-gray-200 p-1 rounded-lg cursor-pointer'>
+                <SunIcon size={18} />
+              </button>
+            </div>
           ) : (
             <img src={CodiIcon} alt='' className='w-[40px] h-[40px] ' />
           )}
@@ -49,27 +93,43 @@ export function Aside() {
                   className={`flex items-center gap-4 px-3 py-3 rounded-lg  
                      ${
                        isActive({ path: item.path })
-                         ? 'text-[#A243D2] cursor-default '
-                         : 'hover:bg-[#A243D2] text-white transition-colors cursor-pointer'
+                         ? 'bg-[#A243D2] cursor-default text-white  '
+                         : 'hover:bg-[#F5F0FC] hover:text-[#A243D2] text-[#404a59] transition-colors cursor-pointer'
                      }`}
                 >
-                  <span className='text-xl'>{item.icon}</span>
-                  {isOpen && <span className='text-base'>{item.label}</span>}
+                  <span>{item.icon}</span>
+                  {isOpen && (
+                    <div className='w-full flex justify-between items-center  '>
+                      <span className='font-bold'>{item.label}</span>
+                      {item.count == '0' ? (
+                        <span className='hidden '>{item.count} </span>
+                      ) : (
+                        <span
+                          className='w-[30px] h-[30px] flex items-center justify-center
+                         text-base text-[#A243D2] bg-[#f3e8ff]  rounded-[50%]  '
+                        >
+                          {item.count}{' '}
+                        </span>
+                      )}
+                    </div>
+                  )}
                 </Link>
               </li>
             ))}
           </ul>
         </nav>
       </div>
-      <div className='flex px-2 py-4'>
-        <a
-          href='#'
-          className='flex items-center gap-4 px-3 py-3 rounded-lg hover:bg-[#6d28d9] text-white transition-colors'
-        >
-          <LogOut />
-          {isOpen && <span className='text-base'>Sair</span>}
-        </a>
-      </div>
+
+      {isOpen && (
+        <div className='flex px-2 py-4  w-full border-t'>
+          <div className='bg-[#f3e8ff] w-full h-20 rounded-lg flex flex-col justify-center px-3'>
+            <h1 className='text-black font-bold'>Codi Academy</h1>
+            <p className='text-[#b26df0] text-[12px] font-bold '>
+              Unidade Principal
+            </p>
+          </div>
+        </div>
+      )}
     </aside>
   )
 }
