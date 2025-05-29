@@ -50,6 +50,7 @@ export function Configs() {
                 <User size={32} />
                 Informações Pessoais
               </h1>
+              {/* Area da Foto */}
               <div className='flex items-center gap-5 border-b pb-10'>
                 <img src={Logo} alt='' className='w-24 h-24 ' />
                 <div className='flex flex-col gap-1'>
@@ -61,8 +62,12 @@ export function Configs() {
                   </p>
                 </div>
               </div>
+
+              {/* Area dos inputs */}
               <div className='flex flex-col gap-8'>
+                {/* Primeiro Grupo */}
                 <div className='flex gap-9'>
+                  {/* Nome */}
                   <div className='flex flex-col w-full'>
                     <label>Nome completo</label>
                     <div className='flex items-center gap-3 border px-3 py-2 rounded-lg'>
@@ -70,6 +75,7 @@ export function Configs() {
                       <input type='text' className='outline-none w-full' />
                     </div>
                   </div>
+                  {/* E-mail */}
                   <div className='flex flex-col w-full'>
                     <label>E-mail</label>
                     <div className='flex items-center gap-3 border px-3 py-2  rounded-lg'>
@@ -78,7 +84,9 @@ export function Configs() {
                     </div>
                   </div>
                 </div>
+                {/* Segundo Grupo */}
                 <div className='flex gap-9'>
+                  {/* Telefone */}
                   <div className='flex flex-col w-full'>
                     <label>Telefone</label>
                     <div className='flex items-center gap-3 border px-3 py-2  rounded-lg'>
@@ -86,6 +94,7 @@ export function Configs() {
                       <input type='text' className='outline-none w-full' />
                     </div>
                   </div>
+                  {/* Endereço */}
                   <div className='flex flex-col w-full'>
                     <label>Endereço</label>
                     <div className='flex items-center gap-3 border px-3 py-2  rounded-lg'>
@@ -95,6 +104,7 @@ export function Configs() {
                   </div>
                 </div>
               </div>
+              {/* Button */}
               <div className='flex  justify-end  '>
                 <button className='flex gap-3 w-fit bg-[#A243D2] py-2 px-3 rounded-lg cursor-pointer font-bold'>
                   <Save />
@@ -106,7 +116,7 @@ export function Configs() {
 
           {/* Conteudo de notificações */}
           <TabsContent value='notification'>
-            <div className='bg-white w-full flex flex-col rounded-lg py-7 px-12 gap-8'>
+            <div className='bg-white w-full flex flex-col rounded-lg py-7 px-12 gap-5'>
               <h1 className='text-black flex text-3xl font-semibold items-center gap-2'>
                 <Bell size={32} />
                 Preferências de Notificação
@@ -115,6 +125,7 @@ export function Configs() {
                 Notificações por E-mail
               </span>
 
+              {/* Primeiros inputs de notificações */}
               <div className='border-b pb-5 flex flex-col gap-3'>
                 {/* Novas vendas */}
                 <div className='flex justify-between items-center'>
@@ -160,6 +171,52 @@ export function Configs() {
                     </Switch>
                   </div>
                 </div>
+              </div>
+
+              {/* Notificaçoes Push */}
+              <div>
+                <div className='flex flex-col'>
+                  <span className='font-semibold text-2xl'>
+                    Notificações Push
+                  </span>
+                  <div className=' pb-5 flex flex-col gap-3'>
+                    {/* Vendas*/}
+                    <div className='flex justify-between items-center'>
+                      <div className='flex flex-col'>
+                        <span className='font-bold'>Vendas</span>
+                        <span className='text-gray-500'>
+                          Notificações instantâneas sobre vendas
+                        </span>
+                      </div>
+                      <div>
+                        <Switch className='w-12 h-7 px-1'>
+                          <div className='pointer-events-none left-1 top-1 h-5 w-5 rounded-full bg-white transition-transform  ' />
+                        </Switch>
+                      </div>
+                    </div>
+                    {/* Despesas */}
+                    <div className='flex justify-between items-center'>
+                      <div className='flex flex-col'>
+                        <span className='font-bold'>Despesas</span>
+                        <span className='text-gray-500'>
+                          Notificações instâneas sobre despesas
+                        </span>
+                      </div>
+                      <div>
+                        <Switch className='w-12 h-7 px-1'>
+                          <div className='pointer-events-none left-1 top-1 h-5 w-5 rounded-full bg-white transition-transform  ' />
+                        </Switch>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* button */}
+              <div className='flex  justify-end  '>
+                <button className='flex gap-3 w-fit bg-[#A243D2] py-2 px-3 rounded-lg cursor-pointer font-bold'>
+                  <Save />
+                  Salvar Mudanças
+                </button>
               </div>
             </div>
           </TabsContent>
