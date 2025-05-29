@@ -27,19 +27,19 @@ export function Aside() {
     {
       icon: <ShoppingCart size={22} />,
       label: 'Vendas',
-      path: '/dashboard',
+      path: '/venda',
       count: '12',
     },
     {
       icon: <CreditCard size={22} />,
       label: 'Gastos',
-      path: '/dashboard',
+      path: '/gastos',
       count: '0',
     },
     {
       icon: <ChartPie size={22} />,
       label: 'Relatórios',
-      path: '/dashboard',
+      path: '/relatorios',
       count: '0',
     },
     { icon: <Users size={22} />, label: 'Equipe', path: '/users', count: '1' },
