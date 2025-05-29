@@ -7,7 +7,7 @@ type modalProps = {
 type User = {
   id: string
   name: string
-  role: string
+
   email: string
 }
 
@@ -59,7 +59,7 @@ export function RemoverModal({ close, user }: modalProps) {
               </strong>{' '}
               <div className='flex gap-4 w-[250px] items-center ml-13'>
                 <div className='border border-[#A243D2] rounded-lg w-[200px] h-[30px] items-center justify-center flex bg-[#3a4061] '>
-                  {user?.role}
+                  o
                 </div>
               </div>
             </div>

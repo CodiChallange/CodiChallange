@@ -75,7 +75,7 @@ const userList = [
     departament: 'Financeiro',
     cargo: 'Assistente',
     salario: 4700,
-    status: 'Ativo',
+    status: 'Ferias',
   },
   {
     id: '6',
@@ -85,7 +85,7 @@ const userList = [
     departament: 'Frontend',
     cargo: 'Instrutor',
     salario: 5200,
-    status: 'Férias',
+    status: 'Ativo',
   },
   {
     id: '7',
@@ -126,6 +126,16 @@ const userList = [
     cargo: 'Gerente',
     salario: 9800,
     status: 'Ativo',
+  },
+  {
+    id: '11',
+    name: 'Gabriela Lima',
+    email: 'gabriela.lima@gmail.com',
+    phone: '(85) 97777-8899',
+    departament: 'Financeiro',
+    cargo: 'Coordenador',
+    salario: 9800,
+    status: 'Ferias',
   },
 ]
 
@@ -178,6 +188,9 @@ export function Users() {
       ? userList
       : userList.filter((user) => user.cargo === selectedCargo)
 
+  {
+    /* Calculos dos totais de membros, membros ativos, departamentos, folha de pagamento */
+  }
   const totalMembros = filteredUsers.length
   const membrosAtivos = filteredUsers.filter(
     (user) => user.status === 'Ativo'
@@ -236,7 +249,7 @@ export function Users() {
               <SelectContent>
                 <SelectItem value='all'>Todos os cargos</SelectItem>
                 <SelectItem value='Instrutor'>Instrutor</SelectItem>
-                <SelectItem value='coordenador'>Coordenador</SelectItem>
+                <SelectItem value='Coordenador'>Coordenador</SelectItem>
                 <SelectItem value='Assistente'>Assistente</SelectItem>
                 <SelectItem value='Gerente'>Gerente</SelectItem>
               </SelectContent>

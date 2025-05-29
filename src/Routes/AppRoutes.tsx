@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Logon } from '../Pages/Logon'
 import { SalesForm } from '../Forms/SalesForm'
 import { Dashboard } from '@/Pages/Dashboard'
-import { Users } from '@/Pages/Users'
+import { Users } from '@/Pages/Team'
 import { Configs } from '@/Pages/Configs'
 export function AppRoutes() {
   return (

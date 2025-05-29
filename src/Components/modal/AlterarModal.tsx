@@ -3,7 +3,7 @@ import { GitCompareArrows, X } from 'lucide-react'
 type User = {
   id: string
   name: string
-  role: string
+
   email: string
 }
 
@@ -50,7 +50,7 @@ export function AlterarModal({ close, user }: modalProps) {
             <strong className='text-[#A243D2] font-bold text-2xl'>Role:</strong>{' '}
             <div className='flex gap-4 w-[250px] items-center ml-13'>
               <div className='border border-[#A243D2] rounded-lg w-[200px] h-[30px] items-center justify-center flex bg-[#3a4061] '>
-                {user?.role}
+                o
               </div>
               <button className='w-auto border border-[#A243D2] rounded-[50%] p-2 bg-[#A243D2]'>
                 <GitCompareArrows />
