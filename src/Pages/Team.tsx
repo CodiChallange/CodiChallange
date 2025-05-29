@@ -129,12 +129,6 @@ const userList = [
   },
 ]
 
-const totalMembros = userList.length
-const membrosAtivos = userList.filter((user) => user.status === 'Ativo').length
-const departamentosUnicos = new Set(userList.map((user) => user.departament))
-const totalDepartamentos = departamentosUnicos.size
-const folhaPagamento = userList.reduce((acc, user) => acc + user.salario, 0)
-
 export function Users() {
   {
     /* Cadastro de novo user */
@@ -175,6 +169,28 @@ export function Users() {
     setSelectedUser(null)
   }
 
+  {
+    /* Sistema de filtro */
+  }
+  const [selectedCargo, setSelectedCargo] = useState<string>('all')
+  const filteredUsers =
+    selectedCargo === 'all'
+      ? userList
+      : userList.filter((user) => user.cargo === selectedCargo)
+
+  const totalMembros = filteredUsers.length
+  const membrosAtivos = filteredUsers.filter(
+    (user) => user.status === 'Ativo'
+  ).length
+  const departamentosUnicos = new Set(
+    filteredUsers.map((user) => user.departament)
+  )
+  const totalDepartamentos = departamentosUnicos.size
+  const folhaPagamento = filteredUsers.reduce(
+    (acc, user) => acc + user.salario,
+    0
+  )
+
   return (
     <div className='flex h-screen'>
       <Aside />
@@ -210,16 +226,19 @@ export function Users() {
             />
           </div>
           <div className='w-1/6 h-full '>
-            <Select>
+            <Select
+              value={selectedCargo}
+              onValueChange={(value) => setSelectedCargo(value)}
+            >
               <SelectTrigger className='flex w-full  p-5  '>
                 <SelectValue placeholder='Todos os cargos' />
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value='all'>Todos os cargos</SelectItem>
-                <SelectItem value='front'>Instrutor</SelectItem>
-                <SelectItem value='back'>Coordenador</SelectItem>
-                <SelectItem value='mkt'>Assistente</SelectItem>
-                <SelectItem value='fin'>Gerente</SelectItem>
+                <SelectItem value='Instrutor'>Instrutor</SelectItem>
+                <SelectItem value='coordenador'>Coordenador</SelectItem>
+                <SelectItem value='Assistente'>Assistente</SelectItem>
+                <SelectItem value='Gerente'>Gerente</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -227,7 +246,7 @@ export function Users() {
 
         {/* Cards */}
         <div className='grid grid-cols-3 gap-5  '>
-          {userList.map((user) => (
+          {filteredUsers.map((user) => (
             <UserCard
               key={user.id}
               name={user.name}

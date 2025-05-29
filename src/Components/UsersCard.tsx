@@ -36,8 +36,18 @@ export function UserCard({
             <p className='text-gray-500'>{cargo}</p>
           </div>
         </div>
-        <div className='bg-green-100 px-2 py-0.5 rounded-2xl flex items-center justify-center'>
-          <span className='text-[14px] text-green-800 '>{status}</span>
+        <div
+          className={` px-2 py-0.5 rounded-2xl flex items-center justify-center ${
+            status === 'Ativo' ? 'bg-green-100' : 'bg-yellow-100'
+          }`}
+        >
+          <span
+            className={`text-[14px] ${
+              status === 'Ativo' ? ' text-green-800' : ' text-yellow-800'
+            }`}
+          >
+            {status}
+          </span>
         </div>
       </div>
 
