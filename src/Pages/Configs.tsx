@@ -9,16 +9,42 @@ import {
   MapPin,
   Phone,
   Save,
+  Shield,
   ShieldAlert,
   User,
 } from 'lucide-react'
 import Logo from '../assests/CodiLogoAside.png'
+import { CardSessoes } from '@/Components/CardSessoes'
+
+const sessoesAtivas = [
+  {
+    dispositivo: 'Dispositivo atual',
+    sistema: 'Chrome',
+    cidade: 'São Paulo, SP',
+    date: 'Agora',
+    id: 1,
+  },
+  {
+    dispositivo: 'iPhone de João',
+    sistema: 'Safari iOS',
+    cidade: 'Rio de Janeiro, RJ',
+    date: 'Há 2 horas',
+    id: 2,
+  },
+  {
+    dispositivo: 'Notebook Dell',
+    sistema: 'Firefox (Windows)',
+    cidade: 'Belo Horizonte, MG',
+    date: 'Ontem às 22:15',
+    id: 3,
+  },
+]
 
 export function Configs() {
   return (
     <div className='flex h-screen bg-gray-100 '>
       <Aside />
-      <div className='flex flex-col overflow-auto p-5 w-full gap-10'>
+      <div className='flex flex-col overflow-auto p-5 w-full gap-5'>
         {/* Header */}
         <div className='flex flex-col gap-2'>
           <h1 className='font-bold text-4xl '>Configurações</h1>
@@ -220,6 +246,85 @@ export function Configs() {
               </div>
             </div>
           </TabsContent>
+
+          {/* Conteudo de Segurança */}
+          <TabsContent value='securit'>
+            {/* Div principal */}
+            <div className='bg-white w-full flex flex-col rounded-lg py-7 px-12 gap-5'>
+              {/* Header */}
+              <div>
+                <h1 className='text-black flex text-3xl font-semibold items-center gap-2'>
+                  <Shield size={32} /> Segurança da Conta
+                </h1>
+              </div>
+
+              {/* Area de inputs */}
+              <div className='flex flex-col gap-5 border-b pb-8'>
+                <h1 className='font-bold text-[20px] '>Alterar Senha</h1>
+                {/* Primeira linha */}
+                <div className='flex justify-between gap-3'>
+                  {/* Senha atual */}
+                  <div className='flex flex-col w-1/2'>
+                    <label className='font-semibold'> Senha Atual</label>
+                    <input
+                      type='text'
+                      placeholder='Digite sua senha atual'
+                      className='border rounded-lg w-full p-2'
+                    />
+                  </div>
+                  {/* Nova senha */}
+                  <div className='flex flex-col w-1/2'>
+                    <label> Nova Senha</label>
+                    <input
+                      type='text'
+                      placeholder='Digite sua nova senha'
+                      className='border rounded-lg w-full p-2'
+                    />
+                  </div>
+                </div>
+
+                {/* Segunda Linha */}
+                <div className='flex flex-col w-1/2'>
+                  <label className='font-semibold'> Confirmar Nova Senha</label>
+                  <input
+                    type='text'
+                    placeholder='Digite sua nova senha'
+                    className='border rounded-lg w-full p-2'
+                  />
+                </div>
+              </div>
+
+              {/* Area das Sessões Ativas */}
+              <div className='flex flex-col gap-3'>
+                <h1 className='font-bold text-[20px] '>Sessões Ativas</h1>
+                <div className='flex flex-col gap-3 '>
+                  {sessoesAtivas.map((sessao) => (
+                    <CardSessoes
+                      key={sessao.id}
+                      id={sessao.id}
+                      dispositivo={sessao.dispositivo}
+                      cidade={sessao.cidade}
+                      sistema={sessao.sistema}
+                      date={sessao.date}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {/* Button */}
+              <div className='flex gap-3 justify-end'>
+                <button className='font-semibold py-3 px-4 border rounded-lg cursor-pointer hover:bg-gray-100'>
+                  Desconectar Todos
+                </button>
+                <button className='flex font-semibold py-3 px-4 border rounded-lg items-center gap-2 text-white bg-[#A243D2] cursor-pointer'>
+                  <Save size={16} />
+                  Alterar Senha
+                </button>
+              </div>
+            </div>
+          </TabsContent>
+
+          {/* Conteudo de Unidades */}
         </Tabs>
       </div>
     </div>
