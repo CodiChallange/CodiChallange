@@ -56,24 +56,36 @@ const unidadesAtivas = [
     cidade: 'Av. Paulista, 1000 - São Paulo, SP',
     id: 1,
     status: 'Desconectado',
+    funcionarios: 10,
+    vendas: 455420,
+    sinc: 3,
   },
   {
     unidade: 'Filial 1 - Rio de Janeiro',
     cidade: 'Rua das Flores, 200 - Rio de Janeiro, RJ',
     id: 2,
     status: 'Conectado e sincronizado',
+    funcionarios: 11,
+    vendas: 33000,
+    sinc: 3,
   },
   {
     unidade: 'Filial 2 - Belo Horizonte',
     cidade: 'Av. Afonso Pena, 300 - Belo Horizonte, MG',
     id: 3,
     status: 'Conectado e sincronizado',
+    funcionarios: 5,
+    vendas: 11000,
+    sinc: 3,
   },
   {
     unidade: 'Filial 3 - Brasília',
     cidade: 'SCS Quadra 1, Bloco A - Brasília, DF',
     id: 4,
     status: 'Desconectado',
+    funcionarios: 7,
+    vendas: 12000,
+    sinc: 3,
   },
 ]
 
@@ -440,26 +452,45 @@ export function Configs() {
                     {/* Status */}
                     <div className='flex flex-col border rounded-lg p-5 w-1/2'>
                       <span className='text-gray-500'>Status</span>
-                      <span className='text-green-500'>Ativo</span>
+                      <span
+                        className={`${
+                          unidadeSelecionada?.status == 'Desconectado'
+                            ? 'text-red-500'
+                            : 'text-green-500'
+                        } `}
+                      >
+                        {unidadeSelecionada?.status == 'Desconectado'
+                          ? 'Desconectada'
+                          : 'Ativa'}{' '}
+                      </span>
                     </div>
                     {/* Ultima sincronização */}
                     <div className='flex flex-col border rounded-lg p-5 w-1/2'>
                       <span className='text-gray-500'>
                         Última Sincronização
                       </span>
-                      <span className='font-bold'>Ativo</span>
+                      <span className='font-bold'>
+                        Há {unidadeSelecionada?.sinc} horas{' '}
+                      </span>
                     </div>
                   </div>
                   <div className='flex gap-2'>
                     {/* Vendas do Mês */}
                     <div className='flex flex-col border rounded-lg p-5 w-1/2'>
                       <span className='text-gray-500'>Vendas do Mês</span>
-                      <span className='font-bold'>Ativo</span>
+                      <span className='font-bold'>
+                        {unidadeSelecionada?.vendas.toLocaleString('pt-BR', {
+                          style: 'currency',
+                          currency: 'BRL',
+                        })}
+                      </span>
                     </div>
                     {/* Funcionarios */}
                     <div className='flex flex-col border rounded-lg p-5 w-1/2'>
                       <span className='text-gray-500'>Funcionários</span>
-                      <span className='font-bold'>Ativo</span>
+                      <span className='font-bold'>
+                        {unidadeSelecionada?.funcionarios}
+                      </span>
                     </div>
                   </div>
                 </div>
