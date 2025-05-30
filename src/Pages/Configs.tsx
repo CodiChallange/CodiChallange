@@ -1,10 +1,19 @@
 import { Switch } from '@/Components/ui/switch'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/Components/ui/select'
+
 import { Aside } from '@/Components/Aside'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/Components/ui/tabs'
 import {
   Bell,
   Building2,
   Camera,
+  Dot,
   Mail,
   MapPin,
   Phone,
@@ -15,6 +24,7 @@ import {
 } from 'lucide-react'
 import Logo from '../assests/CodiLogoAside.png'
 import { CardSessoes } from '@/Components/CardSessoes'
+import { useState } from 'react'
 
 const sessoesAtivas = [
   {
@@ -40,7 +50,38 @@ const sessoesAtivas = [
   },
 ]
 
+const unidadesAtivas = [
+  {
+    unidade: 'Matriz - São Paulo',
+    cidade: 'Av. Paulista, 1000 - São Paulo, SP',
+    id: 1,
+    status: 'Desconectado',
+  },
+  {
+    unidade: 'Filial 1 - Rio de Janeiro',
+    cidade: 'Rua das Flores, 200 - Rio de Janeiro, RJ',
+    id: 2,
+    status: 'Conectado e sincronizado',
+  },
+  {
+    unidade: 'Filial 2 - Belo Horizonte',
+    cidade: 'Av. Afonso Pena, 300 - Belo Horizonte, MG',
+    id: 3,
+    status: 'Conectado e sincronizado',
+  },
+  {
+    unidade: 'Filial 3 - Brasília',
+    cidade: 'SCS Quadra 1, Bloco A - Brasília, DF',
+    id: 4,
+    status: 'Desconectado',
+  },
+]
+
 export function Configs() {
+  const [selectedUnidade, setSelectedUnidade] = useState<string>('1')
+  const unidadeSelecionada = unidadesAtivas.find(
+    (unidade) => String(unidade.id) === selectedUnidade
+  )
   return (
     <div className='flex h-screen bg-gray-100 '>
       <Aside />
@@ -325,6 +366,106 @@ export function Configs() {
           </TabsContent>
 
           {/* Conteudo de Unidades */}
+          <TabsContent value='unit'>
+            {/* Div Principal */}
+            <div className='bg-white w-full flex flex-col rounded-lg py-7 px-12 gap-5'>
+              {/* Header */}
+              <div>
+                <h1 className='text-black flex text-3xl font-semibold items-center gap-2'>
+                  <Building2 size={32} /> Seleção de Unidade
+                </h1>
+              </div>
+              {/* Seleção de unidade */}
+              <div className='flex flex-col'>
+                <h1 className='font-semibold'>Unidade Ativa</h1>
+                <p className='text-gray-500'>
+                  Selecione a unidade para visualizar os dados financeiros
+                </p>
+
+                <div className='border-b py-5'>
+                  <Select
+                    value={selectedUnidade}
+                    onValueChange={(value) => setSelectedUnidade(value)}
+                  >
+                    <SelectTrigger className='w-full'>
+                      <SelectValue placeholder='Unidades' />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {unidadesAtivas.map((unidade) => (
+                        <SelectItem value={`${unidade.id}`}>
+                          <div className='flex flex-col'>
+                            <h1 className='font-bold'>{unidade.unidade} </h1>
+                            <p className='text-gray-500'>{unidade.cidade} </p>
+                          </div>
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+
+              {/* Unidade Selecionada */}
+              <div className='flex flex-col gap-2 border-b pb-8'>
+                <h1 className='font-semibold'>Unidade Selecionada</h1>
+                {unidadeSelecionada && (
+                  <div className='flex gap-5 items-center bg-[#F5F0FC] p-3 rounded-lg'>
+                    <Building2 size={32} className='text-[#A243D2]' />
+                    <div className='flex flex-col gap-2'>
+                      <h1 className='font-bold'>
+                        {unidadeSelecionada.unidade}
+                      </h1>
+                      <p className='text-[#A243D2] font-semibold'>
+                        {unidadeSelecionada.cidade}
+                      </p>
+                      <span
+                        className={`flex  items-center ${
+                          unidadeSelecionada.status ==
+                          'Conectado e sincronizado'
+                            ? 'text-green-500'
+                            : 'text-red-500'
+                        } `}
+                      >
+                        <Dot /> {unidadeSelecionada.status}
+                      </span>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Dados da unidade */}
+              <div>
+                <h1 className='font-semibold'>Informações da Unidade</h1>
+                <div className='flex flex-col gap-2'>
+                  <div className='flex gap-2'>
+                    {/* Status */}
+                    <div className='flex flex-col border rounded-lg p-5 w-1/2'>
+                      <span className='text-gray-500'>Status</span>
+                      <span className='text-green-500'>Ativo</span>
+                    </div>
+                    {/* Ultima sincronização */}
+                    <div className='flex flex-col border rounded-lg p-5 w-1/2'>
+                      <span className='text-gray-500'>
+                        Última Sincronização
+                      </span>
+                      <span className='font-bold'>Ativo</span>
+                    </div>
+                  </div>
+                  <div className='flex gap-2'>
+                    {/* Vendas do Mês */}
+                    <div className='flex flex-col border rounded-lg p-5 w-1/2'>
+                      <span className='text-gray-500'>Vendas do Mês</span>
+                      <span className='font-bold'>Ativo</span>
+                    </div>
+                    {/* Funcionarios */}
+                    <div className='flex flex-col border rounded-lg p-5 w-1/2'>
+                      <span className='text-gray-500'>Funcionários</span>
+                      <span className='font-bold'>Ativo</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </TabsContent>
         </Tabs>
       </div>
     </div>
