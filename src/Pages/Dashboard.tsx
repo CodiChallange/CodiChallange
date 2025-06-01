@@ -4,10 +4,10 @@ import { BanknoteArrowDown, ChartNoAxesCombined } from 'lucide-react'
 
 export function Dashboard() {
   return (
-    <div className='flex w-full'>
+    <div className='flex '>
       <Aside />
       <main className=' bg-[#A243D2] h-screen w-full'>
-        <section className='grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0'>
+        <section className='grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 '>
           <InfoCard
             icon={ChartNoAxesCombined}
             name='Receitas'
