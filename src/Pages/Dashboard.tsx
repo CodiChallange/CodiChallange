@@ -28,22 +28,22 @@ export function Dashboard() {
         <section className='grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-4 '>
           <InfoCard
             icon={ChartNoAxesCombined}
-            name=' Total deReceitas'
+            name=' Total de Receitas'
             value='R$1000'
-            color='#A243D2'
+            color='green'
           />
           <InfoCard
             icon={BanknoteArrowDown}
             name=' Total de Despesas'
             value='R$1000'
-            color='#eada13'
+            color='red'
           />
           <InfoCard
             icon={BanknoteArrowDown}
             name='Saldo Liquido'
             value='R$1000'
+            color='blue'
           />
-          <InfoCard icon={BanknoteArrowDown} name='Crescimento' value='15.5%' />
         </section>
         <section className='m-8 p-2 border-2 border-purple-200 rounded-lg flex flex-col bg-purple-100 p-8 '>
           <div>
@@ -52,9 +52,15 @@ export function Dashboard() {
             </h3>
           </div>
           <div className='flex flex-col md:flex-row gap-4 '>
-            <Button to='/venda'>+ Nova Venda</Button>
-            <Button to='/gastos'>+ Nova Despesa</Button>
-            <Button to='/relatorios'>+ Ver Relatórios</Button>
+            <Button onClick={handleClick} to='/venda'>
+              Nova Venda
+            </Button>
+            <Button onClick={handleClick} to='/gastos'>
+              Nova Despesa
+            </Button>
+            <Button onClick={handleClick} to='/relatorios'>
+              Ver Relatórios
+            </Button>
           </div>
         </section>
       </main>
