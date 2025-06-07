@@ -11,9 +11,9 @@ interface InfoCardProps {
 }
 export function InfoCard({ name, icon: Icon, value, color }: InfoCardProps) {
   return (
-    <div className='p-10 flex gap-4 w-full'>
+    <div>
       {color === 'green' && (
-        <Card className='gap-1  w-52 h-40 m-8  text-green-600'>
+        <Card className='gap-1  w-74 h-40 m-8  text-green-600'>
           <CardHeader className='flex flex-row  gap-16 justify-between items-center'>
             {Icon && <Icon size={24} className='text-green-600' />}
             <CardTitle className='flex flex-row gap-2'>
@@ -28,7 +28,7 @@ export function InfoCard({ name, icon: Icon, value, color }: InfoCardProps) {
       )}
 
       {color === 'red' && (
-        <Card className='gap-1  w-52 h-40 m-8  text-red-600'>
+        <Card className='gap-1  w-74 h-40 m-8  text-red-600'>
           <CardHeader className='flex flex-row  gap-16 justify-between items-center'>
             {Icon && <Icon size={24} className='text-red-600' />}
             <CardTitle className='flex flex-row gap-2'>
@@ -42,7 +42,7 @@ export function InfoCard({ name, icon: Icon, value, color }: InfoCardProps) {
         </Card>
       )}
       {color === 'blue' && (
-        <Card className='gap-1  w-52 h-40 m-8  text-blue-600'>
+        <Card className='gap-1  w-74 h-40 m-8  text-blue-600'>
           <CardHeader className='flex flex-row  gap-16 justify-between items-center'>
             {Icon && <Icon size={24} className='text-blue-600' />}
             <CardTitle className='flex flex-row gap-2'>

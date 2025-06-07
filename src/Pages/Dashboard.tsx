@@ -25,7 +25,7 @@ export function Dashboard() {
             <button>Filtros</button>
           </div>
         </div>
-        <section className='grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-4 '>
+        <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-50 ml-8 w-285'>
           <InfoCard
             icon={ChartNoAxesCombined}
             name=' Total de Receitas'
@@ -45,7 +45,7 @@ export function Dashboard() {
             color='blue'
           />
         </section>
-        <section className='m-8 p-2 border-2 border-purple-200 rounded-lg flex flex-col bg-purple-100 p-8 '>
+        <section className='m-8  border-2 border-purple-200 rounded-lg flex flex-col bg-purple-100 p-8 '>
           <div>
             <h3 className='text-xl font-semibold text-[#A243D2]'>
               Ações Rapidas
