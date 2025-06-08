@@ -1,0 +1,12 @@
+{
+  "Vendas": [
+    {
+      "id": 1,
+      "name": "Venda 1"
+    },
+    {
+      "id": 2,
+      "name": "Venda 2"
+    }
+  ]
+}
