@@ -1,4 +1,3 @@
-import { format } from 'date-fns'
 import { CalendarIcon } from 'lucide-react'
 
 import { Button } from './ui/button'

@@ -1,0 +1,41 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Mariana Silva",
+      "email": "mariana.silva@gmail.com",
+      "password": "123456",
+      "role": "admin"
+    }
+  ],
+  "Vendas": [
+    {
+      "id": "1",
+      "nome": "Jeferson Silva",
+      "email": "jeferson.silva@gmail",
+      "telefone": "(11) 98888-1234",
+      "curso": "Frontend"
+    },
+    {
+      "id": "2",
+      "nome": "Carlos Souza",
+      "email": "carlos.souza@gmail.com",
+      "telefone": "(21) 97777-4321",
+      "curso": "Backend"
+    },
+    {
+      "id": "3",
+      "nome": "Fernanda Lima",
+      "email": "fernanda.lima@gmail.com",
+      "telefone": "(31) 96666-9876",
+      "curso": "Frontend"
+    },
+    {
+      "id": "817b",
+      "nome": "Beatriz Silva",
+      "email": "beatriz.silva@gmail",
+      "telefone": "(11) 98888-1234",
+      "curso": "Frontend"
+    }
+  ]
+}
