@@ -7,7 +7,7 @@ import type { IconBaseProps } from 'react-icons'
 interface InfoCardProps {
   name: string
   icon?: React.ComponentType<IconBaseProps>
-  value: string
+  value: number
   color?: string
 }
 export function InfoCard({ name, icon: Icon, value, color }: InfoCardProps) {
@@ -16,7 +16,7 @@ export function InfoCard({ name, icon: Icon, value, color }: InfoCardProps) {
       <CardHeader className='flex flex-row  gap-16 justify-between items-center'>
         {Icon && <Icon size={24} className={`text-[${color}] `} />}
         <CardTitle className='flex flex-row gap-2'>
-          {Icon && <Icon size={12} className={`text-[${color}]`} />} {value}
+          {Icon && <Icon size={12} className={`text-[${color}]`} />}
         </CardTitle>
       </CardHeader>
       <CardContent className='flex flex-col  justify-center  mt-4'>

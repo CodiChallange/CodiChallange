@@ -8,21 +8,21 @@ import { cn } from '@/lib/utils'
 import { Popover, PopoverContent, PopoverTrigger } from './ui/popover'
 
 import React from 'react'
+import { format } from 'date-fns'
 type DateRange = {
-  from: Date | undefined
-  to: Date | undefined
+  to: Date
+  from: Date
 }
 export function RangeCalendar() {
   const [date, setDate] = React.useState<DateRange>({
-    from: undefined,
-    to: undefined,
+    to: new Date(),
+    from: new Date(),
   })
 
   const formattedRange =
     date.from && date.to
       ? `${format(date.from, 'dd/MM/yyyy')} - ${format(date.to, 'dd/MM/yyyy')}`
       : 'Selecionar período'
-  console.log(date)
 
   return (
     <Popover>

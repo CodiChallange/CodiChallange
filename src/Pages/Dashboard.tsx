@@ -7,12 +7,62 @@ import { useNavigate } from 'react-router-dom'
 import { RangeCalendar } from '@/Components/RangeCalendar'
 
 import { FiltroPorPeriodo } from '@/Components/FiltroPorPeriodo'
+import { useEffect, useState } from 'react'
+
+import { getTotalSales, type totalSalesResponse } from '@/http/getTotalSales'
+
+import {
+  getTotalExpenses,
+  type totalExpensesResponse,
+} from '@/http/getTotalExpenses'
 
 export function Dashboard() {
+  //Navegação do card ações rápidas
   const navigate = useNavigate()
   const handleClick = () => {
     navigate('/')
   }
+
+  //Funções para obter o total de vendas
+  const [totalVendas, setTotalVendas] = useState<totalSalesResponse[]>([])
+
+  async function getTotalSale() {
+    try {
+      const result = await getTotalSales()
+      setTotalVendas(result)
+    } catch (error) {}
+  }
+  const totalSale = totalVendas.reduce((acc, vendas) => {
+    return acc + vendas.valor
+  }, 0)
+
+  useEffect(() => {
+    getTotalSale()
+  }, [])
+
+  //Funções para obter o total de despesas
+
+  const [totalDespesas, setTotalDespesas] = useState<totalExpensesResponse[]>(
+    []
+  )
+  async function getTotalExpense() {
+    try {
+      const result = await getTotalExpenses()
+      setTotalDespesas(result)
+    } catch (error) {}
+  }
+  const totalExpenses = totalDespesas.reduce((acc, expenses) => {
+    return acc + expenses.valor
+  }, 0)
+
+  useEffect(() => {
+    getTotalExpense()
+  }, [])
+
+  //Calculo saldo liquido
+
+  const saldoLiquido = totalSale - totalExpenses
+
   return (
     <div className='flex '>
       <Aside />
@@ -36,22 +86,22 @@ export function Dashboard() {
         <section className='grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-4 '>
           <InfoCard
             icon={ChartNoAxesCombined}
-            name=' Total deReceitas'
-            value='R$1000'
+            name=' Total de Receitas'
+            value={totalSale}
             color='#A243D2'
           />
           <InfoCard
             icon={BanknoteArrowDown}
             name=' Total de Despesas'
-            value='R$1000'
+            value={totalExpenses}
             color='#eada13'
           />
           <InfoCard
             icon={BanknoteArrowDown}
             name='Saldo Liquido'
-            value='R$1000'
+            value={saldoLiquido}
           />
-          <InfoCard icon={BanknoteArrowDown} name='Crescimento' value='15.5%' />
+          <InfoCard icon={BanknoteArrowDown} name='Crescimento' value={15.5} />
         </section>
         <section className='m-8 border-2 border-purple-200 rounded-lg flex flex-col bg-purple-100 p-8 '>
           <div>
