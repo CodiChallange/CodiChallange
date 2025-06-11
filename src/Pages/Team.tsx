@@ -26,120 +26,120 @@ type User = {
   cargo: string
   salario: number
 }
-const userList = [
-  {
-    id: '1',
-    name: 'Mariana Silva',
-    email: 'mariana.silva@gmail.com',
-    phone: '(11) 98888-1234',
-    departament: 'Frontend',
-    cargo: 'Instrutor',
-    salario: 5500,
-    status: 'Ativo',
-  },
-  {
-    id: '2',
-    name: 'Carlos Souza',
-    email: 'carlos.souza@gmail.com',
-    phone: '(21) 97777-4321',
-    departament: 'Backend',
-    cargo: 'Coordenador',
-    salario: 8500,
-    status: 'Ativo',
-  },
-  {
-    id: '3',
-    name: 'Fernanda Lima',
-    email: 'fernanda.lima@gmail.com',
-    phone: '(31) 96666-9876',
-    departament: 'Mobile',
-    cargo: 'Assistente',
-    salario: 4200,
-    status: 'Férias',
-  },
-  {
-    id: '4',
-    name: 'Rafael Costa',
-    email: 'rafael.costa@gmail.com',
-    phone: '(41) 95555-6543',
-    departament: 'Marketing',
-    cargo: 'Gerente',
-    salario: 9500,
-    status: 'Ativo',
-  },
-  {
-    id: '5',
-    name: 'Isabela Martins',
-    email: 'isabela.martins@gmail.com',
-    phone: '(51) 94444-3210',
-    departament: 'Financeiro',
-    cargo: 'Assistente',
-    salario: 4700,
-    status: 'Ferias',
-  },
-  {
-    id: '6',
-    name: 'Lucas Almeida',
-    email: 'lucas.almeida@gmail.com',
-    phone: '(61) 93333-1122',
-    departament: 'Frontend',
-    cargo: 'Instrutor',
-    salario: 5200,
-    status: 'Ativo',
-  },
-  {
-    id: '7',
-    name: 'Ana Pereira',
-    email: 'ana.pereira@gmail.com',
-    phone: '(71) 92222-3344',
-    departament: 'Backend',
-    cargo: 'Coordenador',
-    salario: 8300,
-    status: 'Ativo',
-  },
-  {
-    id: '8',
-    name: 'Bruno Fernandes',
-    email: 'bruno.fernandes@gmail.com',
-    phone: '(81) 91111-5566',
-    departament: 'Mobile',
-    cargo: 'Instrutor',
-    salario: 5700,
-    status: 'Ativo',
-  },
-  {
-    id: '9',
-    name: 'Patrícia Gomes',
-    email: 'patricia.gomes@gmail.com',
-    phone: '(91) 98888-7788',
-    departament: 'Marketing',
-    cargo: 'Assistente',
-    salario: 4600,
-    status: 'Férias',
-  },
-  {
-    id: '10',
-    name: 'Gabriel Rocha',
-    email: 'gabriel.rocha@gmail.com',
-    phone: '(85) 97777-8899',
-    departament: 'Financeiro',
-    cargo: 'Gerente',
-    salario: 9800,
-    status: 'Ativo',
-  },
-  {
-    id: '11',
-    name: 'Gabriela Lima',
-    email: 'gabriela.lima@gmail.com',
-    phone: '(85) 97777-8899',
-    departament: 'Financeiro',
-    cargo: 'Coordenador',
-    salario: 9800,
-    status: 'Ferias',
-  },
-]
 
 export function Users() {
+  const [userList, setUserList] = useState<User[]>([
+    {
+      id: '1',
+      name: 'Mariana Silva',
+      email: 'mariana.silva@gmail.com',
+      phone: '(11) 98888-1234',
+      departament: 'Frontend',
+      cargo: 'Instrutor',
+      salario: 5500,
+      status: 'Ativo',
+    },
+    {
+      id: '2',
+      name: 'Carlos Souza',
+      email: 'carlos.souza@gmail.com',
+      phone: '(21) 97777-4321',
+      departament: 'Backend',
+      cargo: 'Coordenador',
+      salario: 8500,
+      status: 'Ativo',
+    },
+    {
+      id: '3',
+      name: 'Fernanda Lima',
+      email: 'fernanda.lima@gmail.com',
+      phone: '(31) 96666-9876',
+      departament: 'Mobile',
+      cargo: 'Assistente',
+      salario: 4200,
+      status: 'Férias',
+    },
+    {
+      id: '4',
+      name: 'Rafael Costa',
+      email: 'rafael.costa@gmail.com',
+      phone: '(41) 95555-6543',
+      departament: 'Marketing',
+      cargo: 'Gerente',
+      salario: 9500,
+      status: 'Ativo',
+    },
+    {
+      id: '5',
+      name: 'Isabela Martins',
+      email: 'isabela.martins@gmail.com',
+      phone: '(51) 94444-3210',
+      departament: 'Financeiro',
+      cargo: 'Assistente',
+      salario: 4700,
+      status: 'Ferias',
+    },
+    {
+      id: '6',
+      name: 'Lucas Almeida',
+      email: 'lucas.almeida@gmail.com',
+      phone: '(61) 93333-1122',
+      departament: 'Frontend',
+      cargo: 'Instrutor',
+      salario: 5200,
+      status: 'Ativo',
+    },
+    {
+      id: '7',
+      name: 'Ana Pereira',
+      email: 'ana.pereira@gmail.com',
+      phone: '(71) 92222-3344',
+      departament: 'Backend',
+      cargo: 'Coordenador',
+      salario: 8300,
+      status: 'Ativo',
+    },
+    {
+      id: '8',
+      name: 'Bruno Fernandes',
+      email: 'bruno.fernandes@gmail.com',
+      phone: '(81) 91111-5566',
+      departament: 'Mobile',
+      cargo: 'Instrutor',
+      salario: 5700,
+      status: 'Ativo',
+    },
+    {
+      id: '9',
+      name: 'Patrícia Gomes',
+      email: 'patricia.gomes@gmail.com',
+      phone: '(91) 98888-7788',
+      departament: 'Marketing',
+      cargo: 'Assistente',
+      salario: 4600,
+      status: 'Férias',
+    },
+    {
+      id: '10',
+      name: 'Gabriel Rocha',
+      email: 'gabriel.rocha@gmail.com',
+      phone: '(85) 97777-8899',
+      departament: 'Financeiro',
+      cargo: 'Gerente',
+      salario: 9800,
+      status: 'Ativo',
+    },
+    {
+      id: '11',
+      name: 'Gabriela Lima',
+      email: 'gabriela.lima@gmail.com',
+      phone: '(85) 97777-8899',
+      departament: 'Financeiro',
+      cargo: 'Coordenador',
+      salario: 9800,
+      status: 'Ferias',
+    },
+  ])
   {
     /* Cadastro de novo user */
   }
@@ -210,7 +210,7 @@ export function Users() {
 
       <div className='flex flex-col w-full p-5 bg-gray-100 gap-8 overflow-auto'>
         {/* Header */}
-        <div className=' flex justify-between items-center'>
+        <div className=' flex flex-col lg:flex-row gap-4 justify-between items-center'>
           <div className='flex flex-col gap-1 '>
             <h1 className='font-bold text-4xl '>Gestão de Equipe</h1>
             <p className='text-gray-500 text-[18px] '>
@@ -220,7 +220,7 @@ export function Users() {
           <div className=''>
             <button
               onClick={handleOpenModalNew}
-              className='flex gap-2 bg-[#A243D2] px-5 py-3 rounded-lg text-white'
+              className='flex gap-2 bg-[#A243D2] px-5 py-3 rounded-lg text-white cursor-pointer'
             >
               <UserPlus />
               <span>Novo Membro</span>
@@ -229,8 +229,8 @@ export function Users() {
         </div>
 
         {/* input */}
-        <div className='flex w-full bg-white shadow rounded-lg p-5 gap-4 '>
-          <div className='flex border items-center w-5/6 py-2 px-3 rounded-lg gap-3'>
+        <div className='flex flex-col lg:flex-row w-full bg-white shadow rounded-lg p-5 gap-4'>
+          <div className='flex border items-center lg:w-5/6 md:w-full py-2 px-3 rounded-lg gap-3 '>
             <Search />
             <input
               type='text'
@@ -238,7 +238,7 @@ export function Users() {
               className='w-full outline-none'
             />
           </div>
-          <div className='w-1/6 h-full '>
+          <div className='lg:w-1/6 md:w-full h-full '>
             <Select
               value={selectedCargo}
               onValueChange={(value) => setSelectedCargo(value)}
@@ -258,7 +258,7 @@ export function Users() {
         </div>
 
         {/* Cards */}
-        <div className='grid grid-cols-3 gap-5  '>
+        <div className='grid sm:grid-cols-1 md:grid-cols-1  lg:grid-cols-2 2xl:grid-cols-3 gap-5'>
           {filteredUsers.map((user) => (
             <UserCard
               key={user.id}
@@ -276,7 +276,7 @@ export function Users() {
         </div>
 
         {/* Dados */}
-        <div className='grid grid-cols-4 gap-4'>
+        <div className='grid lg:grid-cols-4 grid-cols-2 gap-4'>
           <div className='flex flex-col items-center justify-center bg-white border rounded-lg h-34'>
             <span className='text-[#A243D2] font-bold text-4xl'>
               {totalMembros}
@@ -296,20 +296,27 @@ export function Users() {
             <span>Departamentos</span>
           </div>
           <div className='flex flex-col items-center justify-center bg-white border rounded-lg h-34'>
-            <span className='text-orange-600 font-bold text-4xl '>
+            <span className='text-orange-600 font-bold lg:text-4xl  text-xl '>
               {folhaPagamento.toLocaleString('pt-BR', {
                 style: 'currency',
                 currency: 'BRL',
               })}
             </span>
-            <span>Folha de pagamento</span>
+            <span className='text-[14px] lg:text-[18px] '>
+              Folha de pagamento
+            </span>
           </div>
         </div>
       </div>
 
       {/* Renderizando os modais na tela */}
       <div>
-        {isOpenNew && <ModalAdd haandleOpenModalNew={handleOpenModalNew} />}
+        {isOpenNew && (
+          <ModalAdd
+            haandleOpenModalNew={handleOpenModalNew}
+            onAddUser={(user) => setUserList((prev) => [...prev, user])}
+          />
+        )}
         {isOpenEdit && (
           <AlterarModal close={handleCloseModalEdit} user={selectedUser} />
         )}
