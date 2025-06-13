@@ -6,7 +6,7 @@ export type colorTypes = 'green' | 'red' | 'blue'
 interface InfoCardProps {
   name: string
   icon?: React.ComponentType<IconBaseProps>
-  value: string
+  value: number
   color?: colorTypes
 }
 export function InfoCard({ name, icon: Icon, value, color }: InfoCardProps) {

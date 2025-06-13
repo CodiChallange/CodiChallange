@@ -87,47 +87,33 @@ export function Dashboard() {
           <InfoCard
             icon={ChartNoAxesCombined}
             name=' Total de Receitas'
-
             value={totalSale}
             color='green'
-
           />
           <InfoCard
             icon={BanknoteArrowDown}
             name=' Total de Despesas'
-
             value={totalExpenses}
-
             color='red'
-
           />
           <InfoCard
             icon={BanknoteArrowDown}
             name='Saldo Liquido'
-
             value={saldoLiquido}
           />
           <InfoCard icon={BanknoteArrowDown} name='Crescimento' value={15.5} />
         </section>
-        <section className='m-8 border-2 border-purple-200 rounded-lg flex flex-col bg-purple-100 p-8 '>
-
-            color='blue'
-          />
-        </section>
+        <section className='m-8 border-2 border-purple-200 rounded-lg flex flex-col bg-purple-100 p-8 '></section>
         <section className='m-8  border-2 border-purple-200 rounded-lg flex flex-col bg-purple-100 p-8 '>
-
           <div>
             <h3 className='text-xl font-semibold text-[#A243D2]'>
               Ações Rapidas
             </h3>
           </div>
           <div className='flex flex-col md:flex-row gap-4 '>
-
             <Button to='/vendas'> Nova Venda</Button>
             <Button to='/gastos'> Nova Despesa</Button>
             <Button to='/relatorios'> Ver Relatórios</Button>
-
-
           </div>
         </section>
       </main>
