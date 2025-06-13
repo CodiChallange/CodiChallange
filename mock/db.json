@@ -1,12 +1,97 @@
 {
+  "users": [
+    {
+      "id": "1",
+      "name": "Mariana Silva",
+      "email": "mariana.silva@gmail.com",
+      "password": "123456",
+      "role": "admin"
+    }
+  ],
   "Vendas": [
     {
-      "id": 1,
-      "name": "Venda 1"
+      "id": "1",
+      "nome": "Jeferson Silva",
+      "email": "jeferson.silva@gmail",
+      "telefone": "(11) 98888-1234",
+      "curso": "Frontend",
+      "valor": 1000
     },
     {
-      "id": 2,
-      "name": "Venda 2"
+      "id": "2",
+      "nome": "Carlos Souza",
+      "email": "carlos.souza@gmail.com",
+      "telefone": "(21) 97777-4321",
+      "curso": "Backend",
+      "valor": 1000
+    },
+    {
+      "id": "3",
+      "nome": "Fernanda Lima",
+      "email": "fernanda.lima@gmail.com",
+      "telefone": "(31) 96666-9876",
+      "curso": "Frontend",
+      "valor": 1000
+    },
+    {
+      "id": "817b",
+      "nome": "Beatriz Silva",
+      "email": "beatriz.silva@gmail",
+      "telefone": "(11) 98888-1234",
+      "curso": "Frontend",
+      "valor": 1000
+    }
+  ],
+  "despesas": [
+    {
+      "id": "1",
+      "descrição": "Aluguel",
+      "valor": 1000,
+      "data": "2023-05-01",
+      "tipo": "Fixa",
+      "formaPagamento": "Dinheiro"
+    },
+    {
+      "id": "2",
+      "descrição": "Luz",
+      "valor": 1000,
+      "data": "2023-05-01",
+      "tipo": "Fixa",
+      "formaPagamento": "Dinheiro"
+    },
+    {
+      "id": "3",
+      "descrição": "Internet",
+      "valor": 1000,
+      "data": "2023-05-01",
+      "categoria": "Fixa",
+      "tipo": "Fixa",
+      "formaPagamento": "Dinheiro"
+    },
+    {
+      "id": "4",
+      "descrição": "folha de pagamento",
+      "valor": 1000,
+      "data": "2023-05-01",
+      "categoria": "",
+      "tipo": "Fixa",
+      "formaPagamento": "Dinheiro"
+    },
+    {
+      "id": "0c79",
+      "descrição": "Agua",
+      "valor": 1000,
+      "data": "2023-05-01",
+      "tipo": "Variavel",
+      "formaPagamento": "Cartao de Credito"
+    },
+    {
+      "id": "90b1",
+      "descrição": "Agua",
+      "valor": 1000,
+      "data": "2023-05-01",
+      "tipo": "Variavel",
+      "formaPagamento": "Cartao de Credito"
     }
   ]
 }
