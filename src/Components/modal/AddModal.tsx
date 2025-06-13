@@ -1,65 +1,158 @@
 import { X } from 'lucide-react'
-import React, { useState } from 'react'
-
+import { useState } from 'react'
+import {
+  Select,
+  SelectItem,
+  SelectTrigger,
+  SelectContent,
+  SelectValue,
+} from '@/Components/ui/select'
 type modalProps = {
   haandleOpenModalNew: () => void
+  onAddUser: (user: User) => void
 }
-type OptionType = {
-  value: 'ADM' | 'PROF' | 'FIN'
-  label: string
-}
-type FormData = {
-  email: string
+type User = {
+  id: string
   name: string
-  role: OptionType | null
+  email: string
+  phone: string
+  salario: number
+  cargo: string
+  status: string
+  departament: string
 }
 
-export function ModalAdd({ haandleOpenModalNew }: modalProps) {
-  const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    role: null,
-  })
+export function ModalAdd({ haandleOpenModalNew, onAddUser }: modalProps) {
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+  const [salario, setSalario] = useState('')
+  const [cargo, setCargo] = useState('')
+  const [status, setStatus] = useState('')
+  const [departament, setDepartament] = useState('')
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
+  function handleAddUser(e: React.FormEvent) {
+    e.preventDefault()
+
+    const newUser: User = {
+      id: String(Date.now()),
+      name,
+      email,
+      phone,
+      salario: Number(salario),
+      cargo,
+      status,
+      departament,
+    }
+
+    onAddUser(newUser)
+    haandleOpenModalNew()
   }
   return (
     <div className='fixed inset-0 bg-black/50 flex items-center justify-center'>
-      <div className=' relative max-w-xl w-full bg-zinc-800 p-10 rounded-2xl '>
-        <div className='flex justify-between items-center text-white  mb-6'>
+      <div className=' relative max-w-xl w-full bg-white p-10 rounded-2xl '>
+        <div className='flex justify-between items-center text-black  mb-6'>
           <h1 className='text-xl font-semibold'>Adicionar Colaborador</h1>
           <button
-            className='cursor-pointer hover:text-red-800 '
+            className='cursor-pointer hover:text-red-500 '
             onClick={haandleOpenModalNew}
           >
             <X />
           </button>
         </div>
-        <form className='text-white flex flex-col items-center gap-3'>
-          <div className='flex flex-col items-center'>
-            <label>Nome:</label>
-            <input
-              type='text'
-              onChange={handleChange}
-              className='bg-white text-black outline-none rounded-2xl py-1 border-4 border-[#A243D2] px-2 '
-            />
-          </div>
-          <div className='flex flex-col items-center'>
-            <label>E-mail:</label>
-            <input
-              onChange={handleChange}
-              type='text'
-              className='bg-white text-black outline-none rounded-2xl py-1 border-4 border-[#A243D2] px-2 '
-            />
-          </div>
-          <div className='flex flex-col items-center '>
-            <label>Role:</label>
-          </div>
-          <button className=' flex  bg-[#A243D2]  items-center justify-center p-3 rounded-2xl   '>
-            Adicionar
-          </button>
-        </form>
+        <div className='flex flex-col gap-2'>
+          <h1>Dados Pessoais:</h1>
+          <form className='flex flex-col gap-3' onSubmit={handleAddUser}>
+            <div className='flex  w-full gap-3'>
+              <div className='flex flex-col w-1/2 '>
+                <label> Nome: </label>
+                <input
+                  type='text'
+                  value={name}
+                  required
+                  onChange={(e) => setName(e.target.value)}
+                  className='border border-gray-300 shadow-lg p-1 rounded-lg outline-none w-full'
+                />
+              </div>
+              <div className='flex flex-col w-1/2'>
+                <label>Telefone: </label>
+                <input
+                  required
+                  type='text'
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  className='border border-gray-300 shadow-lg p-1 rounded-lg outline-none w-full'
+                />
+              </div>
+            </div>
+            <div className='flex flex-col w-full'>
+              <label> Email: </label>
+              <input
+                required
+                type='email'
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className='border border-gray-300 shadow-lg p-1 rounded-lg outline-none'
+              />
+            </div>
+            <div className='flex flex-col '>
+              <label> Salario:</label>
+              <input
+                required
+                type='number'
+                value={salario}
+                onChange={(e) => setSalario(e.target.value)}
+                className='border border-gray-300 shadow-lg p-1 rounded-lg outline-none'
+              />
+            </div>
+            <div className='flex gap-3 items-center mt-3'>
+              <Select value={cargo} onValueChange={setCargo} required>
+                <SelectTrigger className='flex w-1/2 p-5 border border-gray-300 shadow-lg'>
+                  <SelectValue placeholder='Cargo' />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value='Instrutor'>Instrutor</SelectItem>
+                  <SelectItem value='Coordenador'>Coordenador</SelectItem>
+                  <SelectItem value='Assistente'>Assistente</SelectItem>
+                  <SelectItem value='Gerente'>Gerente</SelectItem>
+                </SelectContent>
+              </Select>
+              <Select value={status} onValueChange={setStatus} required>
+                <SelectTrigger className='flex w-1/2    p-5 border border-gray-300 shadow-lg '>
+                  <SelectValue placeholder='Status' />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value='Ativo'>Ativo</SelectItem>
+                  <SelectItem value='Ferias'>Ferias</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <div>
+              <Select
+                value={departament}
+                onValueChange={setDepartament}
+                required
+              >
+                <SelectTrigger className='p-5 border border-gray-300 shadow-lg'>
+                  <SelectValue placeholder='Selecione o departamento' />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value='Frontend'>Frontend</SelectItem>
+                  <SelectItem value='Backend'>Backend</SelectItem>
+                  <SelectItem value='Mobile'>Mobile</SelectItem>
+                  <SelectItem value='Marketing'>Marketing</SelectItem>
+                  <SelectItem value='Financeiro'>Financeiro</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <button
+              type='submit'
+              className='bg-[#A243D2] py-3 flex justify-center items-center rounded-lg cursor-pointer'
+            >
+              Adicionar
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   )
