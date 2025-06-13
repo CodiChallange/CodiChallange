@@ -15,7 +15,7 @@
       "email": "jeferson.silva@gmail",
       "telefone": "(11) 98888-1234",
       "curso": "Frontend",
-      "valor": 1000
+      "valor": 10.59
     },
     {
       "id": "2",
@@ -54,7 +54,7 @@
     {
       "id": "2",
       "descrição": "Luz",
-      "valor": 1000,
+      "valor": 90,
       "data": "2023-05-01",
       "tipo": "Fixa",
       "formaPagamento": "Dinheiro"
@@ -62,7 +62,7 @@
     {
       "id": "3",
       "descrição": "Internet",
-      "valor": 1000,
+      "valor": 100,
       "data": "2023-05-01",
       "categoria": "Fixa",
       "tipo": "Fixa",
@@ -71,7 +71,7 @@
     {
       "id": "4",
       "descrição": "folha de pagamento",
-      "valor": 1000,
+      "valor": 10,
       "data": "2023-05-01",
       "categoria": "",
       "tipo": "Fixa",

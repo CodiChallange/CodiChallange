@@ -1,6 +1,12 @@
 import { InfoCard } from '@/Components/InfoCard'
 import { Aside } from '@/Components/Aside'
-import { BanknoteArrowDown, ChartNoAxesCombined } from 'lucide-react'
+import {
+  BanknoteArrowDown,
+  ChartNoAxesCombined,
+  TrendingDown,
+  TrendingUp,
+  TrendingUpDown,
+} from 'lucide-react'
 import { Button } from '@/Components/Button'
 import { useNavigate } from 'react-router-dom'
 
@@ -85,22 +91,25 @@ export function Dashboard() {
         </div>
         <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-50 ml-8 w-285'>
           <InfoCard
-            icon={ChartNoAxesCombined}
+            iconMain={TrendingUp}
+            iconSecundary={ChartNoAxesCombined}
             name=' Total de Receitas'
             value={totalSale}
             color='green'
           />
           <InfoCard
-            icon={BanknoteArrowDown}
+            iconMain={TrendingDown}
+            iconSecundary={BanknoteArrowDown}
             name=' Total de Despesas'
             value={totalExpenses}
             color='red'
           />
 
           <InfoCard
-            icon={BanknoteArrowDown}
+            iconMain={TrendingUpDown}
+            iconSecundary={BanknoteArrowDown}
             name='Saldo Liquido'
-            value={saldoLiquido}
+            value={saldoLiquido.toFixed(2)}
             color='blue'
           />
         </section>
