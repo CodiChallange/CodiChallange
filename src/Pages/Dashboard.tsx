@@ -96,14 +96,15 @@ export function Dashboard() {
             value={totalExpenses}
             color='red'
           />
+
           <InfoCard
             icon={BanknoteArrowDown}
             name='Saldo Liquido'
             value={saldoLiquido}
+            color='blue'
           />
-          <InfoCard icon={BanknoteArrowDown} name='Crescimento' value={15.5} />
         </section>
-        <section className='m-8 border-2 border-purple-200 rounded-lg flex flex-col bg-purple-100 p-8 '></section>
+
         <section className='m-8  border-2 border-purple-200 rounded-lg flex flex-col bg-purple-100 p-8 '>
           <div>
             <h3 className='text-xl font-semibold text-[#A243D2]'>
