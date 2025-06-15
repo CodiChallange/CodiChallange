@@ -1,21 +1,15 @@
-import { useState } from 'react'
-
 import { Button } from './ui/button'
 import { Funnel } from 'lucide-react'
 import { Popover, PopoverContent, PopoverTrigger } from './ui/popover'
 
+type Filtro = 'semana' | 'mes' | 'ano'
 type Props = {
-  onChange: (filtro: 'semana' | 'mes' | 'ano') => void
+  value: Filtro
+  onChange: (filtro: Filtro) => void
 }
 
-export function FiltroPorPeriodo({ onChange }: Props) {
-  const [selected, setSelected] = useState<'' | 'semana' | 'mes' | 'ano'>('')
-  const filtros = ['semana', 'mes', 'ano']
-
-  const handleSelect = (filtro: 'semana' | 'mes' | 'ano') => {
-    setSelected(filtro)
-    onChange(filtro)
-  }
+export function FiltroPorPeriodo({ value, onChange }: Props) {
+  const filtros: Filtro[] = ['semana', 'mes', 'ano']
 
   return (
     <Popover>
@@ -30,9 +24,9 @@ export function FiltroPorPeriodo({ onChange }: Props) {
           {filtros.map((filtro) => (
             <Button
               key={filtro}
-              variant={selected === filtro ? 'default' : 'outline'}
+              variant={value === filtro ? 'default' : 'outline'}
               className='flex-1 capitalize'
-              onClick={() => handleSelect(filtro as 'semana' | 'mes' | 'ano')}
+              onClick={() => onChange(filtro)}
             >
               {filtro}
             </Button>

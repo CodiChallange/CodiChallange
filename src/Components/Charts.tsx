@@ -36,9 +36,10 @@ type Despesa = {
 }
 type Props = {
   filtro: 'semana' | 'mes' | 'ano'
+  tipo: 'barChart' | 'lineChart'
 }
 
-export function Charts({ filtro }: Props) {
+export function Charts({ filtro, tipo }: Props) {
   // Buscar os dados da API
   const [dados, setDados] = useState<
     { periodo: string; totalVendas: number; totalDespesas: number }[]
@@ -92,104 +93,113 @@ export function Charts({ filtro }: Props) {
 
   return (
     <>
-      <Card>
-        <CardHeader>
-          <CardTitle>Bar Chart</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <ChartContainer config={{}}>
-            {/* Passo 4: Exibir os dados usando BarChart */}
-            <div className='w-full h-'>
-              <div className='flex justify-end mb-4'></div>
-              <ResponsiveContainer width='100%' height={300}>
-                <BarChart data={dados}>
-                  <CartesianGrid vertical={false} strokeDasharray='3 3' />
-                  <XAxis dataKey='periodo' />
-                  <ChartTooltip />
-                  <Bar dataKey='totalVendas' fill='#6366F1' name='Vendas' />
-                  <Bar dataKey='totalDespesas' fill='#10B981' name='Despesas' />
-                  <Bar dataKey='balanco' fill='#F87171' name='Balanco' />
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
-          </ChartContainer>
-        </CardContent>
-      </Card>
-      <Card>
-        <CardHeader>
-          <CardTitle>Line Chart</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <ChartContainer config={{}}>
-            <LineChart
-              data={dados}
-              margin={{
-                top: 20,
-                left: 12,
-                right: 12,
-              }}
-            >
-              <CartesianGrid vertical={false} />
-              <XAxis dataKey='periodo' />
-              <ChartTooltip
-                cursor={false}
-                content={<ChartTooltipContent indicator='line' />}
-              />
-              <Line
-                dataKey='totalVendas'
-                type='natural'
-                stroke='#6366F1'
-                strokeWidth={2}
-                dot={{
-                  fill: 'var(--color-desktop)',
-                }}
-                activeDot={{
-                  r: 6,
+      {tipo === 'barChart' && (
+        <Card>
+          <CardHeader>
+            <CardTitle>Bar Chart</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ChartContainer config={{}} className='min-h-[200px] w-full'>
+              {/* Passo 4: Exibir os dados usando BarChart */}
+              <div className='w-full h-'>
+                <div className='flex justify-end mb-4'></div>
+                <ResponsiveContainer width='100%' height={300}>
+                  <BarChart data={dados}>
+                    <CartesianGrid vertical={false} strokeDasharray='3 3' />
+                    <XAxis dataKey='periodo' />
+                    <ChartTooltip />
+                    <Bar dataKey='totalVendas' fill='#6366F1' name='Vendas' />
+                    <Bar
+                      dataKey='totalDespesas'
+                      fill='#10B981'
+                      name='Despesas'
+                    />
+                    <Bar dataKey='balanco' fill='#F87171' name='Balanco' />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+            </ChartContainer>
+          </CardContent>
+        </Card>
+      )}
+      {tipo === 'lineChart' && (
+        <Card>
+          <CardHeader>
+            <CardTitle>Line Chart</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ChartContainer config={{}}>
+              <LineChart
+                data={dados}
+                margin={{
+                  top: 20,
+                  left: 12,
+                  right: 12,
                 }}
               >
-                <LabelList
-                  position='top'
-                  offset={12}
-                  className='fill-foreground'
-                  fontSize={12}
+                <CartesianGrid vertical={false} />
+                <XAxis dataKey='periodo' />
+                <ChartTooltip
+                  cursor={false}
+                  content={<ChartTooltipContent indicator='line' />}
                 />
-              </Line>
-              <Line
-                dataKey='totalDespesas'
-                type='natural'
-                stroke='#10B981'
-                strokeWidth={2}
-                dot={{
-                  fill: 'var(--color-desktop)',
-                }}
-              >
-                <LabelList
-                  position='top'
-                  offset={12}
-                  className='fill-foreground'
-                  fontSize={12}
-                />
-              </Line>
-              <Line
-                dataKey='balanco'
-                type='natural'
-                stroke='#F87171'
-                strokeWidth={2}
-                dot={{
-                  fill: 'var(--color-desktop)',
-                }}
-              >
-                <LabelList
-                  position='top'
-                  offset={12}
-                  className='fill-foreground'
-                  fontSize={12}
-                />
-              </Line>
-            </LineChart>
-          </ChartContainer>
-        </CardContent>
-      </Card>
+
+                <Line
+                  dataKey='totalVendas'
+                  type='natural'
+                  stroke='#6366F1'
+                  strokeWidth={2}
+                  dot={{
+                    fill: 'var(--color-desktop)',
+                  }}
+                  activeDot={{
+                    r: 6,
+                  }}
+                >
+                  <LabelList
+                    position='top'
+                    offset={12}
+                    className='fill-foreground'
+                    fontSize={12}
+                  />
+                </Line>
+                <Line
+                  dataKey='totalDespesas'
+                  type='natural'
+                  stroke='#10B981'
+                  strokeWidth={2}
+                  dot={{
+                    fill: 'var(--color-desktop)',
+                  }}
+                >
+                  <LabelList
+                    position='top'
+                    offset={12}
+                    className='fill-foreground'
+                    fontSize={12}
+                  />
+                </Line>
+                <Line
+                  dataKey='balanco'
+                  type='natural'
+                  stroke='#F87171'
+                  strokeWidth={2}
+                  dot={{
+                    fill: 'var(--color-desktop)',
+                  }}
+                >
+                  <LabelList
+                    position='top'
+                    offset={12}
+                    className='fill-foreground'
+                    fontSize={12}
+                  />
+                </Line>
+              </LineChart>
+            </ChartContainer>
+          </CardContent>
+        </Card>
+      )}
     </>
   )
 }

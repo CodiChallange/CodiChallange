@@ -20,13 +20,12 @@ import {
   getTotalExpenses,
   type totalExpensesResponse,
 } from '@/http/getTotalExpenses'
-import { Charts } from '@/Components/Charts'
 import { FiltroPorPeriodo } from '@/Components/FiltroPorPeriodo'
+import { ToggleButton } from './ToggleButton'
 
+type Filtro = 'semana' | 'mes' | 'ano'
 export function Dashboard() {
-  const [filtroSelecionado, setFiltroSelecionado] = useState<
-    'semana' | 'mes' | 'ano'
-  >('mes')
+  const [filtroSelecionado, setFiltroSelecionado] = useState<Filtro>('mes')
   //Navegação do card ações rápidas
   const navigate = useNavigate()
   const handleClick = () => {
@@ -85,7 +84,10 @@ export function Dashboard() {
             </p>
           </div>
           <div className='flex gap-2 mr-8'>
-            <FiltroPorPeriodo onChange={setFiltroSelecionado} />
+            <FiltroPorPeriodo
+              value={filtroSelecionado}
+              onChange={setFiltroSelecionado}
+            />
             <RangeCalendar />
           </div>
         </div>
@@ -113,8 +115,13 @@ export function Dashboard() {
             color='blue'
           />
         </section>
-        <section className='m-8 border-2 border-purple-200 rounded-lg flex flex-col bg-purple-100 p-8 '>
-          <Charts filtro={filtroSelecionado} />
+        <section className='m-8 border-2 border-purple-200 rounded-lg flex flex-col bg-purple-300 p-8 '>
+          <div className='w-full  mb-4 flex justify-end'>
+            <ToggleButton
+              filtro={filtroSelecionado}
+              setFiltro={setFiltroSelecionado}
+            />
+          </div>
         </section>
         <section className='m-8  border-2 border-purple-200 rounded-lg flex flex-col bg-purple-100 p-8 '>
           <div>
