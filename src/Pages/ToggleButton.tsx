@@ -22,14 +22,14 @@ export function ToggleButton({ filtro, setFiltro }: Props) {
           }}
         >
           <ToggleGroupItem value='barChart' className='bg-purple-500 '>
-            Bar
+            Bar Chart
           </ToggleGroupItem>
           <ToggleGroupItem
             className='bg-purple-500 '
             value='lineChart'
             disabled={chartType === 'barChart' ? false : true}
           >
-            Line
+            Line Chart
           </ToggleGroupItem>
         </ToggleGroup>
       </div>
