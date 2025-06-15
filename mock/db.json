@@ -15,7 +15,8 @@
       "email": "jeferson.silva@gmail",
       "telefone": "(11) 98888-1234",
       "curso": "Frontend",
-      "valor": 10.59
+      "valor": 1500,
+      "data": "2023-05-01"
     },
     {
       "id": "2",
@@ -23,7 +24,8 @@
       "email": "carlos.souza@gmail.com",
       "telefone": "(21) 97777-4321",
       "curso": "Backend",
-      "valor": 1000
+      "valor": 1000,
+      "data": "2023-05-01"
     },
     {
       "id": "3",
@@ -31,7 +33,8 @@
       "email": "fernanda.lima@gmail.com",
       "telefone": "(31) 96666-9876",
       "curso": "Frontend",
-      "valor": 1000
+      "valor": 1000,
+      "data": "2023-06-01"
     },
     {
       "id": "817b",
@@ -39,7 +42,8 @@
       "email": "beatriz.silva@gmail",
       "telefone": "(11) 98888-1234",
       "curso": "Frontend",
-      "valor": 1000
+      "valor": 1000,
+      "data": "2023-07-01"
     }
   ],
   "despesas": [
@@ -80,15 +84,23 @@
     {
       "id": "0c79",
       "descrição": "Agua",
-      "valor": 1000,
+      "valor": 85.9,
       "data": "2023-05-01",
       "tipo": "Variavel",
       "formaPagamento": "Cartao de Credito"
     },
     {
       "id": "90b1",
-      "descrição": "Agua",
-      "valor": 1000,
+      "descrição": "Produtos de Limpeza",
+      "valor": 100,
+      "data": "2023-05-01",
+      "tipo": "Variavel",
+      "formaPagamento": "Cartao de Credito"
+    },
+    {
+      "id": "5c74",
+      "descrição": "Alimentos",
+      "valor": 150,
       "data": "2023-05-01",
       "tipo": "Variavel",
       "formaPagamento": "Cartao de Credito"

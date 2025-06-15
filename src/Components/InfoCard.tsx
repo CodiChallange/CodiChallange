@@ -10,6 +10,7 @@ interface InfoCardProps {
   value: number
   color?: colorTypes
 }
+
 export function InfoCard({
   name,
   iconMain: IconMain,
