@@ -1,6 +1,7 @@
 import { Aside } from '@/Components/Aside'
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/Components/ui/tabs'
+import { Percent, Plus } from 'lucide-react'
 
 export function Relatorios() {
   return (
@@ -33,7 +34,7 @@ export function Relatorios() {
                 <div>Grafico 4 - Jander</div>
                 <div>Grafico 5 - Jander</div>
               </div>
-
+              {/* Detalhamento de gastos */}
               <div className='flex flex-col gap-4 bg-white rounded-lg p-3'>
                 <h1 className='font-bold text-2xl'>Detalhamento de Gastos</h1>
                 <div className='grid grid-cols-2 gap-4'>
@@ -101,7 +102,48 @@ export function Relatorios() {
           <TabsContent value='Td'>
             <div className='flex flex-col'>
               <div>Grafico 6 - Jander </div>
-              <div>Cards - Eduardo</div>
+              {/* Cards Area */}
+              <div className='flex gap-3'>
+                <div className='flex flex-col bg-green-100 border border-green-300 rounded-lg p-4 gap-2 w-full'>
+                  <h3 className='text-green-900 font-bold'>
+                    Crescimento de Receitas
+                  </h3>
+                  <span className='flex items-center text-2xl font-bold text-green-900'>
+                    <Plus size={24} />
+                    49
+                    <Percent size={24} />
+                  </span>
+                  <p className='text-green-700 text-[14px] '>
+                    Comparado ao período anterior
+                  </p>
+                </div>
+                <div className='flex flex-col bg-yellow-100 border border-yellow-300 rounded-lg p-4 gap-2 w-full'>
+                  <h3 className='text-yellow-900 font-bold'>
+                    Controle de Gastos
+                  </h3>
+                  <span className='flex items-center text-2xl font-bold text-yellow-900'>
+                    <Plus size={24} />
+                    49
+                    <Percent size={24} />
+                  </span>
+                  <p className='text-yellow-700 text-[14px] '>
+                    Aumento controlado dos gastos
+                  </p>
+                </div>
+                <div className='flex flex-col bg-blue-100 border border-blue-300 rounded-lg p-4 gap-2 w-full'>
+                  <h3 className='text-blue-900 font-bold'>
+                    Melhoria da Margem
+                  </h3>
+                  <span className='flex items-center text-2xl font-bold text-blue-900'>
+                    <Plus size={24} />
+                    49
+                    <Percent size={24} />
+                  </span>
+                  <p className='text-blue-700 text-[14px] '>
+                    Crescimento do lucro líquido
+                  </p>
+                </div>
+              </div>
             </div>
           </TabsContent>
         </Tabs>
