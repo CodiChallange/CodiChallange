@@ -16,10 +16,33 @@ export function Relatorios() {
             <TabsTrigger value='Ds'>Distribuição</TabsTrigger>
             <TabsTrigger value='Td'>Tendências</TabsTrigger>
           </TabsList>
-          <TabsContent value='Vg'>Visao geral </TabsContent>
-          <TabsContent value='Cp'>Comparativo</TabsContent>
-          <TabsContent value='Ds'>Distribuição</TabsContent>
-          <TabsContent value='Td'>Tendências</TabsContent>
+          {/* Visao Geral */}
+          <TabsContent value='Vg'>
+            <div className='flex'>
+              <div>Grafico 1 - Jander</div> <div>Grafico 2 - Jander</div>
+            </div>
+          </TabsContent>
+          {/* Comparativo */}
+          <TabsContent value='Cp'>
+            <div>Grafico 3 - Jander</div>
+          </TabsContent>
+          {/* Distribuição */}
+          <TabsContent value='Ds'>
+            <div>
+              <div>
+                <div>Grafico 4 - Jander</div>
+                <div>Grafico 5 - Jander</div>
+              </div>
+
+              <div>Detalhamento - Eduardo </div>
+            </div>
+          </TabsContent>
+          {/* Tendências */}
+          <TabsContent value='Td'>
+            <div>
+              <div>Grafico 6 - Jander</div>
+            </div>
+          </TabsContent>
         </Tabs>
       </div>
     </div>
