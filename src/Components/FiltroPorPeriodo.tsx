@@ -7,7 +7,7 @@ type Props = {
   value: Filtro
   onChange: (filtro: Filtro) => void
 }
-
+//COmponente de filtro que exibe o grafico de acordo com o que foi selecionado no filtro
 export function FiltroPorPeriodo({ value, onChange }: Props) {
   const filtros: Filtro[] = ['semana', 'mes', 'ano']
 

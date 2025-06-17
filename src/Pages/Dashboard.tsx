@@ -68,14 +68,14 @@ export function Dashboard() {
     getTotalExpense()
   }, [])
 
-  //Calculo saldo liquido
+  // Calculo saldo liquido
 
   const saldoLiquido = totalSale - totalExpenses
 
   return (
-    <div className='flex '>
+    <div className='flex bg-gray-100 '>
       <Aside />
-      <main className=' bg-[#FFFFFF] h-screen w-full'>
+      <main className=' overflow-auto h-screen w-full'>
         <div className='m-8 flex justify-between items-center p-4'>
           <div>
             <h1 className='text-2xl font-bold'>Dashboard Financeiro</h1>
@@ -83,6 +83,7 @@ export function Dashboard() {
               Visão geral das finanças da Codi Academy
             </p>
           </div>
+          {/* Filtro por periodo e por data selecionada */}
           <div className='flex gap-2 mr-8'>
             <FiltroPorPeriodo
               value={filtroSelecionado}
@@ -91,6 +92,7 @@ export function Dashboard() {
             <RangeCalendar />
           </div>
         </div>
+        {/* Cards de resumos */}
         <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-50 ml-8 w-285'>
           <InfoCard
             iconMain={TrendingUp}
@@ -115,6 +117,7 @@ export function Dashboard() {
             color='blue'
           />
         </section>
+        {/* Gráfico */}
         <section className='m-8 border-2 border-purple-200 rounded-lg flex flex-col bg-purple-300 p-8 '>
           <div className='w-full  mb-4 flex justify-end'>
             <ToggleButton
@@ -123,6 +126,7 @@ export function Dashboard() {
             />
           </div>
         </section>
+        {/* Ações Rápidas */}
         <section className='m-8  border-2 border-purple-200 rounded-lg flex flex-col bg-purple-100 p-8 '>
           <div>
             <h3 className='text-xl font-semibold text-[#A243D2]'>

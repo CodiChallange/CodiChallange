@@ -99,9 +99,9 @@ export function Charts({ filtro, tipo }: Props) {
             <CardTitle>Bar Chart</CardTitle>
           </CardHeader>
           <CardContent>
-            <ChartContainer config={{}} className='min-h-[200px] w-full'>
+            <ChartContainer config={{}} className='min-h-[200px] w-full '>
               {/* Passo 4: Exibir os dados usando BarChart */}
-              <div className='w-full h-'>
+              <div className='w-full border '>
                 <div className='flex justify-end mb-4'></div>
                 <ResponsiveContainer width='100%' height={300}>
                   <BarChart data={dados}>

@@ -6,6 +6,7 @@ interface Props {
   filtro: 'semana' | 'mes' | 'ano'
   setFiltro: React.Dispatch<React.SetStateAction<'semana' | 'mes' | 'ano'>>
 }
+//Componente que exibe o gráfico com base no valor selecionado
 export function ToggleButton({ filtro, setFiltro }: Props) {
   const [chartType, setChartType] = useState<'barChart' | 'lineChart'>(
     'barChart'
