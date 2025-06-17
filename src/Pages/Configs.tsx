@@ -108,7 +108,7 @@ export function Configs() {
 
         {/* Select area */}
         <Tabs defaultValue='account' className='w-full '>
-          <TabsList className='flex bg-gray-200 w-full h-fit '>
+          <TabsList className='grid grid-cols-2 bg-gray-200 w-full h-fit md:grid-cols-4 '>
             <TabsTrigger value='account' className='cursor-pointer py-2'>
               <User /> Perfil
             </TabsTrigger>
@@ -145,7 +145,7 @@ export function Configs() {
               {/* Area dos inputs */}
               <div className='flex flex-col gap-8'>
                 {/* Primeiro Grupo */}
-                <div className='flex gap-9'>
+                <div className='flex flex-col md:flex-row gap-9'>
                   {/* Nome */}
                   <div className='flex flex-col w-full'>
                     <label>Nome completo</label>
@@ -164,7 +164,7 @@ export function Configs() {
                   </div>
                 </div>
                 {/* Segundo Grupo */}
-                <div className='flex gap-9'>
+                <div className='flex flex-col md:flex-row gap-9'>
                   {/* Telefone */}
                   <div className='flex flex-col w-full'>
                     <label>Telefone</label>
@@ -184,7 +184,7 @@ export function Configs() {
                 </div>
               </div>
               {/* Button */}
-              <div className='flex  justify-end  '>
+              <div className='flex  justify-center md:justify-end  '>
                 <button className='flex gap-3 w-fit bg-[#A243D2] py-2 px-3 rounded-lg cursor-pointer font-bold'>
                   <Save />
                   Salvar Mudanças
@@ -196,11 +196,11 @@ export function Configs() {
           {/* Conteudo de notificações */}
           <TabsContent value='notification'>
             <div className='bg-white w-full flex flex-col rounded-lg py-7 px-12 gap-5'>
-              <h1 className='text-black flex text-3xl font-semibold items-center gap-2'>
+              <h1 className='text-black flex text-2xl md:text-3xl font-semibold items-center gap-2'>
                 <Bell size={32} />
                 Preferências de Notificação
               </h1>
-              <span className='font-semibold text-2xl'>
+              <span className='font-semibold text-lg  md:text-2xl'>
                 Notificações por E-mail
               </span>
 
