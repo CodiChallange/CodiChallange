@@ -5,11 +5,11 @@ export function Relatorios() {
     <div className='flex h-screen'>
       <Aside />
       <div className='overflow-auto'>
-        <div>Header Eduardo</div>
-        <div>Cards Jander</div>
+        <div>Header- Eduardo</div>
+        <div>Cards- Jander</div>
         <div>Toggle -Eduardo</div>
-        <div>Grasficos Jander</div>
-        <div>Detalhamento Eduardo</div>
+        <div>Grasficos -Jander</div>
+        <div>Detalhamento -Eduardo</div>
       </div>
     </div>
   )
