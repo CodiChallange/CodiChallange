@@ -12,7 +12,6 @@ import { useNavigate } from 'react-router-dom'
 
 import { RangeCalendar } from '@/Components/RangeCalendar'
 
-import { FiltroPorPeriodo } from '@/Components/FiltroPorPeriodo'
 import { useEffect, useState } from 'react'
 
 import { getTotalSales, type totalSalesResponse } from '@/http/getTotalSales'
@@ -21,8 +20,12 @@ import {
   getTotalExpenses,
   type totalExpensesResponse,
 } from '@/http/getTotalExpenses'
+import { FiltroPorPeriodo } from '@/Components/FiltroPorPeriodo'
+import { ToggleButton } from './ToggleButton'
 
+type Filtro = 'semana' | 'mes' | 'ano'
 export function Dashboard() {
+  const [filtroSelecionado, setFiltroSelecionado] = useState<Filtro>('mes')
   //Navegação do card ações rápidas
   const navigate = useNavigate()
   const handleClick = () => {
@@ -65,14 +68,14 @@ export function Dashboard() {
     getTotalExpense()
   }, [])
 
-  //Calculo saldo liquido
+  // Calculo saldo liquido
 
   const saldoLiquido = totalSale - totalExpenses
 
   return (
-    <div className='flex '>
+    <div className='flex bg-gray-100 '>
       <Aside />
-      <main className=' bg-[#FFFFFF] h-screen w-full'>
+      <main className=' overflow-auto h-screen w-full'>
         <div className='m-8 flex justify-between items-center p-4'>
           <div>
             <h1 className='text-2xl font-bold'>Dashboard Financeiro</h1>
@@ -80,15 +83,16 @@ export function Dashboard() {
               Visão geral das finanças da Codi Academy
             </p>
           </div>
+          {/* Filtro por periodo e por data selecionada */}
           <div className='flex gap-2 mr-8'>
             <FiltroPorPeriodo
-              onChange={function (filtro: 'semana' | 'mes' | 'ano'): void {
-                throw new Error('Function not implemented.')
-              }}
+              value={filtroSelecionado}
+              onChange={setFiltroSelecionado}
             />
             <RangeCalendar />
           </div>
         </div>
+        {/* Cards de resumos */}
         <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-50 ml-8 w-285'>
           <InfoCard
             iconMain={TrendingUp}
@@ -109,11 +113,20 @@ export function Dashboard() {
             iconMain={TrendingUpDown}
             iconSecundary={BanknoteArrowDown}
             name='Saldo Liquido'
-            value={saldoLiquido.toFixed(2)}
+            value={saldoLiquido}
             color='blue'
           />
         </section>
-
+        {/* Gráfico */}
+        <section className='m-8 border-2 border-purple-200 rounded-lg flex flex-col bg-purple-300 p-8 '>
+          <div className='w-full  mb-4 flex justify-end'>
+            <ToggleButton
+              filtro={filtroSelecionado}
+              setFiltro={setFiltroSelecionado}
+            />
+          </div>
+        </section>
+        {/* Ações Rápidas */}
         <section className='m-8  border-2 border-purple-200 rounded-lg flex flex-col bg-purple-100 p-8 '>
           <div>
             <h3 className='text-xl font-semibold text-[#A243D2]'>
