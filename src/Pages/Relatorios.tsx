@@ -28,19 +28,80 @@ export function Relatorios() {
           </TabsContent>
           {/* Distribuição */}
           <TabsContent value='Ds'>
-            <div>
-              <div>
+            <div className='flex flex-col'>
+              <div className='flex'>
                 <div>Grafico 4 - Jander</div>
                 <div>Grafico 5 - Jander</div>
               </div>
 
-              <div>Detalhamento - Eduardo </div>
+              <div className='flex flex-col gap-4 bg-white rounded-lg p-3'>
+                <h1 className='font-bold text-2xl'>Detalhamento de Gastos</h1>
+                <div className='grid grid-cols-2 gap-4'>
+                  <div className='flex items-center justify-between border border-gray-300 rounded-lg px-5 py-1.5'>
+                    <div className='flex gap-3 items-center'>
+                      <div className='w-4 h-4 rounded-[100%] bg-purple-500 '></div>
+                      <span className='font-semibold'>Aluguel</span>
+                    </div>
+                    <span className='text-red-500 font-bold'>R$ 15.000,00</span>
+                  </div>
+                  <div className='flex items-center justify-between border border-gray-300 rounded-lg px-5 py-1.5'>
+                    <div className='flex gap-3 items-center'>
+                      <div className='w-4 h-4 rounded-[100%] bg-red-500 '></div>
+                      <span className='font-semibold'>Folha de Pagamento</span>
+                    </div>
+                    <span className='text-red-500 font-bold'>R$ 15.000,00</span>
+                  </div>
+                  <div className='flex items-center justify-between border border-gray-300 rounded-lg px-5 py-1.5'>
+                    <div className='flex gap-3 items-center'>
+                      <div className='w-4 h-4 rounded-[100%] bg-yellow-500 '></div>
+                      <span className='font-semibold'>Energia</span>
+                    </div>
+                    <span className='text-red-500 font-bold'>R$ 15.000,00</span>
+                  </div>
+                  <div className='flex items-center justify-between border border-gray-300 rounded-lg px-5 py-1.5'>
+                    <div className='flex gap-3 items-center'>
+                      <div className='w-4 h-4 rounded-[100%] bg-green-500 '></div>
+                      <span className='font-semibold'>Internet</span>
+                    </div>
+                    <span className='text-red-500 font-bold'>R$ 15.000,00</span>
+                  </div>
+                  <div className='flex items-center justify-between border border-gray-300 rounded-lg px-5 py-1.5'>
+                    <div className='flex gap-3 items-center'>
+                      <div className='w-4 h-4 rounded-[100%] bg-blue-500'></div>
+                      <span className='font-semibold'>Manutenção</span>
+                    </div>
+                    <span className='text-red-500 font-bold'>R$ 15.000,00</span>
+                  </div>
+                  <div className='flex items-center justify-between border border-gray-300 rounded-lg px-5 py-1.5'>
+                    <div className='flex gap-3 items-center'>
+                      <div className='w-4 h-4 rounded-[100%] bg-cyan-500 '></div>
+                      <span className='font-semibold'>Suprimentos</span>
+                    </div>
+                    <span className='text-red-500 font-bold'>R$ 15.000,00</span>
+                  </div>
+                  <div className='flex items-center justify-between border border-gray-300 rounded-lg px-5 py-1.5'>
+                    <div className='flex gap-3 items-center'>
+                      <div className='w-4 h-4 rounded-[100%] bg-emerald-500 '></div>
+                      <span className='font-semibold'>Marketing</span>
+                    </div>
+                    <span className='text-red-500 font-bold'>R$ 15.000,00</span>
+                  </div>
+                  <div className='flex items-center justify-between border border-gray-300 rounded-lg px-5 py-1.5'>
+                    <div className='flex gap-3 items-center'>
+                      <div className='w-4 h-4 rounded-[100%] bg-gray-500'></div>
+                      <span className='font-semibold'>Outros</span>
+                    </div>
+                    <span className='text-red-500 font-bold'>R$ 15.000,00</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </TabsContent>
           {/* Tendências */}
           <TabsContent value='Td'>
-            <div>
-              <div>Grafico 6 - Jander</div>
+            <div className='flex flex-col'>
+              <div>Grafico 6 - Jander </div>
+              <div>Cards - Eduardo</div>
             </div>
           </TabsContent>
         </Tabs>
