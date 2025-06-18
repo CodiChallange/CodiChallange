@@ -13,6 +13,7 @@ export function Relatorios() {
     <div className='flex h-screen'>
       <Aside />
       <div className='flex flex-col w-full p-5 bg-gray-100 gap-8 overflow-auto'>
+
         <div className='flex justify-between items-center'>
           {/* Text Area */}
           <div className='flex flex-col gap-1 '>
@@ -42,6 +43,7 @@ export function Relatorios() {
             </button>
           </div>
         </div>
+
         <div>Cards- Jander</div>
         <div>Toggle -Eduardo</div>
         <div>Grasficos -Jander</div>
