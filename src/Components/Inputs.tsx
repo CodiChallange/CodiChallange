@@ -2,8 +2,9 @@ import React, { type InputHTMLAttributes, useCallback, useEffect } from 'react'
 import { type IconBaseProps } from 'react-icons'
 import { useState } from 'react'
 import { Container } from './Container'
+import { IMaskInput, type IMaskInputProps } from 'react-imask'
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+type InputProps = IMaskInputProps<HTMLInputElement> & {
   name: string
   icon?: React.ComponentType<IconBaseProps>
 }
@@ -36,10 +37,10 @@ toda vez que a pagina for recarregada
           className='m-4 '
         />
       )}
-      <input
+      <IMaskInput
         {...rest}
         onChange={(e) => {
-          setInputValue(e.target.value)
+          setInputValue((e.target as HTMLInputElement).value)
           onChange?.(e)
         }}
         className='bg-transparent flex-1 border-0 outline-0 '
