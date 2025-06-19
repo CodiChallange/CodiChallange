@@ -26,6 +26,7 @@ import { ToggleButton } from './ToggleButton'
 type Filtro = 'semana' | 'mes' | 'ano'
 export function Dashboard() {
   const [filtroSelecionado, setFiltroSelecionado] = useState<Filtro>('mes')
+
   //Navegação do card ações rápidas
   const navigate = useNavigate()
   const handleClick = () => {

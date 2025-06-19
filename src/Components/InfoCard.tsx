@@ -18,6 +18,10 @@ export function InfoCard({
   value,
   color,
 }: InfoCardProps) {
+  const valorFormatado = new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+  }).format(value)
   return (
     <div>
       {color === 'green' && (
@@ -28,12 +32,12 @@ export function InfoCard({
               {IconSecondary && (
                 <IconSecondary size={16} className='text-green-600' />
               )}{' '}
-              {value}
+              {valorFormatado}
             </CardTitle>
           </CardHeader>
           <CardContent className='flex flex-col  justify-center  mt-4'>
             <p className='text-[0.625rem text-left  '> {name} </p>
-            <span className='text-2xl font-bold mt-4'>{value}</span>
+            <span className='text-2xl font-bold mt-4'>{valorFormatado}</span>
           </CardContent>
         </Card>
       )}
@@ -46,12 +50,12 @@ export function InfoCard({
               {IconSecondary && (
                 <IconSecondary size={16} className='text-red-600' />
               )}{' '}
-              {value}
+              {valorFormatado}
             </CardTitle>
           </CardHeader>
           <CardContent className='flex flex-col  justify-center  mt-4'>
             <p className='text-[0.625rem text-left  '> {name} </p>
-            <span className='text-2xl font-bold mt-4'>{value}</span>
+            <span className='text-2xl font-bold mt-4'>{valorFormatado}</span>
           </CardContent>
         </Card>
       )}
@@ -63,12 +67,12 @@ export function InfoCard({
               {IconSecondary && (
                 <IconSecondary size={16} className='text-blue-600' />
               )}{' '}
-              {value}
+              {valorFormatado}
             </CardTitle>
           </CardHeader>
           <CardContent className='flex flex-col  justify-center  mt-4'>
             <p className='text-[0.625rem text-left  '> {name} </p>
-            <span className='text-2xl font-bold mt-4'>{value}</span>
+            <span className='text-2xl font-bold mt-4'>{valorFormatado}</span>
           </CardContent>
         </Card>
       )}
