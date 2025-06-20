@@ -1,4 +1,5 @@
 import { Aside } from "@/Components/Aside";
+import { CardsReports } from "@/Components/CardsReports";
 import { Card } from "@/Components/ui/card";
 import {
   Dialog,
@@ -31,6 +32,7 @@ import {
   SquarePen,
   Trash2,
   TrendingDown,
+  TrendingUp,
 } from "lucide-react";
 
 export function Gastos() {
@@ -53,45 +55,27 @@ export function Gastos() {
         </div>
 
         <section className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <Card className="border-red-200 bg-red-50 p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="font-medium text-red-600">Despesas fixas</p>
-                <h1 className="text-2xl font-bold text-red-700">R$ 3,950.00</h1>
-              </div>
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-red-200 text-red-600">
-                <Calendar />
-              </div>
-            </div>
-          </Card>
-          <Card className="border-orange-200 bg-orange-50 p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="font-medium text-orange-600">
-                  Despesas Variáveis
-                </p>
-                <h1 className="text-2xl font-bold text-orange-700">
-                  R$ 930.00
-                </h1>
-              </div>
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-200 text-orange-600">
-                <TrendingDown />
-              </div>
-            </div>
-          </Card>
-          <Card className="border-purple-200 bg-purple-50 p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="font-medium text-purple-600">Total de gastos</p>
-                <h1 className="text-2xl font-bold text-purple-700">
-                  R$ 4,880.00
-                </h1>
-              </div>
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-purple-200 text-purple-600">
-                <TrendingDown />
-              </div>
-            </div>
-          </Card>
+          <CardsReports
+            title={"Despesas fixas"}
+            value={654}
+            color={"red"}
+            icon={TrendingUp}
+            bgColor={"red"}
+          />
+          <CardsReports
+            title={"Despesas variáveis"}
+            value={654}
+            color={"orange"}
+            icon={TrendingUp}
+            bgColor={"orange"}
+          />
+          <CardsReports
+            title={"Total de gastos"}
+            value={654}
+            color={"purple"}
+            icon={TrendingUp}
+            bgColor={"purple"}
+          />
         </section>
 
         <div className="flex w-full gap-4 rounded-lg bg-white p-5 shadow">
