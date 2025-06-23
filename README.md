@@ -72,3 +72,24 @@ Color piker Codi
 #1F2937 - GRAY-800
 #F3F5F5 - GRAY-100
 #D0B6DE - CODI SECONDARY
+
+📚 CATEGORIAS PADRÃO DE ORGANIZAÇÃO (recomendada pela comunidade Tailwind)
+A maioria dos devs organiza as classes Tailwind nesta ordem:
+
+Layout
+Ex: block, flex, grid, container, relative, absolute, w-..., h-...
+
+Flex/Grid child alignment
+Ex: items-center, justify-between, gap-4, place-items-center
+
+Box model
+Ex: m-8, p-4, space-x-2, space-y-4, divide-x, border, rounded
+
+Typography
+Ex: text-lg, font-bold, text-center, leading-tight
+
+Background / Border / Effects
+Ex: bg-green-100, border-red-500, shadow-md
+
+State / Misc
+Ex: hover:bg-blue-100, transition, cursor-pointer, select-none
