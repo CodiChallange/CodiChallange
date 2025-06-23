@@ -7,7 +7,6 @@ import {
   SelectContent,
   SelectValue,
 } from '@/Components/ui/select'
-import { useEffect, useState } from 'react'
 
 type User = {
   id: string
