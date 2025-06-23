@@ -1,35 +1,35 @@
-import { Aside } from '@/Components/Aside'
-import { CardsReports } from '@/Components/CardsReports'
-import { TrendingDown, TrendingUp, TrendingUpDown } from 'lucide-react'
+import { Aside } from "@/Components/Aside";
+import { CardsReports } from "@/Components/CardsReports";
+import { TrendingDown, TrendingUp, TrendingUpDown } from "lucide-react";
 
 export function Relatorios() {
   return (
-    <div className='flex h-screen'>
+    <div className="flex h-screen">
       <Aside />
-      <div className='overflow-auto'>
+      <div className="overflow-auto">
         <div>Header- Eduardo</div>
-        <div className='flex flex-row gap-4'>
+        <div className="flex flex-row gap-4">
           <CardsReports
-            title={'Vendas'}
+            title={"Vendas"}
             value={10000}
-            color={'green'}
+            color={"green"}
             icon={TrendingUp}
-            bgColor={'green'}
+            bgColor={"green"}
           />
           <CardsReports
-            title={'Despesas'}
+            title={"Despesas"}
             value={10000}
-            color={'red'}
+            color={"red"}
             icon={TrendingDown}
-            bgColor={'red'}
+            bgColor={"red"}
           />
 
           <CardsReports
-            title={'Balanço'}
+            title={"Balanço"}
             value={10000}
-            color={'blue'}
+            color={"blue"}
             icon={TrendingUpDown}
-            bgColor={'blue'}
+            bgColor={"blue"}
           />
         </div>
         <div>Toggle -Eduardo</div>
@@ -37,5 +37,5 @@ export function Relatorios() {
         <div>Detalhamento -Eduardo</div>
       </div>
     </div>
-  )
+  );
 }
