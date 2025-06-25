@@ -1,5 +1,5 @@
 //Formulário de vendas
-import { DialogContent, DialogTrigger, Dialog } from "../Components/ui/dialog";
+import { DialogContent, DialogTrigger, Dialog, DialogTitle, DialogDescription } from "../Components/ui/dialog";
 import {
   Select,
   SelectContent,
@@ -53,6 +53,7 @@ export function SalesForm() {
     control,
     register,
     formState: { errors },
+    reset
   } = useForm<formSchema>({
     resolver: zodResolver(formSchema),
   });
@@ -61,7 +62,11 @@ export function SalesForm() {
     try {
       console.log(data);
 
+
       toast.success("Venda cadastrada com sucesso!");
+
+      reset();
+
     } catch (error) {
       if (error instanceof Error) {
         console.log(error.message);
@@ -78,6 +83,8 @@ export function SalesForm() {
         </DialogTrigger>
 
         <DialogContent>
+          <DialogTitle>Cadastrar venda</DialogTitle>
+          <DialogDescription>Preencha os dados abaixo para cadastrar uma nova venda</DialogDescription>
           <form onSubmit={handleSubmit(confirmSale)}>
             <label>Modalidade do curso</label>
 
@@ -232,6 +239,6 @@ export function SalesForm() {
           </form>
         </DialogContent>
       </Dialog>
-    </div>
-  );
+    </div>
+  );
 }
