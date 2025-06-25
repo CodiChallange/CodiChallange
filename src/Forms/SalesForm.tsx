@@ -1,174 +1,237 @@
-import { FiUser, FiMail, FiPhone } from 'react-icons/fi'
-import { Button } from '../Components/Button'
-import { Input } from '../Components/Inputs'
-import { useForm } from 'react-hook-form'
+//Formulário de vendas
+import { DialogContent, DialogTrigger, Dialog } from "../Components/ui/dialog";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../Components/ui/select";
+
+import { Input } from "../Components/ui/input";
+import { Button } from "../Components/ui/button";
+
+import { z } from "zod";
+import { useForm, Controller } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+import { toast } from "sonner";
+
+const formSchema = z.object({
+  typeCourse: z.enum(["online", "presencial"], {
+    message: "O campo modalidade de curso é obrigatório",
+  }),
+
+  name: z
+    .string({ message: "O campo nome é obrigatório" })
+    .min(5, { message: "O nome deve conter no mínimo 5 caracteres" }),
+
+  email: z
+    .string({ message: "O campo email é obrigatório" })
+    .email({ message: "Digite um email válido" }),
+
+  phone: z
+    .string({ message: "O campo telefone é obrigatório" })
+    .min(11, { message: "O número deve conter no mínimo 11 dígitos" }),
+
+  grossValue: z.coerce.number({ message: "O campo valor bruto é obrigatório" }),
+
+  discount: z.coerce.number({ message: "O campo desconto é obrigatório" }),
+
+  commission: z.coerce.number({ message: "O campo comissão é obrigatório" }),
+
+  tax: z.coerce.number({ message: "O campo imposto é obrigatório" }),
+
+  cardTax: z.coerce.number({ message: "O campo taxa cartão é obrigatório" }),
+});
+
+type formSchema = z.infer<typeof formSchema>;
 
 export function SalesForm() {
   const {
-    register,
     handleSubmit,
+    control,
+    register,
     formState: { errors },
-  } = useForm()
+  } = useForm<formSchema>({
+    resolver: zodResolver(formSchema),
+  });
 
-  const onSubmit = (data: any) => {
-    console.log(data)
+  async function confirmSale(data: formSchema) {
+    try {
+      console.log(data);
+
+      toast.success("Venda cadastrada com sucesso!");
+    } catch (error) {
+      if (error instanceof Error) {
+        console.log(error.message);
+        toast.error("Erro ao cadastrar venda");
+      }
+    }
   }
 
   return (
-    <>
-      <div className='m-2 p-10 border-3  border-violet-500 rounded-2xl'>
-        <h1 className='text-3xl text-center font-medium'>Cadastro de Vendas</h1>
+    <div>
+      <Dialog>
+        <DialogTrigger asChild>
+          <Button>Nova venda</Button>
+        </DialogTrigger>
 
-        <div className='m-10 flex items-stretch h-screen border-3 border-violet-500 rounded-2xl'>
-          <form className='my-10 mx-auto text-center'>
-            <h1 className='mb-6 font-medium'>Modalidade do Curso</h1>
+        <DialogContent>
+          <form onSubmit={handleSubmit(confirmSale)}>
+            <label>Modalidade do curso</label>
 
-            <select
-              {...register('modality', {
-                validate: (value) => {
-                  return value !== '0'
-                },
-              })}
-            >
-              <option value='0'>Selecione o curso desejado</option>
-              <option value='option1'>FrontEnd (Presencial)</option>
-              <option value='option2'>BackEnd (Presencial)</option>
-              <option value='option3'>FullStack (Presencial)</option>
-            </select>
-            {errors?.modality?.type === 'validate' && (
-              <p className='text-red-500 text-sm text-center'>
-                Curso é obrigatório
-              </p>
-            )}
-
-            <h1 className='mb-6 font-medium'>Dados do Cliente</h1>
-
-            <Input
-              icon={FiUser}
-              type='text'
-              placeholder='Nome Completo'
-              {...register('name', { required: true })}
+            <Controller
+              name="typeCourse"
+              control={control}
+              render={({ field }) => (
+                <Select onValueChange={field.onChange}>
+                  <SelectTrigger className="w-full">
+                    <SelectValue placeholder="Selecione uma modalidade" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="online">Online</SelectItem>
+                    <SelectItem value="presencial">Presencial</SelectItem>
+                  </SelectContent>
+                </Select>
+              )}
             />
-            {errors?.name?.type === 'required' && (
-              <p className='text-red-500 text-sm text-left'>
-                Nome é obrigatório
-              </p>
+            {errors?.typeCourse && (
+              <span className="text-red-500 text-sm text-left">
+                {errors.typeCourse.message}
+              </span>
             )}
 
-            <Input
-              icon={FiMail}
-              type='email'
-              placeholder='E-mail'
-              {...register('email', { required: true })}
-            />
-            {errors?.email?.type === 'required' && (
-              <p className='text-red-500 text-sm text-left'>
-                E-mail é obrigatório
-              </p>
-            )}
-
-            <Input
-              icon={FiPhone}
-              type='number'
-              placeholder='Telefone'
-              {...register('phone', { required: true })}
-            />
-            {errors?.phone?.type === 'required' && (
-              <p className='text-red-500 text-sm text-left'>
-                Telefone é obrigatório
-              </p>
-            )}
-
-            <h1 className='mb-6 font-medium'>Valor da Venda</h1>
-
-            <div className='grid grid-cols-3 gap-4'>
-              <div>
-                <Input
-                  type='number'
-                  placeholder='Valor da Compra'
-                  {...register('price', { required: true })}
-                />
-                {errors?.price?.type === 'required' && (
-                  <p className='text-red-500 text-sm text-left'>
-                    Preço é obrigatório
-                  </p>
-                )}
-              </div>
-
-              <div>
-                <Input
-                  type='number'
-                  placeholder='Desconto'
-                  {...register('discount', { required: true })}
-                />
-                {errors?.discount?.type === 'required' && (
-                  <p className='text-red-500 text-sm text-left'>
-                    Desconto é obrigatório
-                  </p>
-                )}
-              </div>
-
-              <div>
-                <Input
-                  type='number'
-                  placeholder='Valor Bruto'
-                  {...register('value', { required: true })}
-                />
-                {errors?.value?.type === 'required' && (
-                  <p className='text-red-500 text-sm text-left'>
-                    Valor Bruto é obrigatório
-                  </p>
-                )}
-              </div>
+            <div>
+              <label className="text-left">Nome do aluno</label>
+              <Input
+                placeholder="Nome do aluno"
+                type="text"
+                {...register("name")}
+                required
+              />
+              {errors?.name && (
+                <span className="text-red-500 mb-4 text-sm text-left">
+                  {errors.name.message}
+                </span>
+              )}
             </div>
 
-            <h1 className='mb-6 font-medium'>Dados da Venda</h1>
-
-            <div className='grid grid-cols-3 gap-4'>
-              <div>
-                <Input
-                  type='number'
-                  placeholder='Comissão'
-                  {...register('commission', { required: true })}
-                />
-                {errors?.commission?.type === 'required' && (
-                  <p className='text-red-500 text-sm text-left'>
-                    Comissão é obrigatório
-                  </p>
-                )}
-              </div>
-
-              <div>
-                <Input
-                  type='number'
-                  placeholder='Imposto'
-                  {...register('tax', { required: true })}
-                />
-                {errors?.tax?.type === 'required' && (
-                  <p className='text-red-500 text-sm text-left'>
-                    Imposto é obrigatório
-                  </p>
-                )}
-              </div>
-
-              <div>
-                <Input
-                  type='number'
-                  placeholder='Taxa do Cartão'
-                  {...register('cardTax', { required: true })}
-                />
-                {errors?.cardTax?.type === 'required' && (
-                  <p className='text-red-500 text-sm text-left'>
-                    Taxa do Cartão é obrigatório
-                  </p>
-                )}
-              </div>
+            <div>
+              <label htmlFor="">E-mail</label>
+              <Input
+                placeholder="E-mail"
+                type="email"
+                {...register("email")}
+                required
+              />
+              {errors?.email && (
+                <span className="text-red-500 text-sm text-left">
+                  {errors.email.message}
+                </span>
+              )}
             </div>
 
-            <Button onClick={handleSubmit(onSubmit)}>Casdastrar Venda</Button>
+            <div>
+              <label htmlFor="">Telefone</label>
+              <Input
+                placeholder="Telefone"
+                type="tel"
+                {...register("phone")}
+                required
+              />
+              {errors?.phone && (
+                <span className="text-red-500 text-sm text-left">
+                  {errors.phone.message}
+                </span>
+              )}
+            </div>
+
+            <h1 className="m-4 font-medium ">Dados da venda:</h1>
+            <div className="grid grid-cols-2 gap-2">
+              <div>
+                <label htmlFor="">Valor Bruto</label>
+                <Input
+                  placeholder="Valor Bruto"
+                  type="number"
+                  {...register("grossValue")}
+                  required
+                />
+                {errors?.grossValue && (
+                  <span className="text-red-500 text-sm text-left">
+                    {errors.grossValue.message}
+                  </span>
+                )}
+              </div>
+
+              <div>
+                <label htmlFor="">Desconto (%)</label>
+                <Input
+                  placeholder="Desconto"
+                  type="number"
+                  {...register("discount")}
+                  required
+                />
+                {errors.discount && (
+                  <span className="text-red-500 text-sm text-left">
+                    {errors.discount.message}
+                  </span>
+                )}
+              </div>
+
+              <div>
+                <label htmlFor="">Comissão (%)</label>
+                <Input
+                  placeholder="Comissão"
+                  type="number"
+                  {...register("commission")}
+                  required
+                />
+                {errors.commission && (
+                  <span className="text-red-500 text-sm text-left">
+                    {errors.commission.message}
+                  </span>
+                )}
+              </div>
+
+              <div>
+                <label htmlFor="">Imposto</label>
+                <Input
+                  placeholder="Imposto"
+                  type="number"
+                  {...register("tax")}
+                  required
+                />
+                {errors?.tax && (
+                  <span className="text-red-500 text-sm text-left">
+                    {errors.tax.message}
+                  </span>
+                )}
+              </div>
+
+              
+              <div>
+                <label htmlFor="">Taxa do cartão</label>
+                <Input
+                  placeholder="Taxa do cartão"
+                  type="number"
+                  {...register("cardTax")}
+                  required
+                />
+                {errors?.cardTax && (
+                  <span className="text-red-500 text-sm text-left">
+                    {errors.cardTax.message}
+                  </span>
+                )}
+              
+                <Button className="bg-purple-500 hover:bg-purple-600 mt-4 justify-between p-4 cursor-pointer">
+                  Salvar
+                </Button>
+              </div>
+            </div>
           </form>
-        </div>
-      </div>
-    </>
-  )
+        </DialogContent>
+      </Dialog>
+    </div>
+  );
 }
