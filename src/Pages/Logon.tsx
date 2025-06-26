@@ -1,39 +1,92 @@
-import { FiLock, FiMail } from 'react-icons/fi'
-import { Button } from '../Components/Button'
-import { useForm } from 'react-hook-form'
-import { Input } from '../Components/Inputs'
-import CodiLogo from '../assests/CodiLogo.png'
+import { Button } from "@/Components/ui/button";
+import { useForm } from "react-hook-form";
+
+import CodiLogo from "../assests/CodiLogo.png";
+import CodiLogoAside from "../assests/CodiLogoAside.png";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { useNavigate } from "react-router-dom";
+
+import { Mail, LockKeyhole } from "lucide-react";
+
+const formSchema = z.object({
+  email: z
+    .string({ message: "O campo email é obrigatório" })
+    .email({ message: "Digite um email válido" }),
+
+  password: z.string({ message: "O campo senha é obrigatório" }),
+});
+
+type formSchema = z.infer<typeof formSchema>;
 
 export function Logon() {
-  const { register } = useForm()
-  return (
-    <div className='bg-linear-60 from-fuchia-500 to-purple-900 flex h-screen '>
-      <div className='flex w-1/2 items-center flex-col justify-center  '>
-        <img src='' alt='Logo Codi Cash' />
+  const navigate = useNavigate();
 
-        <form className='my-10 w-85  text-amber-100 text-center '>
-          <h1 className='mb-6  text-xl text-[#4b206d] font-bold '>
+  function handleNextDashboard() {
+    navigate("/dashboard");
+  }
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm<formSchema>({
+    resolver: zodResolver(formSchema),
+  });
+  return (
+    <div className="from-fuchia-500 flex h-screen bg-linear-60 to-purple-900">
+      <div className="flex w-1/2 flex-col items-center justify-center">
+        <img src={CodiLogoAside} alt="Logo Codi Cash" />
+
+        <form
+          onSubmit={handleSubmit(Logon)}
+          className="my-10 w-85 text-center text-amber-100"
+        >
+          <h1 className="mb-6 text-xl font-bold text-[#4b206d]">
             Faça seu logon
           </h1>
 
-          <Input
-            icon={FiMail}
-            type='text'
-            placeholder='Email'
-            {...register('email')}
+          <div className="border border-zinc-900 bg-zinc-800 rounded-lg flex items-center gap-3 px-3 py-2 h-14">
+            <Mail/>
+            <input
+          className="bg-transparent flex-1 h-full outline-none"
+            type="email"
+            placeholder="Email"
+            {...register("email")}
+            required
           />
-          <Input
-            icon={FiLock}
-            type='password'
-            placeholder='Senha'
-            {...register('password')}
+          {errors?.email && (
+            <span className="text-left text-sm text-red-500">
+              {errors.email.message}
+            </span>
+          )}
+          </div>
+          
+          <div className="border border-zinc-900 bg-zinc-800 rounded-lg flex items-center gap-3 px-3 py-2 h-14 mt-3">
+            <LockKeyhole/>
+            <input
+          className="bg-transparent flex-1 h-full outline-none"
+            type="password"
+            placeholder="Senha"
+            {...register("password")}
+            required
           />
-          <Button>Login</Button>
+          {errors?.password && (
+            <span className="text-left text-sm text-red-500">
+              {errors.password.message}
+            </span>
+          )}
+          </div>
+          <Button type="button" onClick={handleNextDashboard}
+          className="mt-5 bg-purple-500 hover:bg-purple-600 cursor-pointer w-full h-12"
+          >
+            Login
+          </Button>
         </form>
       </div>
-      <div className='flex  items-center w-1/2 justify-center '>
-        <img src={CodiLogo} alt='' className='w-[600px] h-[600px] ' />
+      <div className="flex w-1/2 items-center justify-center">
+        <img src={CodiLogo} alt="" className="h-[600px] w-[600px]" />
       </div>
     </div>
-  )
+  );
 }
