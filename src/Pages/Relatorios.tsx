@@ -13,6 +13,12 @@ import { Percent, Plus } from "lucide-react";
 
 import { CardsReports } from "@/Components/CardsReports";
 import { TrendingDown, TrendingUp, TrendingUpDown } from "lucide-react";
+import { ChartSaleXEpxenses } from "@/Components/ChartSaleXExpenses";
+import { ChartProfitEvolution } from "@/Components/ChartProfitEvolution";
+import { ChartSaleXExpenseXProfit } from "@/Components/ChartSaleXExpenseXProfit";
+import { ChartExpenseDistribution } from "@/Components/ChartExpenseDistribution";
+import { ChartRevenueByCourseType } from "@/Components/ChartRevenueByCourseType";
+import { ChartTrendAnalysis } from "@/Components/ChartTrendAnalysis";
 
 export function Relatorios() {
   return (
@@ -50,13 +56,14 @@ export function Relatorios() {
           </div>
         </div>
 
-        <div className="flex flex-row gap-4">
+        <div className="grid grid-cols-3 gap-4">
           <CardsReports
             title={"Vendas"}
             value={10000}
             color={"green"}
             icon={TrendingUp}
             bgColor={"green"}
+            percentage={20}
           />
           <CardsReports
             title={"Despesas"}
@@ -64,6 +71,7 @@ export function Relatorios() {
             color={"red"}
             icon={TrendingDown}
             bgColor={"red"}
+            percentage={20}
           />
 
           <CardsReports
@@ -72,6 +80,7 @@ export function Relatorios() {
             color={"blue"}
             icon={TrendingUpDown}
             bgColor={"blue"}
+            percentage={20}
           />
         </div>
         <Tabs defaultValue="Vg" className="w-full text-black">
@@ -83,20 +92,31 @@ export function Relatorios() {
           </TabsList>
           {/* Visao Geral */}
           <TabsContent value="Vg">
-            <div className="flex">
-              <div>Grafico 1 - Jander</div> <div>Grafico 2 - Jander</div>
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <ChartSaleXEpxenses />
+              </div>
+              <div>
+                <ChartProfitEvolution />
+              </div>
             </div>
           </TabsContent>
           {/* Comparativo */}
           <TabsContent value="Cp">
-            <div>Grafico 3 - Jander</div>
+            <div>
+              <ChartSaleXExpenseXProfit />
+            </div>
           </TabsContent>
           {/* Distribuição */}
           <TabsContent value="Ds">
             <div className="flex flex-col">
-              <div className="flex">
-                <div>Grafico 4 - Jander</div>
-                <div>Grafico 5 - Jander</div>
+              <div className="mb-6 grid grid-cols-2 gap-3">
+                <div>
+                  <ChartExpenseDistribution />
+                </div>
+                <div>
+                  <ChartRevenueByCourseType />
+                </div>
               </div>
               {/* Detalhamento de gastos */}
               <div className="flex flex-col gap-4 rounded-lg bg-white p-3">
@@ -165,7 +185,9 @@ export function Relatorios() {
           {/* Tendências */}
           <TabsContent value="Td">
             <div className="flex flex-col">
-              <div>Grafico 6 - Jander </div>
+              <div className="mb-8">
+                <ChartTrendAnalysis />{" "}
+              </div>
               {/* Cards Area */}
               <div className="flex gap-3">
                 <div className="flex w-full flex-col gap-2 rounded-lg border border-green-300 bg-green-100 p-4">
