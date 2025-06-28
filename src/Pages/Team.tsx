@@ -182,12 +182,16 @@ export function Users() {
   {
     /* Sistema de filtro */
   }
+  const [searchTerm, setSearchTerm] = useState('')
   const [selectedCargo, setSelectedCargo] = useState<string>('all')
-  const filteredUsers =
-    selectedCargo === 'all'
-      ? userList
-      : userList.filter((user) => user.cargo === selectedCargo)
+  const filteredUsers = userList.filter((user) => {
+    const matchesCargo = selectedCargo === 'all' || user.cargo === selectedCargo
+    const matchesSearch =
+      user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      user.email.toLowerCase().includes(searchTerm.toLowerCase())
 
+    return matchesCargo && matchesSearch
+  })
   {
     /* Calculos dos totais de membros, membros ativos, departamentos, folha de pagamento */
   }
@@ -234,6 +238,8 @@ export function Users() {
             <Search />
             <input
               type='text'
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
               placeholder='Buscar por nome ou e-mail...'
               className='w-full outline-none'
             />

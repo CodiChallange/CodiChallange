@@ -13,10 +13,9 @@ export function CardSessoes({
   sistema,
   cidade,
   date,
-  id,
 }: sessoesProps) {
   return (
-    <div className='flex  w-full border py-2 px-4 rounded-lg  justify-between '>
+    <div className='flex flex-col md:flex-row  w-full border py-2 px-4 rounded-lg  justify-between '>
       <div className='flex flex-col '>
         <h1 className='font-bold'>{dispositivo}</h1>
         <p className='flex text-gray-500'>
