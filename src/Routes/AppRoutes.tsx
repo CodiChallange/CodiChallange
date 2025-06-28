@@ -7,6 +7,7 @@ import { Configs } from '@/Pages/Configs'
 import { Vendas } from '@/Pages/Vendas'
 import { Relatorios } from '@/Pages/Relatorios'
 import { Gastos } from '@/Pages/Gastos'
+import { ExpensesForm } from '../Forms/ExpensesForm'
 export function AppRoutes() {
   return (
     <BrowserRouter>
@@ -15,6 +16,7 @@ export function AppRoutes() {
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/vendas' element={<SalesForm />} />
         <Route path='/venda' element={<Vendas />} />
+        <Route path='/expenses' element={<ExpensesForm />} />
         <Route path='/relatorios' element={<Relatorios />} />
         <Route path='/users' element={<Users />} />
         <Route path='/gastos' element={<Gastos />} />
