@@ -25,7 +25,7 @@ export function InfoCard({
   return (
     <div>
       {color === "green" && (
-        <Card className="m-8 h-40 w-74 gap-1 text-green-600">
+        <Card className="my-8 flex h-40 w-74 gap-1 text-green-600">
           <CardHeader className="flex flex-row items-center justify-between gap-16">
             {IconMain && <IconMain size={24} className="text-green-600" />}
             <CardTitle className="flex flex-row gap-2">
