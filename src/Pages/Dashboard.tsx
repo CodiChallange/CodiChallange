@@ -23,9 +23,9 @@ import {
 import { FiltroPorPeriodo } from "@/Components/FiltroPorPeriodo";
 import { ToggleButton } from "./ToggleButton";
 
-type Filtro = "semana" | "mes" | "ano";
+type Filter = "week" | "month" | "year";
 export function Dashboard() {
-  const [filtroSelecionado, setFiltroSelecionado] = useState<Filtro>("mes");
+  const [filtroSelecionado, setFiltroSelecionado] = useState<Filter>("month");
 
   //Navegação do card ações rápidas
   const navigate = useNavigate();
@@ -84,7 +84,7 @@ export function Dashboard() {
               Visão geral das finanças da Codi Academy
             </p>
           </div>
-          {/* Filtro por periodo e por data selecionada */}
+          {/* Filter por periodo e por data selecionada */}
           <div className="mr-8 flex flex-row gap-2 sm:flex">
             <FiltroPorPeriodo
               value={filtroSelecionado}
@@ -122,8 +122,8 @@ export function Dashboard() {
         <section className="mx-4 my-8 flex max-w-full flex-col overflow-x-auto rounded-lg border-2 border-purple-200 bg-purple-300 sm:p-6">
           <div className="mb-4 flex w-full justify-end">
             <ToggleButton
-              filtro={filtroSelecionado}
-              setFiltro={setFiltroSelecionado}
+              filter={filtroSelecionado}
+              setFilter={setFiltroSelecionado}
             />
           </div>
         </section>

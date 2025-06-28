@@ -35,11 +35,11 @@ type Despesa = {
   formaPagamento: string;
 };
 type Props = {
-  filtro: "semana" | "mes" | "ano";
+  filter: "week" | "month" | "year";
   tipo: "barChart" | "lineChart";
 };
 
-export function Charts({ filtro, tipo }: Props) {
+export function Charts({ filter, tipo }: Props) {
   // Buscar os dados da API
   const [dados, setDados] = useState<
     { periodo: string; totalVendas: number; totalDespesas: number }[]
@@ -59,12 +59,12 @@ export function Charts({ filtro, tipo }: Props) {
             const data = parseISO(item.data);
 
             let chave = "";
-            if (filtro === "mes") {
+            if (filter === "month") {
               chave = format(data, "MM/yyyy");
-            } else if (filtro === "semana") {
+            } else if (filter === "week") {
               const semana = getISOWeek(data);
               chave = `Semana ${semana} - ${format(data, "MM/yyyy")}`;
-            } else if (filtro === "ano") {
+            } else if (filter === "year") {
               chave = format(data, "yyyy");
             }
 
@@ -82,9 +82,9 @@ export function Charts({ filtro, tipo }: Props) {
         const dadosFormatados = Array.from(todosPeriodos).map((periodo) => {
           let dataSort: Date;
 
-          if (filtro === "ano") {
+          if (filter === "year") {
             dataSort = parseISO(`01/01/${periodo}`);
-          } else if (filtro === "mes") {
+          } else if (filter === "month") {
             // periodo = "MM/yyyy"
             dataSort = parseISO(`01/${periodo}`);
           } else {
@@ -112,7 +112,7 @@ export function Charts({ filtro, tipo }: Props) {
         setDados(dadosFormatados);
       })
       .catch((error) => console.error("Erro ao buscar dados:", error));
-  }, [filtro]);
+  }, [filter]);
 
   function ChartLegendContent() {
     return (

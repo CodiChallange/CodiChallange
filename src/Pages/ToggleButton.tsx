@@ -1,34 +1,34 @@
-import { Charts } from '@/Components/Charts'
-import { ToggleGroup, ToggleGroupItem } from '@/Components/ui/toggle-group'
-import { useState } from 'react'
+import { Charts } from "@/Components/Charts";
+import { ToggleGroup, ToggleGroupItem } from "@/Components/ui/toggle-group";
+import { useState } from "react";
 
 interface Props {
-  filtro: 'semana' | 'mes' | 'ano'
-  setFiltro: React.Dispatch<React.SetStateAction<'semana' | 'mes' | 'ano'>>
+  filter: "week" | "month" | "year";
+  setFilter: React.Dispatch<React.SetStateAction<"week" | "month" | "year">>;
 }
 //Componente que exibe o gráfico com base no valor selecionado
-export function ToggleButton({ filtro, setFiltro }: Props) {
-  const [chartType, setChartType] = useState<'barChart' | 'lineChart'>(
-    'barChart'
-  )
+export function ToggleButton({ filter, setFilter }: Props) {
+  const [chartType, setChartType] = useState<"barChart" | "lineChart">(
+    "barChart",
+  );
 
   return (
-    <div className='flex items-center flex-col  space-x-1'>
-      <div className=' w-328 flex justify-end'>
+    <div className="flex flex-col items-center space-x-1">
+      <div className="flex w-328 justify-end">
         <ToggleGroup
-          type='single'
+          type="single"
           value={chartType}
           onValueChange={(value) => {
-            if (value) setChartType(value as 'barChart' | 'lineChart')
+            if (value) setChartType(value as "barChart" | "lineChart");
           }}
         >
-          <ToggleGroupItem value='barChart' className='bg-purple-500 '>
+          <ToggleGroupItem value="barChart" className="bg-purple-500">
             Bar Chart
           </ToggleGroupItem>
           <ToggleGroupItem
-            className='bg-purple-500 '
-            value='lineChart'
-            disabled={chartType === 'barChart' ? false : true}
+            className="bg-purple-500"
+            value="lineChart"
+            disabled={chartType === "barChart" ? false : true}
           >
             Line Chart
           </ToggleGroupItem>
@@ -36,9 +36,9 @@ export function ToggleButton({ filtro, setFiltro }: Props) {
       </div>
 
       {/* Exibe o gráfico com base no valor selecionado */}
-      <div className=' mt-4 w-328 h-auto'>
-        <Charts filtro={filtro} tipo={chartType} />
+      <div className="mt-4 h-auto w-328">
+        <Charts filter={filter} tipo={chartType} />
       </div>
     </div>
-  )
+  );
 }
