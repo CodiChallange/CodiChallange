@@ -57,7 +57,7 @@ export function Aside() {
   return (
     <aside
       className={`flex flex-col items-center  justify-between bg-white shadow-md transition-all duration-300 ${
-        isOpen ? 'w-72' : 'w-20'
+        isOpen ? 'w-72 absolute h-full md:relative' : 'w-20'
       }`}
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
@@ -67,7 +67,9 @@ export function Aside() {
         <div className='flex items-center justify-center h-16 border-b  '>
           {isOpen ? (
             <div className='flex items-center gap-3'>
-              <img src={CodiIcon} alt='' className='w-[40px] h-[40px] ' />
+              <button onClick={() => setIsOpen(!isOpen)}>
+                <img src={CodiIcon} alt='' className='w-[40px] h-[40px] ' />
+              </button>
               <div className='flex flex-col items-baseline'>
                 <h1 className='text-[18px] font-bold text-[#A243D2] flex justify-center items-center gap-2'>
                   Codi Cash

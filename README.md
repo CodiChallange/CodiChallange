@@ -1,95 +1,87 @@
-# React + TypeScript + Vite
+# Nome do Projeto
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Dashbord de controle financeiro feito para o Codi Challange Frontend de 2025 da turma noturna da unidade Rio branco
 
-Currently, two official plugins are available:
+## 🛠️ Tecnologias Utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Vite](https://vitejs.dev/)
 
-## Expanding the ESLint configuration
+## 🚀 Como rodar o projeto
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Pré-requisitos
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- [Node.js](https://nodejs.org/) instalado
+- [Git](https://git-scm.com/) instalado
+
+### Passo a passo
+
+```bash
+# Clone o repositório
+git clone https://github.com/CodiChallange/CodiChallange.git
+
+# Acesse a pasta do projeto
+cd CodiCHallange
+
+# Instale as dependências
+npm install
+
+# Inicie o servidor de desenvolvimento
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📂 Estrutura de Pastas
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```
+├── mock/
+│   ├── db.json/
+├── node_modules/
+├── src/
+│   ├── assets/
+│   ├── Components/
+│   │   ├── modal/
+│   │   ├── ui/
+│   ├── Forms/
+│   ├── http/
+│   ├── lib/
+│   ├── Pages/
+│   ├── Routes/
+│   ├── Services/
+│   ├── App.tsx/
+│   ├── index.css/
+│   └── main.tsx
+└── .gitignore
+...
 ```
 
-Nosso sistema tera apenas uma tela de login sem cadastro e sem esqueci senha
-Separação:
-Raila-header, suporte ao design
-Max - Grafico Despesas form
-Vanessa - vendas form
-Gabriel - pagina de receitas
-Helisson- modais
-Jander- supervisão -Dashboard
-Eduardo - Despesas form
-lucas- supervisão suporte
+## 📌 Funcionalidades
 
-Color piker Codi
-#6EC1E4 - PRIMARY
-#54595F - SECUNDARY
-#A243D2 - CODI
-#111827 - GRAY-900
-#1F2937 - GRAY-800
-#F3F5F5 - GRAY-100
-#D0B6DE - CODI SECONDARY
+- ✅ Controle de Gastos
+- ✅ Controle de Vendas
+- ✅ Gerenciamento de Equipe
+- ✅ Folha de Pagamento
+- 🚧 Banco de Dados _(em desenvolvimento)_
 
-📚 CATEGORIAS PADRÃO DE ORGANIZAÇÃO (recomendada pela comunidade Tailwind)
-A maioria dos devs organiza as classes Tailwind nesta ordem:
+## 📸 Demonstração
 
-Layout
-Ex: block, flex, grid, container, relative, absolute, w-..., h-...
+![Demonstração do Projeto]()
+![Demonstração do Projeto]()
+![Demonstração do Projeto]()
 
-Flex/Grid child alignment
-Ex: items-center, justify-between, gap-4, place-items-center
+## 🤝 Contribuição
 
-Box model
-Ex: m-8, p-4, space-x-2, space-y-4, divide-x, border, rounded
+Contribuições são bem-vindas!  
+Siga os passos abaixo:
 
-Typography
-Ex: text-lg, font-bold, text-center, leading-tight
+1. Faça um fork do projeto
+2. Crie uma branch com sua feature: `git checkout -b minha-feature`
+3. Faça commit das suas alterações: `git commit -m 'feat: Minha nova feature'`
+4. Envie para o repositório remoto: `git push origin minha-feature`
+5. Abra um Pull Request
 
-Background / Border / Effects
-Ex: bg-green-100, border-red-500, shadow-md
+---
 
-State / Misc
-Ex: hover:bg-blue-100, transition, cursor-pointer, select-none
+> Feito com 💙 por  
+> [Eduardo Hill Fávero](https://github.com/EduardoHill) • [Jander Figueiredo](https://github.com/Janderff) • [Lucas Crisostomo](https://github.com/cr1sostomo) • [Gabriel](https://github.com/HiiroHK) • [Vanessa](https://github.com/vanessamuels) • [Hellisson](https://github.com/EduardoHill) • [Max](https://github.com/Janderff) • [Raila](https://github.com/cr1sostomo)

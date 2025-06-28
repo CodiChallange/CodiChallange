@@ -108,7 +108,7 @@ export function Configs() {
 
         {/* Select area */}
         <Tabs defaultValue='account' className='w-full '>
-          <TabsList className='flex bg-gray-200 w-full h-fit '>
+          <TabsList className='grid grid-cols-2 bg-gray-200 w-full h-fit md:grid-cols-4 '>
             <TabsTrigger value='account' className='cursor-pointer py-2'>
               <User /> Perfil
             </TabsTrigger>
@@ -145,7 +145,7 @@ export function Configs() {
               {/* Area dos inputs */}
               <div className='flex flex-col gap-8'>
                 {/* Primeiro Grupo */}
-                <div className='flex gap-9'>
+                <div className='flex flex-col md:flex-row gap-9'>
                   {/* Nome */}
                   <div className='flex flex-col w-full'>
                     <label>Nome completo</label>
@@ -164,7 +164,7 @@ export function Configs() {
                   </div>
                 </div>
                 {/* Segundo Grupo */}
-                <div className='flex gap-9'>
+                <div className='flex flex-col md:flex-row gap-9'>
                   {/* Telefone */}
                   <div className='flex flex-col w-full'>
                     <label>Telefone</label>
@@ -184,8 +184,8 @@ export function Configs() {
                 </div>
               </div>
               {/* Button */}
-              <div className='flex  justify-end  '>
-                <button className='flex gap-3 w-fit bg-[#A243D2] py-2 px-3 rounded-lg cursor-pointer font-bold'>
+              <div className='flex  justify-center md:justify-end  '>
+                <button className='flex gap-3 w-fit text-white bg-[#A243D2] py-2 px-3 rounded-lg cursor-pointer font-bold'>
                   <Save />
                   Salvar Mudanças
                 </button>
@@ -196,11 +196,11 @@ export function Configs() {
           {/* Conteudo de notificações */}
           <TabsContent value='notification'>
             <div className='bg-white w-full flex flex-col rounded-lg py-7 px-12 gap-5'>
-              <h1 className='text-black flex text-3xl font-semibold items-center gap-2'>
+              <h1 className='text-black flex text-2xl md:text-3xl font-semibold items-center gap-2'>
                 <Bell size={32} />
                 Preferências de Notificação
               </h1>
-              <span className='font-semibold text-2xl'>
+              <span className='font-semibold text-lg  md:text-2xl'>
                 Notificações por E-mail
               </span>
 
@@ -215,9 +215,7 @@ export function Configs() {
                     </span>
                   </div>
                   <div>
-                    <Switch className='w-12 h-7 px-1'>
-                      <div className='pointer-events-none left-1 top-1 h-5 w-5 rounded-full bg-white transition-transform  ' />
-                    </Switch>
+                    <Switch />
                   </div>
                 </div>
 
@@ -230,9 +228,7 @@ export function Configs() {
                     </span>
                   </div>
                   <div>
-                    <Switch className='w-12 h-7 px-1'>
-                      <div className='pointer-events-none left-1 top-1 h-5 w-5 rounded-full bg-white transition-transform  ' />
-                    </Switch>
+                    <Switch />
                   </div>
                 </div>
 
@@ -245,9 +241,7 @@ export function Configs() {
                     </span>
                   </div>
                   <div>
-                    <Switch className='w-12 h-7 px-1'>
-                      <div className='pointer-events-none left-1 top-1 h-5 w-5 rounded-full bg-white transition-transform  ' />
-                    </Switch>
+                    <Switch />
                   </div>
                 </div>
               </div>
@@ -268,9 +262,7 @@ export function Configs() {
                         </span>
                       </div>
                       <div>
-                        <Switch className='w-12 h-7 px-1'>
-                          <div className='pointer-events-none left-1 top-1 h-5 w-5 rounded-full bg-white transition-transform  ' />
-                        </Switch>
+                        <Switch />
                       </div>
                     </div>
                     {/* Despesas */}
@@ -282,9 +274,7 @@ export function Configs() {
                         </span>
                       </div>
                       <div>
-                        <Switch className='w-12 h-7 px-1'>
-                          <div className='pointer-events-none left-1 top-1 h-5 w-5 rounded-full bg-white transition-transform  ' />
-                        </Switch>
+                        <Switch />
                       </div>
                     </div>
                   </div>
@@ -292,7 +282,7 @@ export function Configs() {
               </div>
               {/* button */}
               <div className='flex  justify-end  '>
-                <button className='flex gap-3 w-fit bg-[#A243D2] py-2 px-3 rounded-lg cursor-pointer font-bold'>
+                <button className='flex gap-3 w-fit text-white bg-[#A243D2] py-2 px-3 rounded-lg cursor-pointer font-bold'>
                   <Save />
                   Salvar Mudanças
                 </button>
@@ -315,18 +305,18 @@ export function Configs() {
               <div className='flex flex-col gap-5 border-b pb-8'>
                 <h1 className='font-bold text-[20px] '>Alterar Senha</h1>
                 {/* Primeira linha */}
-                <div className='flex justify-between gap-3'>
+                <div className='flex flex-col md:flex-row justify-between gap-3'>
                   {/* Senha atual */}
-                  <div className='flex flex-col w-1/2'>
+                  <div className='flex flex-col w-full md:w-1/2'>
                     <label className='font-semibold'> Senha Atual</label>
                     <input
                       type='text'
                       placeholder='Digite sua senha atual'
-                      className='border rounded-lg w-full p-2'
+                      className='border rounded-lg w-full p-2 '
                     />
                   </div>
                   {/* Nova senha */}
-                  <div className='flex flex-col w-1/2'>
+                  <div className='flex flex-col w-full md:w-1/2'>
                     <label> Nova Senha</label>
                     <input
                       type='text'
@@ -337,7 +327,7 @@ export function Configs() {
                 </div>
 
                 {/* Segunda Linha */}
-                <div className='flex flex-col w-1/2'>
+                <div className='flex flex-col w-full md:w-1/2'>
                   <label className='font-semibold'> Confirmar Nova Senha</label>
                   <input
                     type='text'
@@ -365,7 +355,7 @@ export function Configs() {
               </div>
 
               {/* Button */}
-              <div className='flex gap-3 justify-end'>
+              <div className='flex flex-col md:flex-row gap-3 justify-end'>
                 <button className='font-semibold py-3 px-4 border rounded-lg cursor-pointer hover:bg-gray-100'>
                   Desconectar Todos
                 </button>
@@ -450,7 +440,7 @@ export function Configs() {
                 <div className='flex flex-col gap-2'>
                   <div className='flex gap-2'>
                     {/* Status */}
-                    <div className='flex flex-col border rounded-lg p-5 w-1/2'>
+                    <div className='flex flex-col items-center justify-center border rounded-lg p-5 w-1/2'>
                       <span className='text-gray-500'>Status</span>
                       <span
                         className={`${
@@ -465,8 +455,8 @@ export function Configs() {
                       </span>
                     </div>
                     {/* Ultima sincronização */}
-                    <div className='flex flex-col border rounded-lg p-5 w-1/2'>
-                      <span className='text-gray-500'>
+                    <div className='flex flex-col items-center justify-center border rounded-lg p-5 w-1/2'>
+                      <span className='text-gray-500 text-[12px]'>
                         Última Sincronização
                       </span>
                       <span className='font-bold'>
@@ -476,7 +466,7 @@ export function Configs() {
                   </div>
                   <div className='flex gap-2'>
                     {/* Vendas do Mês */}
-                    <div className='flex flex-col border rounded-lg p-5 w-1/2'>
+                    <div className='flex flex-col items-center justify-center border rounded-lg p-5 w-1/2'>
                       <span className='text-gray-500'>Vendas do Mês</span>
                       <span className='font-bold'>
                         {unidadeSelecionada?.vendas.toLocaleString('pt-BR', {
@@ -486,7 +476,7 @@ export function Configs() {
                       </span>
                     </div>
                     {/* Funcionarios */}
-                    <div className='flex flex-col border rounded-lg p-5 w-1/2'>
+                    <div className='flex flex-col items-center justify-center border rounded-lg p-5 w-1/2'>
                       <span className='text-gray-500'>Funcionários</span>
                       <span className='font-bold'>
                         {unidadeSelecionada?.funcionarios}
