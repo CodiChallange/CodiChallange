@@ -1,29 +1,24 @@
 "use client";
-import { TrendingUp } from "lucide-react";
+
 import { Pie, PieChart } from "recharts";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/Components/ui/card";
+import tailwindcss from "tailwindcss/colors";
+import { Card, CardContent, CardHeader, CardTitle } from "@/Components/ui/card";
 import {
   ChartContainer,
-  ChartLegend,
-  ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent,
   type ChartConfig,
 } from "@/Components/ui/chart";
 export const description = "A pie chart with a custom label";
 const chartData = [
-  { gastos: "aluguel", valor: 275, fill: "var(--color-aluguel)" },
-  { gastos: "luz", valor: 200, fill: "var(--color-luz)" },
-  { gastos: "agua", valor: 187, fill: "var(--color-agua)" },
-  { gastos: "internet", valor: 173, fill: "var(--color-internet)" },
-  { gastos: "outros", valor: 90, fill: "var(--color-outros)" },
+  { gastos: "Aluguel", valor: 275, fill: tailwindcss.purple[500] },
+  { gastos: "Folha de Pagamento", valor: 200, fill: tailwindcss.red[500] },
+  { gastos: "Energia", valor: 187, fill: tailwindcss.yellow[500] },
+  { gastos: "Internet", valor: 173, fill: tailwindcss.green[500] },
+  { gastos: "Manutenção", valor: 90, fill: tailwindcss.blue[500] },
+  { gastos: "Suprimentos", valor: 45, fill: tailwindcss.indigo[500] },
+  { gastos: "Marketing", valor: 30, fill: tailwindcss.emerald[500] },
+  { gastos: "Outros", valor: 10, fill: tailwindcss.zinc[500] },
 ];
 const chartConfig = {
   valor: {
@@ -33,21 +28,33 @@ const chartConfig = {
     label: "Aluguel",
     color: "var(--chart-1)",
   },
-  luz: {
-    label: "Luz",
+  "Folha-de Pagamento": {
+    label: "Folha de Pagamento",
     color: "var(--chart-2)",
   },
-  agua: {
-    label: "Agua",
+  Energia: {
+    label: "Energia",
     color: "var(--chart-3)",
   },
   internet: {
     label: "Internet",
     color: "var(--chart-4)",
   },
+  manutenção: {
+    label: "Manutenção",
+    color: "var(--chart-5)",
+  },
+  suprimentos: {
+    label: "Suprimentos",
+    color: "var(--chart-6)",
+  },
+  marketing: {
+    label: "Marketing",
+    color: "var(--chart-7)",
+  },
   outros: {
     label: "Outros",
-    color: "var(--chart-5)",
+    color: "var(--chart-8)",
   },
 } satisfies ChartConfig;
 export function ChartExpenseDistribution() {
@@ -59,7 +66,7 @@ export function ChartExpenseDistribution() {
       <CardContent className="flex-1 pb-0">
         <ChartContainer
           config={chartConfig}
-          className="mx-auto aspect-square max-h-[250px] px-0"
+          className="mx-auto aspect-square max-h-[250px] w-100 px-0"
         >
           <PieChart>
             <ChartTooltip
