@@ -25,7 +25,7 @@ export function InfoCard({
   return (
     <div>
       {color === "green" && (
-        <Card className="my-8 flex h-40 w-74 gap-1 text-green-600">
+        <Card className="my-8 h-40 gap-1 text-green-600">
           <CardHeader className="flex flex-row items-center justify-between gap-16">
             {IconMain && <IconMain size={24} className="text-green-600" />}
             <CardTitle className="flex w-20 flex-row justify-center gap-2 rounded-3xl border-1 border-emerald-600 bg-emerald-100">
@@ -43,7 +43,7 @@ export function InfoCard({
       )}
 
       {color === "red" && (
-        <Card className="m-8 h-40 w-74 gap-1 text-red-600">
+        <Card className="my-8 h-40 gap-1 text-red-600">
           <CardHeader className="flex flex-row items-center justify-between gap-16">
             {IconMain && <IconMain size={24} className="text-red-600" />}
             <CardTitle className="flex w-20 flex-row justify-center gap-2 rounded-3xl border-1 border-red-600 bg-red-100">
@@ -60,7 +60,7 @@ export function InfoCard({
         </Card>
       )}
       {color === "blue" && (
-        <Card className="m-8 h-40 w-74 gap-1 text-blue-600">
+        <Card className="my-8 h-40 gap-1 text-blue-600">
           <CardHeader className="flex flex-row items-center justify-between gap-16">
             {IconMain && <IconMain size={24} className="text-blue-600" />}
             <CardTitle className="flex w-20 flex-row justify-center gap-2 rounded-3xl border-1 border-sky-600 bg-sky-100">

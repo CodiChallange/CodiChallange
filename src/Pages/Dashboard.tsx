@@ -89,7 +89,7 @@ export function Dashboard() {
           </div>
         </div>
         {/* Cards de resumos */}
-        <section className="m-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <section className="mx-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           <InfoCard
             iconMain={TrendingUp}
             iconSecundary={ChartNoAxesCombined}
