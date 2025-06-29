@@ -23,6 +23,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/Components/ui/table";
+import { SalesForm } from "@/Forms/SalesForm";
 import { FilterIcon, Search, SquarePen, Trash2 } from "lucide-react";
 
 export function Vendas() {
@@ -38,9 +39,7 @@ export function Vendas() {
             </p>
           </div>
           <div>
-            <button className="flex gap-2 rounded-lg bg-[#A243D2] px-5 py-3 text-white">
-              <span>+ Nova venda</span>
-            </button>
+            <SalesForm />
           </div>
         </div>
 

@@ -1,5 +1,11 @@
 //Formulário de vendas
-import { DialogContent, DialogTrigger, Dialog, DialogTitle, DialogDescription } from "../Components/ui/dialog";
+import {
+  DialogContent,
+  DialogTrigger,
+  Dialog,
+  DialogTitle,
+  DialogDescription,
+} from "../Components/ui/dialog";
 import {
   Select,
   SelectContent,
@@ -53,7 +59,7 @@ export function SalesForm() {
     control,
     register,
     formState: { errors },
-    reset
+    reset,
   } = useForm<formSchema>({
     resolver: zodResolver(formSchema),
   });
@@ -62,11 +68,9 @@ export function SalesForm() {
     try {
       console.log(data);
 
-
       toast.success("Venda cadastrada com sucesso!");
 
       reset();
-
     } catch (error) {
       if (error instanceof Error) {
         console.log(error.message);
@@ -79,12 +83,16 @@ export function SalesForm() {
     <div>
       <Dialog>
         <DialogTrigger asChild>
-          <Button>Nova venda</Button>
+          <Button className="flex h-12 w-45 gap-2 rounded-lg bg-[#A243D2] px-5 py-3 text-white">
+            <span>+ Nova venda</span>
+          </Button>
         </DialogTrigger>
 
         <DialogContent>
           <DialogTitle>Cadastrar venda</DialogTitle>
-          <DialogDescription>Preencha os dados abaixo para cadastrar uma nova venda</DialogDescription>
+          <DialogDescription>
+            Preencha os dados abaixo para cadastrar uma nova venda
+          </DialogDescription>
           <form onSubmit={handleSubmit(confirmSale)}>
             <label>Modalidade do curso</label>
 
@@ -104,7 +112,7 @@ export function SalesForm() {
               )}
             />
             {errors?.typeCourse && (
-              <span className="text-red-500 text-sm text-left">
+              <span className="text-left text-sm text-red-500">
                 {errors.typeCourse.message}
               </span>
             )}
@@ -118,7 +126,7 @@ export function SalesForm() {
                 required
               />
               {errors?.name && (
-                <span className="text-red-500 mb-4 text-sm text-left">
+                <span className="mb-4 text-left text-sm text-red-500">
                   {errors.name.message}
                 </span>
               )}
@@ -133,7 +141,7 @@ export function SalesForm() {
                 required
               />
               {errors?.email && (
-                <span className="text-red-500 text-sm text-left">
+                <span className="text-left text-sm text-red-500">
                   {errors.email.message}
                 </span>
               )}
@@ -148,13 +156,13 @@ export function SalesForm() {
                 required
               />
               {errors?.phone && (
-                <span className="text-red-500 text-sm text-left">
+                <span className="text-left text-sm text-red-500">
                   {errors.phone.message}
                 </span>
               )}
             </div>
 
-            <h1 className="m-4 font-medium ">Dados da venda:</h1>
+            <h1 className="m-4 font-medium">Dados da venda:</h1>
             <div className="grid grid-cols-2 gap-2">
               <div>
                 <label htmlFor="">Valor Bruto</label>
@@ -165,7 +173,7 @@ export function SalesForm() {
                   required
                 />
                 {errors?.grossValue && (
-                  <span className="text-red-500 text-sm text-left">
+                  <span className="text-left text-sm text-red-500">
                     {errors.grossValue.message}
                   </span>
                 )}
@@ -180,7 +188,7 @@ export function SalesForm() {
                   required
                 />
                 {errors.discount && (
-                  <span className="text-red-500 text-sm text-left">
+                  <span className="text-left text-sm text-red-500">
                     {errors.discount.message}
                   </span>
                 )}
@@ -195,7 +203,7 @@ export function SalesForm() {
                   required
                 />
                 {errors.commission && (
-                  <span className="text-red-500 text-sm text-left">
+                  <span className="text-left text-sm text-red-500">
                     {errors.commission.message}
                   </span>
                 )}
@@ -210,13 +218,12 @@ export function SalesForm() {
                   required
                 />
                 {errors?.tax && (
-                  <span className="text-red-500 text-sm text-left">
+                  <span className="text-left text-sm text-red-500">
                     {errors.tax.message}
                   </span>
                 )}
               </div>
 
-              
               <div>
                 <label htmlFor="">Taxa do cartão</label>
                 <Input
@@ -226,12 +233,12 @@ export function SalesForm() {
                   required
                 />
                 {errors?.cardTax && (
-                  <span className="text-red-500 text-sm text-left">
+                  <span className="text-left text-sm text-red-500">
                     {errors.cardTax.message}
                   </span>
                 )}
-              
-                <Button className="bg-purple-500 hover:bg-purple-600 mt-4 justify-between p-4 cursor-pointer">
+
+                <Button className="mt-4 cursor-pointer justify-between bg-purple-500 p-4 hover:bg-purple-600">
                   Salvar
                 </Button>
               </div>
@@ -239,6 +246,7 @@ export function SalesForm() {
           </form>
         </DialogContent>
       </Dialog>
-    </div>
-  );
+         
+    </div>
+  );
 }
