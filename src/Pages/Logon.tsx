@@ -46,39 +46,41 @@ export function Logon() {
             Faça seu logon
           </h1>
 
-          <div className="border border-zinc-900 bg-zinc-800 rounded-lg flex items-center gap-3 px-3 py-2 h-14">
-            <Mail/>
+          <div className="flex h-14 items-center gap-3 rounded-lg border border-zinc-900 bg-zinc-800 px-3 py-2">
+            <Mail />
             <input
-          className="bg-transparent flex-1 h-full outline-none"
-            type="email"
-            placeholder="Email"
-            {...register("email")}
-            required
-          />
-          {errors?.email && (
-            <span className="text-left text-sm text-red-500">
-              {errors.email.message}
-            </span>
-          )}
+              className="h-full flex-1 bg-transparent outline-none"
+              type="email"
+              placeholder="Email"
+              {...register("email")}
+              required
+            />
+            {errors?.email && (
+              <span className="text-left text-sm text-red-500">
+                {errors.email.message}
+              </span>
+            )}
           </div>
-          
-          <div className="border border-zinc-900 bg-zinc-800 rounded-lg flex items-center gap-3 px-3 py-2 h-14 mt-3">
-            <LockKeyhole/>
+
+          <div className="mt-3 flex h-14 items-center gap-3 rounded-lg border border-zinc-900 bg-zinc-800 px-3 py-2">
+            <LockKeyhole />
             <input
-          className="bg-transparent flex-1 h-full outline-none"
-            type="password"
-            placeholder="Senha"
-            {...register("password")}
-            required
-          />
-          {errors?.password && (
-            <span className="text-left text-sm text-red-500">
-              {errors.password.message}
-            </span>
-          )}
+              className="h-full flex-1 bg-transparent outline-none"
+              type="password"
+              placeholder="Senha"
+              {...register("password")}
+              required
+            />
+            {errors?.password && (
+              <span className="text-left text-sm text-red-500">
+                {errors.password.message}
+              </span>
+            )}
           </div>
-          <Button type="button" onClick={handleNextDashboard}
-          className="mt-5 bg-purple-500 hover:bg-purple-600 cursor-pointer w-full h-12"
+          <Button
+            type="button"
+            onClick={handleNextDashboard}
+            className="mt-5 h-12 w-full cursor-pointer bg-purple-500 hover:bg-purple-600"
           >
             Login
           </Button>

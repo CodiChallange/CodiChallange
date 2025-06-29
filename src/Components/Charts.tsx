@@ -19,14 +19,14 @@ import axios from "axios";
 import { parseISO, format, getISOWeek } from "date-fns";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
-type Venda = {
+type Sale = {
   id: string;
   nome: string;
   curso: string;
   valor: number;
   data: string;
 };
-type Despesa = {
+type Expense = {
   id: string;
   descricao: string;
   valor: number;
@@ -47,12 +47,12 @@ export function Charts({ filter, tipo }: Props) {
 
   useEffect(() => {
     Promise.all([
-      axios.get<Venda[]>("http://localhost:3000/Vendas"),
-      axios.get<Despesa[]>("http://localhost:3000/despesas"),
+      axios.get<Sale[]>("http://localhost:3000/Vendas"),
+      axios.get<Expense[]>("http://localhost:3000/despesas"),
     ])
       .then(([resVendas, resDespesas]) => {
-        const vendas: Venda[] = resVendas.data;
-        const despesas: Despesa[] = resDespesas.data;
+        const vendas: Sale[] = resVendas.data;
+        const despesas: Expense[] = resDespesas.data;
         // Agrupar por mês (formato MM/yyyy)
         const agrupado = (items: { data: string; valor: number }[]) => {
           return items.reduce((acc: Record<string, number>, item) => {
@@ -126,9 +126,9 @@ export function Charts({ filter, tipo }: Props) {
           fontSize: 12,
         }}
       >
-        <span style={{ color: "#6366F1" }}>⬤ Vendas</span>
-        <span style={{ color: "#10B981" }}>⬤ Despesas</span>
-        <span style={{ color: "#F87171" }}>⬤ Balanço</span>
+        <span style={{ color: "#10B981" }}>⬤ Vendas Consolidadas</span>
+        <span style={{ color: "#EF4444" }}>⬤ Despesas Consolidadas</span>
+        <span style={{ color: "#6366F1" }}>⬤ Resultado Consolidado</span>
       </div>
     );
   }
@@ -138,7 +138,7 @@ export function Charts({ filter, tipo }: Props) {
       {tipo === "barChart" && (
         <Card className="ml-70 h-[42.2rem] w-260 max-w-full overflow-x-auto md:h-[50vh] lg:h-[80vh]">
           <CardHeader>
-            <CardTitle>Bar Chart</CardTitle>
+            <CardTitle>Receitas vs Despesas vs Lucro </CardTitle>
           </CardHeader>
           <CardContent className="max-w-full">
             <ChartContainer config={{}} className="min-h-[200px] w-full">
@@ -150,9 +150,9 @@ export function Charts({ filter, tipo }: Props) {
                   <XAxis dataKey="periodo" />
 
                   <ChartLegend content={<ChartLegendContent />} />
-                  <Bar dataKey="totalVendas" fill="#6366F1" name="Vendas" />
-                  <Bar dataKey="totalDespesas" fill="#10B981" name="Despesas" />
-                  <Bar dataKey="balanco" fill="#F87171" name="Balanco" />
+                  <Bar dataKey="totalVendas" fill="#10B981" name="Vendas" />
+                  <Bar dataKey="totalDespesas" fill="#F87171" name="Despesas" />
+                  <Bar dataKey="balanco" fill="#6366F1" name="Balanco" />
                 </BarChart>
               </ResponsiveContainer>
             </ChartContainer>
@@ -162,7 +162,7 @@ export function Charts({ filter, tipo }: Props) {
       {tipo === "lineChart" && (
         <Card className="ml-70 h-170 w-260 max-w-full overflow-x-auto">
           <CardHeader>
-            <CardTitle>Line Chart</CardTitle>
+            <CardTitle>Tendência de Crescimento</CardTitle>
           </CardHeader>
           <CardContent>
             <ChartContainer config={{}}>
@@ -174,7 +174,6 @@ export function Charts({ filter, tipo }: Props) {
                   right: 12,
                 }}
               >
-                <ChartLegend content={<ChartLegendContent />} />
                 <CartesianGrid vertical={false} />
                 <XAxis dataKey="periodo" />
                 <ChartTooltip
@@ -185,42 +184,7 @@ export function Charts({ filter, tipo }: Props) {
                 <Line
                   dataKey="totalVendas"
                   type="natural"
-                  stroke="#6366F1"
-                  strokeWidth={2}
-                  dot={{
-                    fill: "var(--color-desktop)",
-                  }}
-                  activeDot={{
-                    r: 6,
-                  }}
-                >
-                  <LabelList
-                    position="top"
-                    offset={12}
-                    className="fill-foreground"
-                    fontSize={12}
-                  />
-                </Line>
-                <Line
-                  dataKey="totalDespesas"
-                  type="natural"
                   stroke="#10B981"
-                  strokeWidth={2}
-                  dot={{
-                    fill: "var(--color-desktop)",
-                  }}
-                >
-                  <LabelList
-                    position="top"
-                    offset={12}
-                    className="fill-foreground"
-                    fontSize={12}
-                  />
-                </Line>
-                <Line
-                  dataKey="balanco"
-                  type="natural"
-                  stroke="#F87171"
                   strokeWidth={2}
                   dot={{
                     fill: "var(--color-desktop)",

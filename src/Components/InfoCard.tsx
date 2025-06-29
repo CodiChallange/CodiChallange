@@ -28,11 +28,11 @@ export function InfoCard({
         <Card className="my-8 flex h-40 w-74 gap-1 text-green-600">
           <CardHeader className="flex flex-row items-center justify-between gap-16">
             {IconMain && <IconMain size={24} className="text-green-600" />}
-            <CardTitle className="flex flex-row gap-2">
+            <CardTitle className="flex w-20 flex-row justify-center gap-2 rounded-3xl border-1 border-emerald-600 bg-emerald-100">
               {IconSecondary && (
                 <IconSecondary size={16} className="text-green-600" />
               )}{" "}
-              {valorFormatado}
+              <span className="text-center text-green-600">5%</span>
             </CardTitle>
           </CardHeader>
           <CardContent className="mt-4 flex flex-col justify-center">
@@ -46,11 +46,11 @@ export function InfoCard({
         <Card className="m-8 h-40 w-74 gap-1 text-red-600">
           <CardHeader className="flex flex-row items-center justify-between gap-16">
             {IconMain && <IconMain size={24} className="text-red-600" />}
-            <CardTitle className="flex flex-row gap-2">
+            <CardTitle className="flex w-20 flex-row justify-center gap-2 rounded-3xl border-1 border-red-600 bg-red-100">
               {IconSecondary && (
                 <IconSecondary size={16} className="text-red-600" />
               )}{" "}
-              {valorFormatado}
+              <span>2,2%</span>
             </CardTitle>
           </CardHeader>
           <CardContent className="mt-4 flex flex-col justify-center">
@@ -63,11 +63,11 @@ export function InfoCard({
         <Card className="m-8 h-40 w-74 gap-1 text-blue-600">
           <CardHeader className="flex flex-row items-center justify-between gap-16">
             {IconMain && <IconMain size={24} className="text-blue-600" />}
-            <CardTitle className="flex flex-row gap-2">
+            <CardTitle className="flex w-20 flex-row justify-center gap-2 rounded-3xl border-1 border-sky-600 bg-sky-100">
               {IconSecondary && (
                 <IconSecondary size={16} className="text-blue-600" />
               )}{" "}
-              {valorFormatado}
+              <span>5,2%</span>
             </CardTitle>
           </CardHeader>
           <CardContent className="mt-4 flex flex-col justify-center">
