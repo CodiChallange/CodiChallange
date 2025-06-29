@@ -26,11 +26,11 @@ const chartConfig = {
   },
   despesa: {
     label: "Despesa",
-    color: "var(--chart-2)",
+    color: tailwindcss.red[500],
   },
   lucro: {
     label: "Lucro",
-    color: "var(--chart-3)",
+    color: tailwindcss.blue[500],
   },
 } satisfies ChartConfig;
 export function ChartSaleXExpenseXProfit() {
