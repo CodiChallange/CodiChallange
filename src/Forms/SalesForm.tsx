@@ -1,5 +1,11 @@
 //Formulário de vendas
-import { DialogContent, DialogTrigger, Dialog, DialogTitle, DialogDescription } from "../Components/ui/dialog";
+import {
+  DialogContent,
+  DialogTrigger,
+  Dialog,
+  DialogTitle,
+  DialogDescription,
+} from "../Components/ui/dialog";
 import {
   Select,
   SelectContent,
@@ -16,6 +22,17 @@ import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { toast } from "sonner";
+import type { IconBaseProps } from "react-icons";
+
+export type colorTypes = "purple" | "white";
+
+interface Salesprops {
+  title?: string;
+  description?: string;
+  trigger?: string;
+  icon?: React.ComponentType<IconBaseProps>;
+  color?: colorTypes;
+}
 
 const formSchema = z.object({
   typeCourse: z.enum(["online", "presencial"], {
@@ -47,13 +64,19 @@ const formSchema = z.object({
 
 type formSchema = z.infer<typeof formSchema>;
 
-export function SalesForm() {
+export function SalesForm({
+  title,
+  description,
+  trigger,
+  icon: Icon,
+  color,
+}: Salesprops) {
   const {
     handleSubmit,
     control,
     register,
     formState: { errors },
-    reset
+    reset,
   } = useForm<formSchema>({
     resolver: zodResolver(formSchema),
   });
@@ -62,11 +85,9 @@ export function SalesForm() {
     try {
       console.log(data);
 
-
       toast.success("Venda cadastrada com sucesso!");
 
       reset();
-
     } catch (error) {
       if (error instanceof Error) {
         console.log(error.message);
@@ -78,13 +99,20 @@ export function SalesForm() {
   return (
     <div>
       <Dialog>
-        <DialogTrigger asChild>
-          <Button>Nova venda</Button>
-        </DialogTrigger>
+        {color === "purple" && (
+          <DialogTrigger asChild>
+            <button className="flex items-center justify-center gap-2">
+              <div className="flex items-center justify-center">
+                {Icon && <Icon />}
+              </div>
+              <span>{trigger}</span>
+            </button>
+          </DialogTrigger>
+        )}
 
         <DialogContent>
-          <DialogTitle>Cadastrar venda</DialogTitle>
-          <DialogDescription>Preencha os dados abaixo para cadastrar uma nova venda</DialogDescription>
+          <DialogTitle>{title}</DialogTitle>
+          <DialogDescription>{description}</DialogDescription>
           <form onSubmit={handleSubmit(confirmSale)}>
             <label>Modalidade do curso</label>
 
@@ -104,7 +132,7 @@ export function SalesForm() {
               )}
             />
             {errors?.typeCourse && (
-              <span className="text-red-500 text-sm text-left">
+              <span className="text-left text-sm text-red-500">
                 {errors.typeCourse.message}
               </span>
             )}
@@ -118,7 +146,7 @@ export function SalesForm() {
                 required
               />
               {errors?.name && (
-                <span className="text-red-500 mb-4 text-sm text-left">
+                <span className="mb-4 text-left text-sm text-red-500">
                   {errors.name.message}
                 </span>
               )}
@@ -133,7 +161,7 @@ export function SalesForm() {
                 required
               />
               {errors?.email && (
-                <span className="text-red-500 text-sm text-left">
+                <span className="text-left text-sm text-red-500">
                   {errors.email.message}
                 </span>
               )}
@@ -148,13 +176,13 @@ export function SalesForm() {
                 required
               />
               {errors?.phone && (
-                <span className="text-red-500 text-sm text-left">
+                <span className="text-left text-sm text-red-500">
                   {errors.phone.message}
                 </span>
               )}
             </div>
 
-            <h1 className="m-4 font-medium ">Dados da venda:</h1>
+            <h1 className="m-4 font-medium">Dados da venda:</h1>
             <div className="grid grid-cols-2 gap-2">
               <div>
                 <label htmlFor="">Valor Bruto</label>
@@ -165,7 +193,7 @@ export function SalesForm() {
                   required
                 />
                 {errors?.grossValue && (
-                  <span className="text-red-500 text-sm text-left">
+                  <span className="text-left text-sm text-red-500">
                     {errors.grossValue.message}
                   </span>
                 )}
@@ -180,7 +208,7 @@ export function SalesForm() {
                   required
                 />
                 {errors.discount && (
-                  <span className="text-red-500 text-sm text-left">
+                  <span className="text-left text-sm text-red-500">
                     {errors.discount.message}
                   </span>
                 )}
@@ -195,7 +223,7 @@ export function SalesForm() {
                   required
                 />
                 {errors.commission && (
-                  <span className="text-red-500 text-sm text-left">
+                  <span className="text-left text-sm text-red-500">
                     {errors.commission.message}
                   </span>
                 )}
@@ -210,13 +238,12 @@ export function SalesForm() {
                   required
                 />
                 {errors?.tax && (
-                  <span className="text-red-500 text-sm text-left">
+                  <span className="text-left text-sm text-red-500">
                     {errors.tax.message}
                   </span>
                 )}
               </div>
 
-              
               <div>
                 <label htmlFor="">Taxa do cartão</label>
                 <Input
@@ -226,12 +253,12 @@ export function SalesForm() {
                   required
                 />
                 {errors?.cardTax && (
-                  <span className="text-red-500 text-sm text-left">
+                  <span className="text-left text-sm text-red-500">
                     {errors.cardTax.message}
                   </span>
                 )}
-              
-                <Button className="bg-purple-500 hover:bg-purple-600 mt-4 justify-between p-4 cursor-pointer">
+
+                <Button className="mt-4 cursor-pointer justify-between bg-purple-500 p-4 hover:bg-purple-600">
                   Salvar
                 </Button>
               </div>
@@ -239,6 +266,7 @@ export function SalesForm() {
           </form>
         </DialogContent>
       </Dialog>
-    </div>
-  );
+         
+    </div>
+  );
 }

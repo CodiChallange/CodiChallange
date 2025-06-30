@@ -1,3 +1,4 @@
+
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Logon } from '../Pages/Logon'
 import { SalesForm } from '../Forms/SalesForm'
@@ -8,10 +9,12 @@ import { Vendas } from '@/Pages/Vendas'
 import { Relatorios } from '@/Pages/Relatorios'
 import { Gastos } from '@/Pages/Gastos'
 import { ExpensesForm } from '../Forms/ExpensesForm'
+
 export function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
+
         <Route path='/' element={<Logon />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/vendas' element={<SalesForm />} />
@@ -21,7 +24,8 @@ export function AppRoutes() {
         <Route path='/users' element={<Users />} />
         <Route path='/gastos' element={<Gastos />} />
         <Route path='/configs' element={<Configs />} />
+
       </Routes>
     </BrowserRouter>
-  )
+  );
 }

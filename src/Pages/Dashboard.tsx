@@ -8,7 +8,6 @@ import {
   TrendingUpDown,
 } from "lucide-react";
 import { Button } from "@/Components/Button";
-import { useNavigate } from "react-router-dom";
 
 import { RangeCalendar } from "@/Components/RangeCalendar";
 
@@ -23,28 +22,23 @@ import {
 import { FiltroPorPeriodo } from "@/Components/FiltroPorPeriodo";
 import { ToggleButton } from "./ToggleButton";
 
-type Filtro = "semana" | "mes" | "ano";
+type Filter = "week" | "month" | "year";
 export function Dashboard() {
-
-  const [filtroSelecionado, setFiltroSelecionado] = useState<Filtro>("mes");
+  const [selectedFilter, setselectedFilter] = useState<Filter>("month");
 
   //Navegação do card ações rápidas
-  const navigate = useNavigate();
-  const handleClick = () => {
-    navigate("/");
-  };
 
   //Funções para obter o total de vendas
-  const [totalVendas, setTotalVendas] = useState<totalSalesResponse[]>([]);
+  const [totalSales, setTotalSales] = useState<totalSalesResponse[]>([]);
 
   async function getTotalSale() {
     try {
       const result = await getTotalSales();
-      setTotalVendas(result);
+      setTotalSales(result);
     } catch (error) {}
   }
-  const totalSale = totalVendas.reduce((acc, vendas) => {
-    return acc + vendas.valor;
+  const totalSale = totalSales.reduce((acc, sales) => {
+    return acc + sales.valor;
   }, 0);
 
   useEffect(() => {
@@ -53,16 +47,16 @@ export function Dashboard() {
 
   //Funções para obter o total de despesas
 
-  const [totalDespesas, setTotalDespesas] = useState<totalExpensesResponse[]>(
+  const [totalExpenses, setTotalExpenses] = useState<totalExpensesResponse[]>(
     [],
   );
   async function getTotalExpense() {
     try {
       const result = await getTotalExpenses();
-      setTotalDespesas(result);
+      setTotalExpenses(result);
     } catch (error) {}
   }
-  const totalExpenses = totalDespesas.reduce((acc, expenses) => {
+  const totalExpense = totalExpenses.reduce((acc, expenses) => {
     return acc + expenses.valor;
   }, 0);
 
@@ -72,12 +66,12 @@ export function Dashboard() {
 
   // Calculo saldo liquido
 
-  const saldoLiquido = totalSale - totalExpenses;
+  const saldoLiquido = totalSale - totalExpense;
 
   return (
-    <div className="flex bg-gray-100">
+    <div className="flex min-h-screen flex-col bg-gray-100 lg:flex-row">
       <Aside />
-      <main className="h-screen w-full overflow-auto">
+      <main className="w-full max-w-full flex-1 overflow-x-hidden px-4 py-6 lg:px-8">
         <div className="m-8 flex items-center justify-between p-4">
           <div>
             <h1 className="text-2xl font-bold">Dashboard Financeiro</h1>
@@ -85,60 +79,60 @@ export function Dashboard() {
               Visão geral das finanças da Codi Academy
             </p>
           </div>
-          {/* Filtro por periodo e por data selecionada */}
-          <div className="mr-8 flex gap-2">
+          {/* Filter por periodo e por data selecionada */}
+          <div className="mr-8 flex flex-row gap-2 sm:flex">
             <FiltroPorPeriodo
-              value={filtroSelecionado}
-              onChange={setFiltroSelecionado}
+              value={selectedFilter}
+              onChange={setselectedFilter}
             />
             <RangeCalendar />
           </div>
         </div>
         {/* Cards de resumos */}
-        <section className="ml-8 grid w-285 grid-cols-1 gap-50 md:grid-cols-2 lg:grid-cols-4">
+        <section className="mx-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           <InfoCard
             iconMain={TrendingUp}
             iconSecundary={ChartNoAxesCombined}
-            name=" Total de Receitas"
+            name="  Receitas Consolidadas"
             value={totalSale}
             color="green"
           />
           <InfoCard
             iconMain={TrendingDown}
             iconSecundary={BanknoteArrowDown}
-            name=" Total de Despesas"
-            value={totalExpenses}
+            name="  Despesas Consolidads"
+            value={totalExpense}
             color="red"
           />
-
           <InfoCard
             iconMain={TrendingUpDown}
             iconSecundary={BanknoteArrowDown}
-            name="Saldo Liquido"
+            name="Resultado Consolidado"
             value={saldoLiquido}
             color="blue"
           />
         </section>
         {/* Gráfico */}
-        <section className="m-8 flex flex-col rounded-lg border-2 border-purple-200 bg-purple-300 p-8">
+
+        <section className="mx-4 my-8 flex max-w-full flex-col overflow-x-auto rounded-lg border-2 border-purple-200 bg-purple-300 sm:p-6">
           <div className="mb-4 flex w-full justify-end">
             <ToggleButton
-              filtro={filtroSelecionado}
-              setFiltro={setFiltroSelecionado}
+              filter={selectedFilter}
+              setFilter={setselectedFilter}
             />
           </div>
         </section>
         {/* Ações Rápidas */}
-        <section className="m-8 flex flex-col rounded-lg border-2 border-purple-200 bg-purple-100 p-8">
-          <div>
+        <section className="m-8 flex flex-col rounded-lg border-2 border-purple-200 bg-purple-100 p-4 sm:p-6">
+          <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
             <h3 className="text-xl font-semibold text-[#A243D2]">
-              Ações Rapidas
+              Ações Rápidas
             </h3>
           </div>
           <div className="flex flex-col gap-4 md:flex-row">
-            <Button to="/vendas"> Nova Venda</Button>
-            <Button to="/gastos"> Nova Despesa</Button>
-            <Button to="/relatorios"> Ver Relatórios</Button>
+            <Button to="/vendas"> Gerenciar Vendas</Button>
+            <Button to="/gastos">Gerenciar Despesas</Button>
+            <Button to="/relatorios"> Vizualizar Relatórios</Button>
           </div>
         </section>
       </main>

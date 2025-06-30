@@ -7,125 +7,162 @@ import {
   LineChart,
   ResponsiveContainer,
   XAxis,
-} from 'recharts'
+} from "recharts";
 import {
   ChartContainer,
+  ChartLegend,
   ChartTooltip,
   ChartTooltipContent,
-  type ChartConfig,
-} from './ui/chart'
-import { useEffect, useState } from 'react'
-import axios from 'axios'
-import { parseISO, format, getISOWeek } from 'date-fns'
-import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
+} from "./ui/chart";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { parseISO, format, getISOWeek } from "date-fns";
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
-type Venda = {
-  id: string
-  nome: string
-  curso: string
-  valor: number
-  data: string
-}
-type Despesa = {
-  id: string
-  descricao: string
-  valor: number
-  data: string
-  tipo: string
-  formaPagamento: string
-}
+type Sale = {
+  id: string;
+  nome: string;
+  curso: string;
+  valor: number;
+  data: string;
+};
+type Expense = {
+  id: string;
+  descricao: string;
+  valor: number;
+  data: string;
+  tipo: string;
+  formaPagamento: string;
+};
 type Props = {
-  filtro: 'semana' | 'mes' | 'ano'
-  tipo: 'barChart' | 'lineChart'
-}
+  filter: "week" | "month" | "year";
+  tipo: "barChart" | "lineChart";
+};
 
-export function Charts({ filtro, tipo }: Props) {
+export function Charts({ filter, tipo }: Props) {
   // Buscar os dados da API
   const [dados, setDados] = useState<
     { periodo: string; totalVendas: number; totalDespesas: number }[]
-  >([])
+  >([]);
 
   useEffect(() => {
     Promise.all([
-      axios.get<Venda[]>('http://localhost:3000/Vendas'),
-      axios.get<Despesa[]>('http://localhost:3000/despesas'),
+      axios.get<Sale[]>("http://localhost:3000/Vendas"),
+      axios.get<Expense[]>("http://localhost:3000/despesas"),
     ])
       .then(([resVendas, resDespesas]) => {
-        const vendas: Venda[] = resVendas.data
-        const despesas: Despesa[] = resDespesas.data
+        const vendas: Sale[] = resVendas.data;
+        const despesas: Expense[] = resDespesas.data;
         // Agrupar por mês (formato MM/yyyy)
         const agrupado = (items: { data: string; valor: number }[]) => {
           return items.reduce((acc: Record<string, number>, item) => {
-            const data = parseISO(item.data)
+            const data = parseISO(item.data);
 
-            let chave = ''
-            if (filtro === 'mes') {
-              chave = format(data, 'MM/yyyy')
-            } else if (filtro === 'semana') {
-              const semana = getISOWeek(data)
-              chave = `Semana ${semana} - ${format(data, 'MM/yyyy')}`
-            } else if (filtro === 'ano') {
-              chave = format(data, 'yyyy')
+            let chave = "";
+            if (filter === "month") {
+              chave = format(data, "MM/yyyy");
+            } else if (filter === "week") {
+              const semana = getISOWeek(data);
+              chave = `Semana ${semana} - ${format(data, "MM/yyyy")}`;
+            } else if (filter === "year") {
+              chave = format(data, "yyyy");
             }
 
-            acc[chave] = (acc[chave] || 0) + item.valor
-            return acc
-          }, {})
-        }
-        const vendasAgrupadas = agrupado(vendas)
-        const despesasAgrupadas = agrupado(despesas)
+            acc[chave] = (acc[chave] || 0) + item.valor;
+            return acc;
+          }, {});
+        };
+        const vendasAgrupadas = agrupado(vendas);
+        const despesasAgrupadas = agrupado(despesas);
         const todosPeriodos = new Set([
           ...Object.keys(vendasAgrupadas),
           ...Object.keys(despesasAgrupadas),
-        ])
+        ]);
 
-        const dadosFormatados = Array.from(todosPeriodos).map((periodo) => ({
-          periodo,
-          totalVendas: vendasAgrupadas[periodo] || 0,
-          totalDespesas: despesasAgrupadas[periodo] || 0,
-          balanco: vendasAgrupadas[periodo] - despesasAgrupadas[periodo] || 0,
-        }))
-        dadosFormatados.sort((a, b) => a.periodo.localeCompare(b.periodo))
-        setDados(dadosFormatados)
+        const dadosFormatados = Array.from(todosPeriodos).map((periodo) => {
+          let dataSort: Date;
+
+          if (filter === "year") {
+            dataSort = parseISO(`01/01/${periodo}`);
+          } else if (filter === "month") {
+            // periodo = "MM/yyyy"
+            dataSort = parseISO(`01/${periodo}`);
+          } else {
+            // periodo = "Semana 3 - 01/2024"
+            const partes = periodo.split(" - ")[1]; // "01/2024"
+            dataSort = parseISO(`01/${partes}`);
+          }
+
+          return {
+            periodo,
+            totalVendas: vendasAgrupadas[periodo] || 0,
+            totalDespesas: despesasAgrupadas[periodo] || 0,
+            balanco:
+              (vendasAgrupadas[periodo] || 0) -
+              (despesasAgrupadas[periodo] || 0),
+            dataSort,
+          };
+        });
+
+        // Ordenar por data real (de forma crescente)
+        dadosFormatados.sort(
+          (a, b) => a.dataSort.getTime() - b.dataSort.getTime(),
+        );
+
+        setDados(dadosFormatados);
       })
-      .catch((error) => console.error('Erro ao buscar dados:', error))
-  }, [filtro])
+      .catch((error) => console.error("Erro ao buscar dados:", error));
+  }, [filter]);
+
+  function ChartLegendContent() {
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          gap: "1rem",
+          padding: 0,
+          margin: 0,
+          fontSize: 12,
+        }}
+      >
+        <span style={{ color: "#10B981" }}>⬤ Vendas Consolidadas</span>
+        <span style={{ color: "#EF4444" }}>⬤ Despesas Consolidadas</span>
+        <span style={{ color: "#6366F1" }}>⬤ Resultado Consolidado</span>
+      </div>
+    );
+  }
 
   return (
     <>
-      {tipo === 'barChart' && (
-        <Card>
+      {tipo === "barChart" && (
+        <Card className="ml-70 h-[42.2rem] w-260 max-w-full overflow-x-auto md:h-[50vh] lg:h-[80vh]">
           <CardHeader>
-            <CardTitle>Bar Chart</CardTitle>
+            <CardTitle>Receitas vs Despesas vs Lucro </CardTitle>
           </CardHeader>
-          <CardContent>
-            <ChartContainer config={{}} className='min-h-[200px] w-full '>
+          <CardContent className="max-w-full">
+            <ChartContainer config={{}} className="min-h-[200px] w-full">
               {/* Passo 4: Exibir os dados usando BarChart */}
-              <div className='w-full border '>
-                <div className='flex justify-end mb-4'></div>
-                <ResponsiveContainer width='100%' height={300}>
-                  <BarChart data={dados}>
-                    <CartesianGrid vertical={false} strokeDasharray='3 3' />
-                    <XAxis dataKey='periodo' />
-                    <ChartTooltip />
-                    <Bar dataKey='totalVendas' fill='#6366F1' name='Vendas' />
-                    <Bar
-                      dataKey='totalDespesas'
-                      fill='#10B981'
-                      name='Despesas'
-                    />
-                    <Bar dataKey='balanco' fill='#F87171' name='Balanco' />
-                  </BarChart>
-                </ResponsiveContainer>
-              </div>
+
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={dados}>
+                  <CartesianGrid vertical={false} />
+                  <XAxis dataKey="periodo" />
+
+                  <ChartLegend content={<ChartLegendContent />} />
+                  <Bar dataKey="totalVendas" fill="#10B981" name="Vendas" />
+                  <Bar dataKey="totalDespesas" fill="#F87171" name="Despesas" />
+                  <Bar dataKey="balanco" fill="#6366F1" name="Balanco" />
+                </BarChart>
+              </ResponsiveContainer>
             </ChartContainer>
           </CardContent>
         </Card>
       )}
-      {tipo === 'lineChart' && (
-        <Card>
+      {tipo === "lineChart" && (
+        <Card className="ml-70 h-170 w-260 max-w-full overflow-x-auto">
           <CardHeader>
-            <CardTitle>Line Chart</CardTitle>
+            <CardTitle>Tendência de Crescimento</CardTitle>
           </CardHeader>
           <CardContent>
             <ChartContainer config={{}}>
@@ -138,60 +175,25 @@ export function Charts({ filtro, tipo }: Props) {
                 }}
               >
                 <CartesianGrid vertical={false} />
-                <XAxis dataKey='periodo' />
+                <XAxis dataKey="periodo" />
                 <ChartTooltip
                   cursor={false}
-                  content={<ChartTooltipContent indicator='line' />}
+                  content={<ChartTooltipContent indicator="line" />}
                 />
 
                 <Line
-                  dataKey='totalVendas'
-                  type='natural'
-                  stroke='#6366F1'
+                  dataKey="totalVendas"
+                  type="natural"
+                  stroke="#10B981"
                   strokeWidth={2}
                   dot={{
-                    fill: 'var(--color-desktop)',
-                  }}
-                  activeDot={{
-                    r: 6,
+                    fill: "var(--color-desktop)",
                   }}
                 >
                   <LabelList
-                    position='top'
+                    position="top"
                     offset={12}
-                    className='fill-foreground'
-                    fontSize={12}
-                  />
-                </Line>
-                <Line
-                  dataKey='totalDespesas'
-                  type='natural'
-                  stroke='#10B981'
-                  strokeWidth={2}
-                  dot={{
-                    fill: 'var(--color-desktop)',
-                  }}
-                >
-                  <LabelList
-                    position='top'
-                    offset={12}
-                    className='fill-foreground'
-                    fontSize={12}
-                  />
-                </Line>
-                <Line
-                  dataKey='balanco'
-                  type='natural'
-                  stroke='#F87171'
-                  strokeWidth={2}
-                  dot={{
-                    fill: 'var(--color-desktop)',
-                  }}
-                >
-                  <LabelList
-                    position='top'
-                    offset={12}
-                    className='fill-foreground'
+                    className="fill-foreground"
                     fontSize={12}
                   />
                 </Line>
@@ -201,5 +203,5 @@ export function Charts({ filtro, tipo }: Props) {
         </Card>
       )}
     </>
-  )
+  );
 }
