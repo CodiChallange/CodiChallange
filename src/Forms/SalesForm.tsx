@@ -22,6 +22,17 @@ import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { toast } from "sonner";
+import type { IconBaseProps } from "react-icons";
+
+export type colorTypes = "purple" | "white";
+
+interface Salesprops {
+  title?: string;
+  description?: string;
+  trigger?: string;
+  icon?: React.ComponentType<IconBaseProps>;
+  color?: colorTypes;
+}
 
 const formSchema = z.object({
   typeCourse: z.enum(["online", "presencial"], {
@@ -53,7 +64,13 @@ const formSchema = z.object({
 
 type formSchema = z.infer<typeof formSchema>;
 
-export function SalesForm() {
+export function SalesForm({
+  title,
+  description,
+  trigger,
+  icon: Icon,
+  color,
+}: Salesprops) {
   const {
     handleSubmit,
     control,
@@ -82,17 +99,20 @@ export function SalesForm() {
   return (
     <div>
       <Dialog>
-        <DialogTrigger asChild>
-          <Button className="flex h-12 w-45 gap-2 rounded-lg bg-[#A243D2] px-5 py-3 text-white">
-            <span>+ Nova venda</span>
-          </Button>
-        </DialogTrigger>
+        {color === "purple" && (
+          <DialogTrigger asChild>
+            <button className="flex items-center justify-center gap-2">
+              <div className="flex items-center justify-center">
+                {Icon && <Icon />}
+              </div>
+              <span>{trigger}</span>
+            </button>
+          </DialogTrigger>
+        )}
 
         <DialogContent>
-          <DialogTitle>Cadastrar venda</DialogTitle>
-          <DialogDescription>
-            Preencha os dados abaixo para cadastrar uma nova venda
-          </DialogDescription>
+          <DialogTitle>{title}</DialogTitle>
+          <DialogDescription>{description}</DialogDescription>
           <form onSubmit={handleSubmit(confirmSale)}>
             <label>Modalidade do curso</label>
 
