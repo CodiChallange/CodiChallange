@@ -1,13 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Logon } from "../Pages/Logon";
-import { SalesForm } from "../Forms/SalesForm";
 import { Dashboard } from "@/Pages/Dashboard";
 import { Users } from "@/Pages/Team";
 import { Configs } from "@/Pages/Configs";
 import { Vendas } from "@/Pages/Vendas";
 import { Relatorios } from "@/Pages/Relatorios";
 import { Gastos } from "@/Pages/Gastos";
-import { ExpensesForm } from "../Forms/ExpensesForm";
 
 export function AppRoutes() {
   return (

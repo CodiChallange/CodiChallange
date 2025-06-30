@@ -15,7 +15,7 @@ interface CardSalesProps {
   finalvalue: string;
 }
 
-export function Cardsales({
+export function CardSales({
   name,
   email,
   phone,

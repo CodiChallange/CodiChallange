@@ -17,7 +17,7 @@ import {
   SelectValue,
 } from "./ui/select";
 
-interface ExpensesCardProps {
+interface CardExpensesProps {
   title: string;
   description: string;
   data: string;
@@ -26,14 +26,14 @@ interface ExpensesCardProps {
   value: string;
 }
 
-export function Cardexpenses({
+export function CardExpenses({
   title,
   description,
   data,
   fixed,
 
   value,
-}: ExpensesCardProps) {
+}: CardExpensesProps) {
   return (
     <div>
       {/*Card de edição do gasto*/}

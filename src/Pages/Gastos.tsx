@@ -1,5 +1,6 @@
 import { Aside } from "@/Components/Aside";
-import { Cardexpenses } from "@/Components/cardexpenses";
+import { CardExpenses } from "@/Components/CardExpenses";
+
 import { CardsReports } from "@/Components/CardsReports";
 import {
   Select,
@@ -14,7 +15,6 @@ import {
   ChevronLeft,
   ChevronRight,
   FilterIcon,
-  Plus,
   Search,
   TrendingDown,
 } from "lucide-react";
@@ -193,7 +193,7 @@ export function Gastos() {
         <section className="grid gap-5 rounded-md border bg-white p-4">
           <h1 className="text-2xl font-semibold">Todas as depesas</h1>
           {filteredGastos.map((Gastos) => (
-            <Cardexpenses
+            <CardExpenses
               title={Gastos.title}
               description={Gastos.description}
               data={Gastos.data}
