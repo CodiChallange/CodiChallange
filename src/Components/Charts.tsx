@@ -136,7 +136,7 @@ export function Charts({ filter, tipo }: Props) {
   return (
     <>
       {tipo === "barChart" && (
-        <Card className="ml-70 h-[42.2rem] w-260 max-w-full overflow-x-auto md:h-[50vh] lg:h-[80vh]">
+        <Card className="ml-70 w-240 max-w-full overflow-x-auto md:h-[50vh] lg:h-[80vh]">
           <CardHeader>
             <CardTitle>Receitas vs Despesas vs Lucro </CardTitle>
           </CardHeader>
@@ -160,7 +160,7 @@ export function Charts({ filter, tipo }: Props) {
         </Card>
       )}
       {tipo === "lineChart" && (
-        <Card className="ml-70 h-170 w-260 max-w-full overflow-x-auto">
+        <Card className="m-8 h-170 w-320 max-w-full overflow-x-auto">
           <CardHeader>
             <CardTitle>Tendência de Crescimento</CardTitle>
           </CardHeader>

@@ -67,7 +67,9 @@ export function ExpensesForm() {
     <div>
       <Dialog>
         <DialogTrigger asChild>
-          <Button>Nova despesa</Button>
+          <Button className="flex h-12 w-40 gap-2 rounded-lg bg-[#A243D2] px-5 py-3 text-white transition duration-[1s] hover:bg-purple-700">
+            + Nova despesa
+          </Button>
         </DialogTrigger>
 
         <DialogContent>

@@ -8,6 +8,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/Components/ui/select";
+import { ExpensesForm } from "@/Forms/ExpensesForm";
 import {
   Calendar,
   ChevronLeft,
@@ -133,10 +134,7 @@ export function Gastos() {
             </p>
           </div>
           <div className="flex justify-end">
-            <button className="flex gap-2 rounded-lg bg-[#A243D2] px-5 py-3 text-white transition duration-[1s] hover:bg-purple-700">
-              <Plus />
-              <span> Nova despesa</span>
-            </button>
+            <ExpensesForm />
           </div>
         </div>
         {/*Cards com os tipos de despesas*/}

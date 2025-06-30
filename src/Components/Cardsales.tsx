@@ -3,7 +3,7 @@ import { Card } from "./ui/card";
 
 import { SalesForm } from "@/Forms/SalesForm";
 
-interface Cardsalesprops {
+interface CardSalesProps {
   name: string;
   email: string;
   phone: string;
@@ -15,7 +15,7 @@ interface Cardsalesprops {
   finalvalue: string;
 }
 
-export function Cardsalesprops({
+export function Cardsales({
   name,
   email,
   phone,
@@ -25,7 +25,7 @@ export function Cardsalesprops({
   discount,
   deduction,
   finalvalue,
-}: Cardsalesprops) {
+}: CardSalesProps) {
   return (
     <div>
       {/*card de edição da venda*/}

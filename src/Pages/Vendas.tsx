@@ -1,5 +1,5 @@
 import { Aside } from "@/Components/Aside";
-import { Cardsalesprops } from "@/Components/cardsales";
+import { Cardsales } from "@/Components/Cardsales";
 import {
   Select,
   SelectContent,
@@ -198,7 +198,7 @@ export function Vendas() {
         <section className="mt-2 grid gap-5 rounded-md border bg-white p-4">
           <h1 className="text-2xl font-semibold">Vendas cadastradas</h1>
           {filteredVendas.map((Vendas) => (
-            <Cardsalesprops
+            <Cardsales
               name={Vendas.name}
               email={Vendas.email}
               phone={Vendas.phone}
