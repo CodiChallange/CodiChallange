@@ -22,6 +22,7 @@ import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { toast } from "sonner";
+import type { IconBaseProps } from "react-icons";
 
 const formSchema = z.object({
   expenses: z.enum(["fixedExpense", "variableExpense"], {
@@ -37,7 +38,23 @@ const formSchema = z.object({
 
 type formSchema = z.infer<typeof formSchema>;
 
-export function ExpensesForm() {
+export type colorTypes = "purple" | "white";
+
+interface ExpensesFormProps {
+  title?: string;
+  description?: string;
+  trigger?: string;
+  icon?: React.ComponentType<IconBaseProps>;
+  color?: colorTypes;
+}
+
+export function ExpensesForm({
+  title,
+  description,
+  icon: Icon,
+  trigger,
+  color,
+}: ExpensesFormProps) {
   const {
     handleSubmit,
     control,
@@ -66,17 +83,18 @@ export function ExpensesForm() {
   return (
     <div>
       <Dialog>
-        <DialogTrigger asChild>
-          <Button className="flex h-12 w-40 gap-2 rounded-lg bg-[#A243D2] px-5 py-3 text-white transition duration-[1s] hover:bg-purple-700">
-            + Nova despesa
-          </Button>
-        </DialogTrigger>
+        {color === "purple" && (
+          <DialogTrigger asChild>
+            <button className="flex items-center justify-center gap-2">
+              {Icon && <Icon />}
+              {trigger}
+            </button>
+          </DialogTrigger>
+        )}
 
         <DialogContent>
-          <DialogTitle>Cadastrar gastos</DialogTitle>
-          <DialogDescription>
-            Preencha os dados abaixo para cadastrar uma nova despesa
-          </DialogDescription>
+          <DialogTitle>{title}</DialogTitle>
+          <DialogDescription>{description}</DialogDescription>
           <form onSubmit={handleSubmit(confirmExpense)}>
             <span>Tipo de despesa</span>
             <Controller

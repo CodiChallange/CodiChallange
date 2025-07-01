@@ -16,6 +16,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/select";
+import { ExpensesForm } from "@/Forms/ExpensesForm";
 
 interface CardExpensesProps {
   title: string;
@@ -76,80 +77,12 @@ export function CardExpenses({
           {/*Modal de edição de gasto*/}
           <div className="flex gap-1">
             <button className="flex h-9 w-9 items-center justify-center rounded-sm border bg-white transition duration-[0.5s] hover:bg-gray-300">
-              <Dialog>
-                {/*Botão de edição do card*/}
-                <form>
-                  <DialogTrigger asChild>
-                    <SquarePen />
-                  </DialogTrigger>
-                  {/*Conteúdo do modal de edição*/}
-                  <DialogContent className="sm:max-w-[425px]">
-                    <DialogHeader>
-                      <DialogTitle className="flex flex-col space-y-1.5 text-center sm:text-left">
-                        Editar gasto
-                      </DialogTitle>
-                    </DialogHeader>
-                    <form className="space-y-4">
-                      <div className="grid grid-cols-1 gap-4">
-                        <div>
-                          <label>Descrição</label>
-                          <input
-                            id="description"
-                            type="text"
-                            className="flex h-10 w-full rounded-md border px-3 py-2 text-base md:text-sm"
-                          />
-                        </div>
-                        {/*Select do tipo de despesa*/}
-                        <div>
-                          <label>Categoria</label>
-                          <Select>
-                            <SelectTrigger className="flex w-full p-5">
-                              <SelectValue placeholder="Selecione o tipo" />
-                            </SelectTrigger>
-                            <SelectContent>
-                              <SelectItem value="Fixa">Despesa Fixa</SelectItem>
-                              <SelectItem value="Variavel">
-                                Despesa Variavel
-                              </SelectItem>
-                            </SelectContent>
-                          </Select>
-                        </div>
-                        {/*Select do tipo de gasto*/}
-                        <div>
-                          <label>Tipo</label>
-                          <input
-                            type="text"
-                            id="description"
-                            className="flex h-10 w-full rounded-md border px-3 py-2 text-base md:text-sm"
-                          ></input>
-                        </div>
-                        {/*Input de valores*/}
-                        <div>
-                          <label>Valor(R$)</label>
-                          <input
-                            id="value"
-                            type="number"
-                            className="flex h-10 w-full rounded-md border px-3 py-2 text-base md:text-sm"
-                          />
-                        </div>
-                      </div>
-                    </form>
-                    {/*Botões de cancelar e salvar a edição*/}
-                    <DialogFooter>
-                      <DialogClose asChild>
-                        <button className="rounded-2xl border px-4 py-2 transition duration-[1s] hover:bg-gray-200">
-                          Cancelar
-                        </button>
-                      </DialogClose>
-                      <DialogClose asChild>
-                        <button className="rounded-2xl bg-purple-500 px-4 text-white transition duration-[1s] hover:bg-purple-700">
-                          Salvar alterações
-                        </button>
-                      </DialogClose>
-                    </DialogFooter>
-                  </DialogContent>
-                </form>
-              </Dialog>
+              <ExpensesForm
+                title="Edite sua venda"
+                description="Insira os dados novos"
+                icon={SquarePen}
+                color="purple"
+              />
             </button>
             {/*Botão de excluir o card*/}
             <button className="flex h-9 w-9 items-center justify-center rounded-sm border bg-white transition duration-[0.5s] hover:bg-gray-300">
@@ -161,3 +94,77 @@ export function CardExpenses({
     </div>
   );
 }
+<button className="flex h-9 w-9 items-center justify-center rounded-sm border bg-white transition duration-[0.5s] hover:bg-gray-300">
+  <Dialog>
+    {/*Botão de edição do card*/}
+    <form>
+      <DialogTrigger asChild>
+        <SquarePen />
+      </DialogTrigger>
+      {/*Conteúdo do modal de edição*/}
+      <DialogContent className="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle className="flex flex-col space-y-1.5 text-center sm:text-left">
+            Editar gasto
+          </DialogTitle>
+        </DialogHeader>
+        <form className="space-y-4">
+          <div className="grid grid-cols-1 gap-4">
+            <div>
+              <label>Descrição</label>
+              <input
+                id="description"
+                type="text"
+                className="flex h-10 w-full rounded-md border px-3 py-2 text-base md:text-sm"
+              />
+            </div>
+            {/*Select do tipo de despesa*/}
+            <div>
+              <label>Categoria</label>
+              <Select>
+                <SelectTrigger className="flex w-full p-5">
+                  <SelectValue placeholder="Selecione o tipo" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="Fixa">Despesa Fixa</SelectItem>
+                  <SelectItem value="Variavel">Despesa Variavel</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            {/*Select do tipo de gasto*/}
+            <div>
+              <label>Tipo</label>
+              <input
+                type="text"
+                id="description"
+                className="flex h-10 w-full rounded-md border px-3 py-2 text-base md:text-sm"
+              ></input>
+            </div>
+            {/*Input de valores*/}
+            <div>
+              <label>Valor(R$)</label>
+              <input
+                id="value"
+                type="number"
+                className="flex h-10 w-full rounded-md border px-3 py-2 text-base md:text-sm"
+              />
+            </div>
+          </div>
+        </form>
+        {/*Botões de cancelar e salvar a edição*/}
+        <DialogFooter>
+          <DialogClose asChild>
+            <button className="rounded-2xl border px-4 py-2 transition duration-[1s] hover:bg-gray-200">
+              Cancelar
+            </button>
+          </DialogClose>
+          <DialogClose asChild>
+            <button className="rounded-2xl bg-purple-500 px-4 text-white transition duration-[1s] hover:bg-purple-700">
+              Salvar alterações
+            </button>
+          </DialogClose>
+        </DialogFooter>
+      </DialogContent>
+    </form>
+  </Dialog>
+</button>;

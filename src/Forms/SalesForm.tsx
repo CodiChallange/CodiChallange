@@ -102,10 +102,8 @@ export function SalesForm({
         {color === "purple" && (
           <DialogTrigger asChild>
             <button className="flex items-center justify-center gap-2">
-              <div className="flex items-center justify-center">
-                {Icon && <Icon />}
-              </div>
-              <span>{trigger}</span>
+              {Icon && <Icon />}
+              {trigger}
             </button>
           </DialogTrigger>
         )}

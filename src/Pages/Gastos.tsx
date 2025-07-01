@@ -1,6 +1,5 @@
 import { Aside } from "@/Components/Aside";
-import { CardExpenses } from "@/Components/CardExpenses";
-
+import { CardExpenses } from "@/Components/cardexpenses";
 import { CardsReports } from "@/Components/CardsReports";
 import {
   Select,
@@ -15,6 +14,7 @@ import {
   ChevronLeft,
   ChevronRight,
   FilterIcon,
+  Plus,
   Search,
   TrendingDown,
 } from "lucide-react";
@@ -134,7 +134,15 @@ export function Gastos() {
             </p>
           </div>
           <div className="flex justify-end">
-            <ExpensesForm />
+            <div className="flex rounded-lg bg-[#A243D2] px-5 py-3 text-white transition duration-[1s] hover:bg-purple-700">
+              <ExpensesForm
+                title="Cadastre o gasto"
+                trigger="Novo gasto"
+                icon={Plus}
+                description="Preencha os dados"
+                color="purple"
+              />
+            </div>
           </div>
         </div>
         {/*Cards com os tipos de despesas*/}
