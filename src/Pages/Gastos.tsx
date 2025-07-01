@@ -1,5 +1,5 @@
 import { Aside } from "@/Components/Aside";
-import { CardExpenses } from "@/Components/CardExpenses";
+import { CardExpenses } from "@/Components/cardexpenses";
 
 import { CardsReports } from "@/Components/CardsReports";
 import {
