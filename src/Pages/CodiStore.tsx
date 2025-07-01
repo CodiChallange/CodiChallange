@@ -7,6 +7,7 @@ import {
   SelectContent,
   SelectValue,
 } from "@/Components/ui/select";
+import { CardStore } from "@/Components/CardStore";
 
 export function CodiStore() {
   return (
@@ -57,7 +58,7 @@ export function CodiStore() {
         </div>
         <main>
           <div>
-            <h1>Cards Area</h1>
+            <CardStore />
           </div>
         </main>
       </div>
