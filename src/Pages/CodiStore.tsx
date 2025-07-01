@@ -16,11 +16,11 @@ export function CodiStore() {
           <div className="flex gap-2">
             <button className="flex cursor-pointer gap-2 rounded-lg bg-[#A243D2] px-5 py-3 text-white">
               <Plus />
-              Registrar Item
+              Novo Item
             </button>
             <button className="flex cursor-pointer gap-2 rounded-lg bg-[#A243D2] px-5 py-3 text-white">
               <Plus />
-              <span>Registrar Venda</span>
+              <span>Nova Venda</span>
             </button>
           </div>
         </header>
