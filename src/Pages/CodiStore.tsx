@@ -1,5 +1,12 @@
 import { Aside } from "@/Components/Aside";
-import { Plus } from "lucide-react";
+import { Plus, Search } from "lucide-react";
+import {
+  Select,
+  SelectItem,
+  SelectTrigger,
+  SelectContent,
+  SelectValue,
+} from "@/Components/ui/select";
 
 export function CodiStore() {
   return (
@@ -24,9 +31,29 @@ export function CodiStore() {
             </button>
           </div>
         </header>
-        <div>
-          <h1>Input</h1>
-          <h1>Filtros</h1>
+        {/* Inputs */}
+        <div className="flex w-full flex-col gap-4 rounded-lg bg-white p-5 shadow lg:flex-row">
+          <div className="flex items-center gap-3 rounded-lg border px-3 py-2 md:w-full lg:w-5/6">
+            <Search />
+            <input
+              type="text"
+              placeholder="Buscar por nome do professor "
+              className="w-full outline-none"
+            />
+          </div>
+          <div className="h-full md:w-full lg:w-1/6">
+            <Select>
+              <SelectTrigger className="flex w-full p-5">
+                <SelectValue placeholder="Turnos" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">Todos os Turnos</SelectItem>
+                <SelectItem value="Instrutor">Manhã</SelectItem>
+                <SelectItem value="Coordenador">Tarde</SelectItem>
+                <SelectItem value="Assistente">Noite</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
         </div>
         <main>
           <div>
