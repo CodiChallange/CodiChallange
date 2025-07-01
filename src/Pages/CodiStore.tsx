@@ -8,6 +8,7 @@ import {
   SelectValue,
 } from "@/Components/ui/select";
 import { CardStore } from "@/Components/CardStore";
+import { CreateProduct } from "@/Forms/CreateProduct";
 
 export function CodiStore() {
   return (
@@ -22,10 +23,7 @@ export function CodiStore() {
             </p>
           </div>
           <div className="flex gap-2">
-            <button className="flex cursor-pointer gap-2 rounded-lg bg-[#A243D2] px-5 py-3 text-white">
-              <Plus />
-              Novo Item
-            </button>
+            <CreateProduct />
             <button className="flex cursor-pointer gap-2 rounded-lg bg-[#A243D2] px-5 py-3 text-white">
               <Plus />
               <span>Nova Venda</span>
