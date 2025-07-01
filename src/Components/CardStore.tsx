@@ -1,42 +1,46 @@
 export function CardStore() {
   return (
-    <div>
+    <div className="flex w-96 flex-col gap-3 rounded-lg bg-white p-5 shadow-lg transition-shadow duration-500 ease-in-out hover:shadow-2xl">
       {/* Header */}
-      <header>
+      <header className="border-b">
         <h1>Venda #0000</h1>
       </header>
 
       {/* Info Area */}
-      <div>
-        <h2>Bruno</h2>
-        <h2>
-          <span>Turno: </span>Manhã
+      <div className="flex items-center justify-between">
+        <h2 className="flex items-center gap-1">
+          <span className="font-bold">Professor: </span>Bruno
+        </h2>
+        <h2 className="flex items-center gap-1">
+          <span className="font-bold">Turno: </span>Manhã
         </h2>
       </div>
 
       {/* Content */}
-      <main>
-        <h1>Itens:</h1>
+      <main className="flex flex-col gap-1">
+        <h1 className="font-bold">Itens:</h1>
         <ul>
           <li>
-            <span>1x</span> Coca-Cola
+            <span className="font-bold">1x</span> Coca-Cola
           </li>
           <li>
-            <span>1x</span> Hamburguer
+            <span className="font-bold">1x</span> Hamburguer
           </li>
           <li>
-            <span>1x</span> Suco
+            <span className="font-bold">1x</span> Suco
           </li>
         </ul>
       </main>
 
       {/* Valor e Botão */}
-      <footer>
-        <div>
-          <h1>Valor:</h1>
+      <footer className="flex items-center justify-between">
+        <div className="flex flex-col">
+          <h1 className="font-bold">Valor:</h1>
           <span>R$ 58,56</span>
         </div>
-        <button>Detalhes</button>
+        <button className="cursor-pointer rounded-lg bg-gray-100 p-3 hover:bg-gray-200">
+          Detalhes
+        </button>
       </footer>
     </div>
   );
