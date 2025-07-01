@@ -1,5 +1,5 @@
 import { Aside } from "@/Components/Aside";
-import { CardSales } from "@/Components/CardSales";
+import { CardSales } from "@/Components/Cardsales";
 import {
   Select,
   SelectContent,
