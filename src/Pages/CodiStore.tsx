@@ -54,9 +54,12 @@ export function CodiStore() {
             </Select>
           </div>
         </div>
+        {/* Cards Area */}
         <main>
           <div>
-            <CardStore />
+            {[...Array(10)].map(() => (
+              <CardStore />
+            ))}
           </div>
         </main>
       </div>
