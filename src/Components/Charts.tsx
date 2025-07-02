@@ -136,11 +136,11 @@ export function Charts({ filter, tipo }: Props) {
   return (
     <>
       {tipo === "barChart" && (
-        <Card className="ml-70 w-240 max-w-full overflow-x-auto md:h-[50vh] lg:h-[80vh]">
+        <Card className="m-10 max-w-full overflow-x-auto">
           <CardHeader>
             <CardTitle>Receitas vs Despesas vs Lucro </CardTitle>
           </CardHeader>
-          <CardContent className="max-w-full">
+          <CardContent className="w-full">
             <ChartContainer config={{}} className="min-h-[200px] w-full">
               {/* Passo 4: Exibir os dados usando BarChart */}
 
@@ -160,7 +160,7 @@ export function Charts({ filter, tipo }: Props) {
         </Card>
       )}
       {tipo === "lineChart" && (
-        <Card className="m-8 h-170 w-320 max-w-full overflow-x-auto">
+        <Card className="m-8 w-320 max-w-full overflow-x-auto">
           <CardHeader>
             <CardTitle>Tendência de Crescimento</CardTitle>
           </CardHeader>
