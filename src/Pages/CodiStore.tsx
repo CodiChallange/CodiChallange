@@ -9,8 +9,14 @@ import {
 } from "@/Components/ui/select";
 import { CardStore } from "@/Components/CardStore";
 import { CreateProduct } from "@/Forms/CreateProduct";
+import { useState } from "react";
+import { CardDetails } from "@/Components/modal/CodiStoreDetails";
 
 export function CodiStore() {
+  const [isOpenEdit, setIsOpenEdit] = useState(false);
+  function handleOpenModal() {
+    setIsOpenEdit(!isOpenEdit);
+  }
   return (
     <div className="flex h-screen">
       <Aside />
@@ -56,13 +62,14 @@ export function CodiStore() {
         </div>
         {/* Cards Area */}
         <main>
-          <div className="grid grid-cols-4 gap-10">
+          <div className="grid grid-cols-3 gap-10">
             {[...Array(10)].map(() => (
-              <CardStore />
+              <CardStore open={handleOpenModal} />
             ))}
           </div>
         </main>
       </div>
+      <div>{isOpenEdit && <CardDetails open={handleOpenModal} />}</div>
     </div>
   );
 }
