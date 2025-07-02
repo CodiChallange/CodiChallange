@@ -55,7 +55,7 @@ export function CreateProduct() {
     <div>
       <Dialog>
         <DialogTrigger asChild>
-          <Button className="flex h-12 w-40 gap-2 rounded-lg bg-[#A243D2] px-5 py-3 text-white transition duration-[1s] hover:bg-purple-700">
+          <Button className="flex h-12 w-40 cursor-pointer gap-2 rounded-lg bg-[#A243D2] px-5 py-3 text-white transition duration-[1s] hover:bg-purple-700">
             + Novo produto
           </Button>
         </DialogTrigger>
