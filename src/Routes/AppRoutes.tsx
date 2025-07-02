@@ -9,6 +9,7 @@ import { Gastos } from "@/Pages/Gastos";
 import { CodiStore } from "@/Pages/CodiStore";
 
 import { CreateProduct } from "@/Forms/CreateProduct";
+import { Cart } from "@/Forms/Cart";
 
 export function AppRoutes() {
   return (
@@ -22,7 +23,7 @@ export function AppRoutes() {
         <Route path="/gastos" element={<Gastos />} />
         <Route path="/configs" element={<Configs />} />
         <Route path="/codistore" element={<CodiStore />} />
-        <Route path="/createproduct" element={<CreateProduct />} />
+        <Route path="/createproduct" element={<Cart />} />
       </Routes>
     </BrowserRouter>
   );
