@@ -1,230 +1,217 @@
-import { Aside } from '@/Components/Aside'
-import { ModalAdd } from '@/Components/modal/AddModal'
-import { AlterarModal } from '@/Components/modal/AlterarModal'
-import { RemoverModal } from '@/Components/modal/RemoverModal'
+import { Aside } from "@/Components/Aside";
+import { NewUserModal } from "@/Components/modal/NewUserModal";
+import { AlterarModal } from "@/Components/modal/EditUserModal";
+
 import {
   Select,
   SelectItem,
   SelectTrigger,
   SelectContent,
   SelectValue,
-} from '@/Components/ui/select'
-import { UserCard } from '@/Components/UsersCard'
-import { Search, UserPlus } from 'lucide-react'
-import { useState } from 'react'
+} from "@/Components/ui/select";
+import { UserCard } from "@/Components/TeamCard";
+import { Search, UserPlus } from "lucide-react";
+import { useState } from "react";
 
 {
   /* tipos dos dados dos usuarios */
 }
 type User = {
-  id: string
-  name: string
-  email: string
-  phone: string
-  departament: string
-  status: string
-  cargo: string
-  salario: number
-}
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  departament: string;
+  status: string;
+  cargo: string;
+  salario: number;
+};
 
-export function Users() {
+export function Team() {
   const [userList, setUserList] = useState<User[]>([
     {
-      id: '1',
-      name: 'Mariana Silva',
-      email: 'mariana.silva@gmail.com',
-      phone: '(11) 98888-1234',
-      departament: 'Frontend',
-      cargo: 'Instrutor',
+      id: "1",
+      name: "Mariana Silva",
+      email: "mariana.silva@gmail.com",
+      phone: "(11) 98888-1234",
+      departament: "Frontend",
+      cargo: "Instrutor",
       salario: 5500,
-      status: 'Ativo',
+      status: "Ativo",
     },
     {
-      id: '2',
-      name: 'Carlos Souza',
-      email: 'carlos.souza@gmail.com',
-      phone: '(21) 97777-4321',
-      departament: 'Backend',
-      cargo: 'Coordenador',
+      id: "2",
+      name: "Carlos Souza",
+      email: "carlos.souza@gmail.com",
+      phone: "(21) 97777-4321",
+      departament: "Backend",
+      cargo: "Coordenador",
       salario: 8500,
-      status: 'Ativo',
+      status: "Ativo",
     },
     {
-      id: '3',
-      name: 'Fernanda Lima',
-      email: 'fernanda.lima@gmail.com',
-      phone: '(31) 96666-9876',
-      departament: 'Mobile',
-      cargo: 'Assistente',
+      id: "3",
+      name: "Fernanda Lima",
+      email: "fernanda.lima@gmail.com",
+      phone: "(31) 96666-9876",
+      departament: "Mobile",
+      cargo: "Assistente",
       salario: 4200,
-      status: 'Férias',
+      status: "Férias",
     },
     {
-      id: '4',
-      name: 'Rafael Costa',
-      email: 'rafael.costa@gmail.com',
-      phone: '(41) 95555-6543',
-      departament: 'Marketing',
-      cargo: 'Gerente',
+      id: "4",
+      name: "Rafael Costa",
+      email: "rafael.costa@gmail.com",
+      phone: "(41) 95555-6543",
+      departament: "Marketing",
+      cargo: "Gerente",
       salario: 9500,
-      status: 'Ativo',
+      status: "Ativo",
     },
     {
-      id: '5',
-      name: 'Isabela Martins',
-      email: 'isabela.martins@gmail.com',
-      phone: '(51) 94444-3210',
-      departament: 'Financeiro',
-      cargo: 'Assistente',
+      id: "5",
+      name: "Isabela Martins",
+      email: "isabela.martins@gmail.com",
+      phone: "(51) 94444-3210",
+      departament: "Financeiro",
+      cargo: "Assistente",
       salario: 4700,
-      status: 'Ferias',
+      status: "Ferias",
     },
     {
-      id: '6',
-      name: 'Lucas Almeida',
-      email: 'lucas.almeida@gmail.com',
-      phone: '(61) 93333-1122',
-      departament: 'Frontend',
-      cargo: 'Instrutor',
+      id: "6",
+      name: "Lucas Almeida",
+      email: "lucas.almeida@gmail.com",
+      phone: "(61) 93333-1122",
+      departament: "Frontend",
+      cargo: "Instrutor",
       salario: 5200,
-      status: 'Ativo',
+      status: "Ativo",
     },
     {
-      id: '7',
-      name: 'Ana Pereira',
-      email: 'ana.pereira@gmail.com',
-      phone: '(71) 92222-3344',
-      departament: 'Backend',
-      cargo: 'Coordenador',
+      id: "7",
+      name: "Ana Pereira",
+      email: "ana.pereira@gmail.com",
+      phone: "(71) 92222-3344",
+      departament: "Backend",
+      cargo: "Coordenador",
       salario: 8300,
-      status: 'Ativo',
+      status: "Ativo",
     },
     {
-      id: '8',
-      name: 'Bruno Fernandes',
-      email: 'bruno.fernandes@gmail.com',
-      phone: '(81) 91111-5566',
-      departament: 'Mobile',
-      cargo: 'Instrutor',
+      id: "8",
+      name: "Bruno Fernandes",
+      email: "bruno.fernandes@gmail.com",
+      phone: "(81) 91111-5566",
+      departament: "Mobile",
+      cargo: "Instrutor",
       salario: 5700,
-      status: 'Ativo',
+      status: "Ativo",
     },
     {
-      id: '9',
-      name: 'Patrícia Gomes',
-      email: 'patricia.gomes@gmail.com',
-      phone: '(91) 98888-7788',
-      departament: 'Marketing',
-      cargo: 'Assistente',
+      id: "9",
+      name: "Patrícia Gomes",
+      email: "patricia.gomes@gmail.com",
+      phone: "(91) 98888-7788",
+      departament: "Marketing",
+      cargo: "Assistente",
       salario: 4600,
-      status: 'Férias',
+      status: "Férias",
     },
     {
-      id: '10',
-      name: 'Gabriel Rocha',
-      email: 'gabriel.rocha@gmail.com',
-      phone: '(85) 97777-8899',
-      departament: 'Financeiro',
-      cargo: 'Gerente',
+      id: "10",
+      name: "Gabriel Rocha",
+      email: "gabriel.rocha@gmail.com",
+      phone: "(85) 97777-8899",
+      departament: "Financeiro",
+      cargo: "Gerente",
       salario: 9800,
-      status: 'Ativo',
+      status: "Ativo",
     },
     {
-      id: '11',
-      name: 'Gabriela Lima',
-      email: 'gabriela.lima@gmail.com',
-      phone: '(85) 97777-8899',
-      departament: 'Financeiro',
-      cargo: 'Coordenador',
+      id: "11",
+      name: "Gabriela Lima",
+      email: "gabriela.lima@gmail.com",
+      phone: "(85) 97777-8899",
+      departament: "Financeiro",
+      cargo: "Coordenador",
       salario: 9800,
-      status: 'Ferias',
+      status: "Ferias",
     },
-  ])
+  ]);
   {
     /* Cadastro de novo user */
   }
-  const [isOpenNew, setIsOpenNew] = useState(false)
+  const [isOpenNew, setIsOpenNew] = useState(false);
   function handleOpenModalNew() {
-    setIsOpenNew(!isOpenNew)
+    setIsOpenNew(!isOpenNew);
   }
 
   {
     /* Achar user */
   }
-  const [selectedUser, setSelectedUser] = useState<User | null>(null)
+  const [selectedUser, setSelectedUser] = useState<User | null>(null);
 
   {
     /* Modal de editar usuario */
   }
-  const [isOpenEdit, setIsOpenEdit] = useState(false)
+  const [isOpenEdit, setIsOpenEdit] = useState(false);
   function handleOpenModalEdit(userId: string) {
-    setIsOpenEdit(true)
-    setSelectedUser(userList.find((user) => user.id === userId) || null)
+    setIsOpenEdit(!isOpenEdit);
+    setSelectedUser(userList.find((user) => user.id === userId) || null);
   }
-  function handleCloseModalEdit() {
-    setIsOpenEdit(false)
-    setSelectedUser(null)
+  function closeEditModal() {
+    setIsOpenEdit(false);
+    setSelectedUser(null);
   }
-
-  {
-    /* Modal de remover */
-  }
-  const [isOpenRemove, setIsOpenRemove] = useState(false)
-  function handleOpenRemoveModal(userId: string) {
-    setIsOpenRemove(true)
-    setSelectedUser(userList.find((user) => user.id === userId) || null)
-  }
-  function handleCloseModalRemove() {
-    setIsOpenRemove(false)
-    setSelectedUser(null)
-  }
-
   {
     /* Sistema de filtro */
   }
-  const [searchTerm, setSearchTerm] = useState('')
-  const [selectedCargo, setSelectedCargo] = useState<string>('all')
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCargo, setSelectedCargo] = useState<string>("all");
   const filteredUsers = userList.filter((user) => {
-    const matchesCargo = selectedCargo === 'all' || user.cargo === selectedCargo
+    const matchesCargo =
+      selectedCargo === "all" || user.cargo === selectedCargo;
     const matchesSearch =
       user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      user.email.toLowerCase().includes(searchTerm.toLowerCase())
+      user.email.toLowerCase().includes(searchTerm.toLowerCase());
 
-    return matchesCargo && matchesSearch
-  })
+    return matchesCargo && matchesSearch;
+  });
   {
     /* Calculos dos totais de membros, membros ativos, departamentos, folha de pagamento */
   }
-  const totalMembros = filteredUsers.length
+  const totalMembros = filteredUsers.length;
   const membrosAtivos = filteredUsers.filter(
-    (user) => user.status === 'Ativo'
-  ).length
+    (user) => user.status === "Ativo",
+  ).length;
   const departamentosUnicos = new Set(
-    filteredUsers.map((user) => user.departament)
-  )
-  const totalDepartamentos = departamentosUnicos.size
+    filteredUsers.map((user) => user.departament),
+  );
+  const totalDepartamentos = departamentosUnicos.size;
   const folhaPagamento = filteredUsers.reduce(
     (acc, user) => acc + user.salario,
-    0
-  )
+    0,
+  );
 
   return (
-    <div className='flex h-screen'>
+    <div className="flex h-screen">
       <Aside />
 
-      <div className='flex flex-col w-full p-5 bg-gray-100 gap-8 overflow-auto'>
+      <div className="flex w-full flex-col gap-8 overflow-auto bg-gray-100 p-5">
         {/* Header */}
-        <div className=' flex flex-col lg:flex-row gap-4 justify-between items-center'>
-          <div className='flex flex-col gap-1 '>
-            <h1 className='font-bold text-4xl '>Gestão de Equipe</h1>
-            <p className='text-gray-500 text-[18px] '>
+        <div className="flex flex-col items-center justify-between gap-4 lg:flex-row">
+          <div className="flex flex-col gap-1">
+            <h1 className="text-4xl font-bold">Gestão de Equipe</h1>
+            <p className="text-[18px] text-gray-500">
               Gerencie membros da equipe e suas informações
             </p>
           </div>
-          <div className=''>
+          <div className="">
             <button
               onClick={handleOpenModalNew}
-              className='flex gap-2 bg-[#A243D2] px-5 py-3 rounded-lg text-white cursor-pointer'
+              className="flex cursor-pointer gap-2 rounded-lg bg-[#A243D2] px-5 py-3 text-white"
             >
               <UserPlus />
               <span>Novo Membro</span>
@@ -233,38 +220,38 @@ export function Users() {
         </div>
 
         {/* input */}
-        <div className='flex flex-col lg:flex-row w-full bg-white shadow rounded-lg p-5 gap-4'>
-          <div className='flex border items-center lg:w-5/6 md:w-full py-2 px-3 rounded-lg gap-3 '>
+        <div className="flex w-full flex-col gap-4 rounded-lg bg-white p-5 shadow lg:flex-row">
+          <div className="flex items-center gap-3 rounded-lg border px-3 py-2 md:w-full lg:w-5/6">
             <Search />
             <input
-              type='text'
+              type="text"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              placeholder='Buscar por nome ou e-mail...'
-              className='w-full outline-none'
+              placeholder="Buscar por nome ou e-mail..."
+              className="w-full outline-none"
             />
           </div>
-          <div className='lg:w-1/6 md:w-full h-full '>
+          <div className="h-full md:w-full lg:w-1/6">
             <Select
               value={selectedCargo}
               onValueChange={(value) => setSelectedCargo(value)}
             >
-              <SelectTrigger className='flex w-full  p-5  '>
-                <SelectValue placeholder='Todos os cargos' />
+              <SelectTrigger className="flex w-full p-5">
+                <SelectValue placeholder="Todos os cargos" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value='all'>Todos os cargos</SelectItem>
-                <SelectItem value='Instrutor'>Instrutor</SelectItem>
-                <SelectItem value='Coordenador'>Coordenador</SelectItem>
-                <SelectItem value='Assistente'>Assistente</SelectItem>
-                <SelectItem value='Gerente'>Gerente</SelectItem>
+                <SelectItem value="all">Todos os cargos</SelectItem>
+                <SelectItem value="Instrutor">Instrutor</SelectItem>
+                <SelectItem value="Coordenador">Coordenador</SelectItem>
+                <SelectItem value="Assistente">Assistente</SelectItem>
+                <SelectItem value="Gerente">Gerente</SelectItem>
               </SelectContent>
             </Select>
           </div>
         </div>
 
         {/* Cards */}
-        <div className='grid sm:grid-cols-1 md:grid-cols-1  lg:grid-cols-2 2xl:grid-cols-3 gap-5'>
+        <div className="grid gap-5 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3">
           {filteredUsers.map((user) => (
             <UserCard
               key={user.id}
@@ -275,40 +262,39 @@ export function Users() {
               status={user.status}
               salario={user.salario}
               cargo={user.cargo}
-              onEdit={() => handleOpenModalEdit(user.id)}
-              onRemove={() => handleOpenRemoveModal(user.id)}
+              openEdit={() => handleOpenModalEdit(user.id)}
             />
           ))}
         </div>
 
         {/* Dados */}
-        <div className='grid lg:grid-cols-4 grid-cols-2 gap-4'>
-          <div className='flex flex-col items-center justify-center bg-white border rounded-lg h-34'>
-            <span className='text-[#A243D2] font-bold text-4xl'>
+        <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+          <div className="flex h-34 flex-col items-center justify-center rounded-lg border bg-white">
+            <span className="text-4xl font-bold text-[#A243D2]">
               {totalMembros}
             </span>
             <span>Total de Membros</span>
           </div>
-          <div className='flex flex-col items-center justify-center bg-white border rounded-lg h-34'>
-            <span className='text-green-600 font-bold text-4xl'>
-              {membrosAtivos}{' '}
+          <div className="flex h-34 flex-col items-center justify-center rounded-lg border bg-white">
+            <span className="text-4xl font-bold text-green-600">
+              {membrosAtivos}{" "}
             </span>
             <span>Membros ativos</span>
           </div>
-          <div className='flex flex-col items-center justify-center bg-white border rounded-lg h-34'>
-            <span className='text-blue-600 font-bold text-4xl'>
+          <div className="flex h-34 flex-col items-center justify-center rounded-lg border bg-white">
+            <span className="text-4xl font-bold text-blue-600">
               {totalDepartamentos}
             </span>
             <span>Departamentos</span>
           </div>
-          <div className='flex flex-col items-center justify-center bg-white border rounded-lg h-34'>
-            <span className='text-orange-600 font-bold lg:text-4xl  text-xl '>
-              {folhaPagamento.toLocaleString('pt-BR', {
-                style: 'currency',
-                currency: 'BRL',
+          <div className="flex h-34 flex-col items-center justify-center rounded-lg border bg-white">
+            <span className="text-xl font-bold text-orange-600 lg:text-4xl">
+              {folhaPagamento.toLocaleString("pt-BR", {
+                style: "currency",
+                currency: "BRL",
               })}
             </span>
-            <span className='text-[14px] lg:text-[18px] '>
+            <span className="text-[14px] lg:text-[18px]">
               Folha de pagamento
             </span>
           </div>
@@ -318,18 +304,15 @@ export function Users() {
       {/* Renderizando os modais na tela */}
       <div>
         {isOpenNew && (
-          <ModalAdd
+          <NewUserModal
             haandleOpenModalNew={handleOpenModalNew}
             onAddUser={(user) => setUserList((prev) => [...prev, user])}
           />
         )}
         {isOpenEdit && (
-          <AlterarModal close={handleCloseModalEdit} user={selectedUser} />
-        )}
-        {isOpenRemove && (
-          <RemoverModal close={handleCloseModalRemove} user={selectedUser} />
+          <AlterarModal close={closeEditModal} user={selectedUser} />
         )}
       </div>
     </div>
-  )
+  );
 }
