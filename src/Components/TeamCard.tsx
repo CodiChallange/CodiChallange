@@ -10,8 +10,7 @@ type cardProps = {
   status: string;
   salario: number;
   cargo: string;
-  onEdit: () => void;
-  onRemove: () => void;
+  openEdit: () => void;
 };
 
 export function UserCard({
@@ -22,8 +21,7 @@ export function UserCard({
   status,
   cargo,
   salario,
-  onEdit,
-  onRemove,
+  openEdit,
 }: cardProps) {
   return (
     <div className="flex flex-col gap-3 rounded-lg border bg-white p-3 transition-shadow duration-500 ease-in-out hover:shadow-2xl md:w-full lg:w-[415px]">
@@ -85,16 +83,13 @@ export function UserCard({
       {/* Button area */}
       <div className="flex gap-2">
         <button
-          onClick={onEdit}
+          onClick={openEdit}
           className="flex w-11/12 cursor-pointer items-center justify-center gap-3 rounded-lg border p-2 font-bold hover:bg-gray-100"
         >
           <SquarePen />
           Editar
         </button>
-        <button
-          onClick={onRemove}
-          className="flex cursor-pointer items-center justify-center rounded-lg border p-2 font-bold text-red-500 hover:bg-gray-100"
-        >
+        <button className="flex cursor-pointer items-center justify-center rounded-lg border p-2 font-bold text-red-500 hover:bg-gray-100">
           <Trash2 />
         </button>
       </div>
