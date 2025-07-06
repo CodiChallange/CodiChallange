@@ -4,6 +4,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --codiCash: url("./assets/codiCashLogo.png");
+  --codiOficial: url("./assets/codiOficialOficial.png");
   --codiLogo: url("./assets/CodiLogo.png");
   --javascriptLogo: url("./assets/JavaScriptLogo.png");
   --fullstackLogo: url("./assets/FullStackLogo.png");
