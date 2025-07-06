@@ -2,7 +2,13 @@ import { Card, CardContent, CardTitle } from "./ui/card";
 import type { IconBaseProps } from "react-icons";
 
 import type { colorTypes } from "./InfoCard";
-export type bgColorTypes = "green" | "red" | "blue" | "orange" | "purple";
+export type bgColorTypes =
+  | "green"
+  | "red"
+  | "blue"
+  | "orange"
+  | "purple"
+  | "white";
 interface ReportsCardProps {
   title: string;
   icon?: React.ComponentType<IconBaseProps>;
@@ -112,6 +118,23 @@ export function CardsReports({
             <CardContent>
               {Icon && <Icon size={50} className="text-purple-500" />}{" "}
             </CardContent>
+          </div>
+        </Card>
+      )}
+      {color === "white" && bgColor === "white" && (
+        <Card className="border-white-500 bg-white-100 my-6 flex flex-row justify-between border-2 text-zinc-500">
+          <div>
+            <CardTitle className="ml-8 text-[16px] font-semibold">
+              {title}
+            </CardTitle>
+            <div className="mt-5 ml-8 grid grid-cols-2">
+              <CardContent className="p-0 text-2xl font-bold">
+                {value}
+              </CardContent>
+            </div>
+          </div>
+          <div className="flex items-center">
+            <CardContent>{Icon && <Icon size={50} />} </CardContent>
           </div>
         </Card>
       )}

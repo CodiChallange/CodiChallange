@@ -13,8 +13,8 @@ export function ToggleButton({ filter, setFilter }: Props) {
   );
 
   return (
-    <div className="flex flex-col items-center space-x-1">
-      <div className="flex w-328 justify-end">
+    <div className="space-x-1 border">
+      <div className="flex justify-end">
         <ToggleGroup
           type="single"
           value={chartType}
