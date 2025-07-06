@@ -6,6 +6,7 @@ import {
   ShoppingCart,
   CreditCard,
   ChartPie,
+  BookOpen,
 } from "lucide-react";
 import CodiIcon from "../assests/CodiLogoAside.png";
 import { Link, useLocation } from "react-router-dom";
@@ -33,6 +34,12 @@ export function Aside() {
       icon: <CreditCard size={22} />,
       label: "Gastos",
       path: "/gastos",
+      count: "0",
+    },
+    {
+      icon: <BookOpen size={22} />,
+      label: "Cursos",
+      path: "/courses",
       count: "0",
     },
     {

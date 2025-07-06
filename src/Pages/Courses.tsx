@@ -8,8 +8,8 @@ import PythonLogo from "../assests/PythonLogo.png";
 import ReactLogo from "../assests/ReactLogo.png";
 import FullstackLogo from "../assests/FullStackLogo.png";
 
-import { ExpensesForm } from "@/Forms/ExpensesForm";
 import { BookOpen, CircleDot, Clock, Star, UsersRound } from "lucide-react";
+import { CoursesForm } from "@/Forms/CoursesForm";
 
 export function Courses() {
   return (
@@ -25,7 +25,12 @@ export function Courses() {
             </p>
           </div>
           <div className="flex justify-end">
-            <ExpensesForm />
+            <CoursesForm
+              title={""}
+              description={""}
+              button={"Criar Curso"}
+              buttonName="Novo Curso"
+            />
           </div>
         </div>
         {/*Cards com os tipos de despesas*/}
@@ -45,7 +50,7 @@ export function Courses() {
             bgColor={"white"}
           />
           <CardsReports
-            title={"Total de estudantes"}
+            title={"Total de alunos"}
             value={"14.853,00"}
             color={"white"}
             icon={UsersRound}
@@ -59,7 +64,7 @@ export function Courses() {
             bgColor={"white"}
           />
         </section>
-        <section className="grid grid-cols-4 gap-2">
+        <section className="grid gap-3 lg:grid-cols-4">
           <CourseCard
             title="Curso de PHP"
             imageUrl={PhpLogo}

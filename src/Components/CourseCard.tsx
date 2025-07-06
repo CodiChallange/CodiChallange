@@ -1,3 +1,4 @@
+import { CoursesForm } from "@/Forms/CoursesForm";
 import {
   Card,
   CardContent,
@@ -80,9 +81,12 @@ export function CourseCard({
             </span>
           </CardDescription>
           <CardDescription className="flex justify-center">
-            <button className="mt-4 w-330 rounded-lg bg-purple-400 px-4 py-2 text-white transition-colors hover:bg-purple-600">
-              Gerenciar Curso
-            </button>
+            <CoursesForm
+              title={""}
+              description={""}
+              button={"Gerenciar Curso"}
+              buttonName={"Gerenciar Curso"}
+            />
           </CardDescription>
         </CardContent>
       </Card>
