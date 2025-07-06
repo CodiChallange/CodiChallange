@@ -57,7 +57,7 @@ export function Aside() {
   return (
     <aside
       className={`flex flex-col items-center justify-between bg-white shadow-md transition-all duration-300 ${
-        isOpen ? "absolute h-full w-72 md:relative" : "w-20"
+        isOpen ? "absolute z-10 h-full w-72 md:relative" : "w-20"
       }`}
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
