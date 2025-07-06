@@ -3,7 +3,6 @@ import {
   Home,
   Users,
   Settings,
-  SunIcon,
   ShoppingCart,
   CreditCard,
   ChartPie,
@@ -76,9 +75,6 @@ export function Aside() {
                 </h1>
                 <span className="text-[12px]">Gestão Financeira</span>
               </div>
-              <button className="flex cursor-pointer rounded-lg p-1 hover:bg-gray-200">
-                <SunIcon size={18} />
-              </button>
             </div>
           ) : (
             <img src={CodiIcon} alt="" className="h-[40px] w-[40px]" />
