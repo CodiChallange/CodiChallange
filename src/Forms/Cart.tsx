@@ -23,7 +23,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 
 const formSchema = z.object({
-  product: z.string({
+  product: z.enum(["product1", "product2", "product3"]{
     message: "O campo produto é obrigatório",
   }),
 
@@ -35,9 +35,10 @@ const formSchema = z.object({
     message: "O campo professor é obrigatório",
   }),
 
-  rotation: z.array(z.string()).refine((value) => value.some((item) => item), {
+  rotation: z.enum(["morning", "afternoon", "night"]{
     message: "O campo turno é obrigatório",
-  }),
+  })
+
 });
 
 type formSchema = z.infer<typeof formSchema>;
