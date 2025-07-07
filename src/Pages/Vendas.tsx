@@ -161,7 +161,7 @@ export function Vendas() {
                 description="Insira os dados da venda"
                 trigger="Nova venda"
                 icon={Plus}
-                color="purple"
+                
               />
             </div>
           </div>

@@ -24,14 +24,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 import type { IconBaseProps } from "react-icons";
 
-export type colorTypes = "purple" | "white";
-
 interface Salesprops {
   title?: string;
   description?: string;
   trigger?: string;
   icon?: React.ComponentType<IconBaseProps>;
-  color?: colorTypes;
 }
 
 const formSchema = z.object({
@@ -69,7 +66,6 @@ export function SalesForm({
   description,
   trigger,
   icon: Icon,
-  color,
 }: Salesprops) {
   const {
     handleSubmit,
@@ -99,16 +95,14 @@ export function SalesForm({
   return (
     <div>
       <Dialog>
-        {color === "purple" && (
-          <DialogTrigger asChild>
-            <button className="flex items-center justify-center gap-2">
-              <div className="flex items-center justify-center">
-                {Icon && <Icon />}
-              </div>
-              <span>{trigger}</span>
-            </button>
-          </DialogTrigger>
-        )}
+        <DialogTrigger asChild>
+          <button className="flex items-center justify-center gap-2">
+            <div className="flex items-center justify-center">
+              {Icon && <Icon />}
+            </div>
+            {trigger}
+          </button>
+        </DialogTrigger>
 
         <DialogContent>
           <DialogTitle>{title}</DialogTitle>
