@@ -189,7 +189,7 @@ export function CoursesForm({
               {/*Botão de salvar*/}
               <Button
                 type="submit"
-                className="mt-4 cursor-pointer justify-between bg-purple-500 p-4 hover:bg-purple-600"
+                className="mt-4 cursor-pointer justify-between bg-purple-500 hover:bg-purple-600"
               >
                 {button}
               </Button>

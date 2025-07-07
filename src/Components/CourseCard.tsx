@@ -36,11 +36,11 @@ export function CourseCard({
 }: CourseCardProps) {
   return (
     <>
-      <Card className="relative flex w-80 flex-col gap-4 overflow-hidden">
+      <Card className="relative flex w-76 flex-col gap-4 overflow-hidden">
         <CardHeader className="w-full border">
           <img
             src={imageUrl}
-            className="h- absolute top-0 left-0 w-full"
+            className="absolute top-0 left-0 h-45 w-full"
             alt="Logo do Curso Javascript"
           />
         </CardHeader>
@@ -80,12 +80,12 @@ export function CourseCard({
               R$ {price}
             </span>
           </CardDescription>
-          <CardDescription className="flex justify-center">
+          <CardDescription className="w-full">
             <CoursesForm
               title={""}
-              description={""}
-              button={"Gerenciar Curso"}
-              buttonName={"Gerenciar Curso"}
+              description={"Gerenciar Curso"}
+              button="Editar Curso"
+              buttonName={"Editar Curso"}
             />
           </CardDescription>
         </CardContent>
