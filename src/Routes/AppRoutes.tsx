@@ -6,6 +6,11 @@ import { Configs } from "@/Pages/Configs";
 import { Vendas } from "@/Pages/Vendas";
 import { Relatorios } from "@/Pages/Relatorios";
 import { Gastos } from "@/Pages/Gastos";
+
+import { CodiStore } from "@/Pages/CodiStore";
+
+import { CreateProduct } from "@/Forms/CreateProduct";
+
 import { Courses } from "@/Pages/Courses";
 
 export function AppRoutes() {
@@ -19,6 +24,10 @@ export function AppRoutes() {
         <Route path="/users" element={<Team />} />
         <Route path="/gastos" element={<Gastos />} />
         <Route path="/configs" element={<Configs />} />
+
+        <Route path="/codistore" element={<CodiStore />} />
+        <Route path="/createproduct" element={<CreateProduct />} />
+
         <Route path="/courses" element={<Courses />} />
       </Routes>
     </BrowserRouter>
