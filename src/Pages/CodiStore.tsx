@@ -1,5 +1,5 @@
 import { Aside } from "@/Components/Aside";
-import { Plus, Search } from "lucide-react";
+import { Search } from "lucide-react";
 import {
   Select,
   SelectItem,
@@ -11,6 +11,7 @@ import { CardStore } from "@/Components/CardStore";
 import { CreateProduct } from "@/Forms/CreateProduct";
 import { useState } from "react";
 import { CardDetails } from "@/Components/modal/CodiStoreDetails";
+import { Cart } from "@/Forms/Cart";
 
 export function CodiStore() {
   const [isOpenEdit, setIsOpenEdit] = useState(false);
@@ -30,10 +31,7 @@ export function CodiStore() {
           </div>
           <div className="flex gap-2">
             <CreateProduct />
-            <button className="flex cursor-pointer gap-2 rounded-lg bg-[#A243D2] px-5 py-3 text-white">
-              <Plus />
-              <span>Nova Venda</span>
-            </button>
+            <Cart />
           </div>
         </header>
         {/* Inputs */}
