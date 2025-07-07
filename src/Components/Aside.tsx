@@ -7,6 +7,7 @@ import {
   CreditCard,
   ChartPie,
   BookOpen,
+  Store,
 } from "lucide-react";
 import CodiIcon from "../assests/CodiLogoAside.png";
 import { Link, useLocation } from "react-router-dom";
@@ -47,6 +48,12 @@ export function Aside() {
       label: "Relatórios",
       path: "/relatorios",
       count: "0",
+    },
+    {
+      icon: <Store size={22} />,
+      label: "CodiStore",
+      path: "/codistore",
+      count: "2",
     },
     { icon: <Users size={22} />, label: "Equipe", path: "/users", count: "1" },
     {
