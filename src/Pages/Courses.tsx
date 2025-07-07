@@ -37,31 +37,35 @@ export function Courses() {
         <section className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-4">
           <CardsReports
             title={"Total de cursos"}
-            value={"4.413,00"}
+            value={"16"}
             color={"white"}
             icon={BookOpen}
             bgColor={"white"}
+            iconColor="blue-500"
           />
           <CardsReports
-            title={"Ativos"}
-            value={"10.440,00"}
+            title={"Cursos Ativos"}
+            value={"14"}
             color={"white"}
             icon={CircleDot}
             bgColor={"white"}
+            iconColor="green-500"
           />
           <CardsReports
             title={"Total de alunos"}
-            value={"14.853,00"}
+            value={"2000"}
             color={"white"}
             icon={UsersRound}
             bgColor={"white"}
+            iconColor="purple-500"
           />
           <CardsReports
             title={"Avaliação média"}
-            value={"14.853,00"}
+            value={"4.7"}
             color={"white"}
             icon={Star}
             bgColor={"white"}
+            iconColor="yellow-500"
           />
         </section>
         <section className="grid gap-3 lg:grid-cols-4">

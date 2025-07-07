@@ -15,13 +15,16 @@ interface ReportsCardProps {
   value: string;
   color?: colorTypes;
   bgColor?: bgColorTypes;
+  iconColor?: string;
 }
+
 export function CardsReports({
   title,
   icon: Icon,
   value,
   color,
   bgColor,
+  iconColor,
 }: ReportsCardProps) {
   return (
     <div>
@@ -134,7 +137,9 @@ export function CardsReports({
             </div>
           </div>
           <div className="flex items-center">
-            <CardContent>{Icon && <Icon size={50} />} </CardContent>
+            <CardContent>
+              {Icon && <Icon size={50} className={`text-${iconColor}`} />}
+            </CardContent>
           </div>
         </Card>
       )}
