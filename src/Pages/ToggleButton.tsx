@@ -3,8 +3,8 @@ import { ToggleGroup, ToggleGroupItem } from "@/Components/ui/toggle-group";
 import { useState } from "react";
 
 interface Props {
-  filter: "week" | "month" | "year";
-  setFilter: React.Dispatch<React.SetStateAction<"week" | "month" | "year">>;
+  filter: "semana" | "mes" | "ano";
+  setFilter: React.Dispatch<React.SetStateAction<"semana" | "mes" | "ano">>;
 }
 //Componente que exibe o gráfico com base no valor selecionado
 export function ToggleButton({ filter, setFilter }: Props) {
@@ -13,7 +13,7 @@ export function ToggleButton({ filter, setFilter }: Props) {
   );
 
   return (
-    <div className="space-x-1 border">
+    <div className="space-x-1">
       <div className="flex justify-end">
         <ToggleGroup
           type="single"

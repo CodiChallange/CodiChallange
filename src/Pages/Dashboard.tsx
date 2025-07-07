@@ -22,9 +22,9 @@ import {
 import { FiltroPorPeriodo } from "@/Components/FiltroPorPeriodo";
 import { ToggleButton } from "./ToggleButton";
 
-type Filter = "week" | "month" | "year";
+type Filter = "semana" | "mes" | "ano";
 export function Dashboard() {
-  const [selectedFilter, setselectedFilter] = useState<Filter>("month");
+  const [selectedFilter, setselectedFilter] = useState<Filter>("mes");
 
   //Navegação do card ações rápidas
 
