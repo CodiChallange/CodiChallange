@@ -36,7 +36,7 @@ export function ToggleButton({ filter, setFilter }: Props) {
       </div>
 
       {/* Exibe o gráfico com base no valor selecionado */}
-      <div className="mt-4 h-auto w-328">
+      <div className="mt-4 h-auto">
         <Charts filter={filter} tipo={chartType} />
       </div>
     </div>
