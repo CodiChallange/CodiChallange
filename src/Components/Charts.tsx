@@ -35,7 +35,7 @@ type Expense = {
   formaPagamento: string;
 };
 type Props = {
-  filter: "week" | "month" | "year";
+  filter: "semana" | "mes" | "ano";
   tipo: "barChart" | "lineChart";
 };
 
@@ -59,12 +59,12 @@ export function Charts({ filter, tipo }: Props) {
             const data = parseISO(item.data);
 
             let chave = "";
-            if (filter === "month") {
+            if (filter === "mes") {
               chave = format(data, "MM/yyyy");
-            } else if (filter === "week") {
+            } else if (filter === "semana") {
               const semana = getISOWeek(data);
               chave = `Semana ${semana} - ${format(data, "MM/yyyy")}`;
-            } else if (filter === "year") {
+            } else if (filter === "ano") {
               chave = format(data, "yyyy");
             }
 
@@ -82,9 +82,9 @@ export function Charts({ filter, tipo }: Props) {
         const dadosFormatados = Array.from(todosPeriodos).map((periodo) => {
           let dataSort: Date;
 
-          if (filter === "year") {
+          if (filter === "ano") {
             dataSort = parseISO(`01/01/${periodo}`);
-          } else if (filter === "month") {
+          } else if (filter === "mes") {
             // periodo = "MM/yyyy"
             dataSort = parseISO(`01/${periodo}`);
           } else {
@@ -136,11 +136,11 @@ export function Charts({ filter, tipo }: Props) {
   return (
     <>
       {tipo === "barChart" && (
-        <Card className="ml-70 w-240 max-w-full overflow-x-auto md:h-[50vh] lg:h-[80vh]">
+        <Card className="max-w-full overflow-x-auto">
           <CardHeader>
             <CardTitle>Receitas vs Despesas vs Lucro </CardTitle>
           </CardHeader>
-          <CardContent className="max-w-full">
+          <CardContent className="w-full">
             <ChartContainer config={{}} className="min-h-[200px] w-full">
               {/* Passo 4: Exibir os dados usando BarChart */}
 
@@ -160,7 +160,7 @@ export function Charts({ filter, tipo }: Props) {
         </Card>
       )}
       {tipo === "lineChart" && (
-        <Card className="m-8 h-170 w-320 max-w-full overflow-x-auto">
+        <Card className="max-w-full overflow-x-auto">
           <CardHeader>
             <CardTitle>Tendência de Crescimento</CardTitle>
           </CardHeader>

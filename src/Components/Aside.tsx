@@ -3,10 +3,10 @@ import {
   Home,
   Users,
   Settings,
-  SunIcon,
   ShoppingCart,
   CreditCard,
   ChartPie,
+  BookOpen,
 } from "lucide-react";
 import CodiIcon from "../assests/CodiLogoAside.png";
 import { Link, useLocation } from "react-router-dom";
@@ -37,6 +37,12 @@ export function Aside() {
       count: "0",
     },
     {
+      icon: <BookOpen size={22} />,
+      label: "Cursos",
+      path: "/courses",
+      count: "0",
+    },
+    {
       icon: <ChartPie size={22} />,
       label: "Relatórios",
       path: "/relatorios",
@@ -57,7 +63,7 @@ export function Aside() {
   return (
     <aside
       className={`flex flex-col items-center justify-between bg-white shadow-md transition-all duration-300 ${
-        isOpen ? "absolute h-full w-72 md:relative" : "w-20"
+        isOpen ? "absolute z-10 h-full w-72 md:relative" : "w-20"
       }`}
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
@@ -76,9 +82,6 @@ export function Aside() {
                 </h1>
                 <span className="text-[12px]">Gestão Financeira</span>
               </div>
-              <button className="flex cursor-pointer rounded-lg p-1 hover:bg-gray-200">
-                <SunIcon size={18} />
-              </button>
             </div>
           ) : (
             <img src={CodiIcon} alt="" className="h-[40px] w-[40px]" />

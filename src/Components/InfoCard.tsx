@@ -2,7 +2,13 @@ import { Card, CardHeader, CardTitle, CardContent } from "./ui/card";
 
 import type { IconBaseProps } from "react-icons";
 
-export type colorTypes = "green" | "red" | "blue" | "orange" | "purple";
+export type colorTypes =
+  | "green"
+  | "red"
+  | "blue"
+  | "orange"
+  | "purple"
+  | "white";
 interface InfoCardProps {
   name: string;
   iconMain?: React.ComponentType<IconBaseProps>;

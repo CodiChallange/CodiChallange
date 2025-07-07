@@ -66,7 +66,7 @@ export function ChartExpenseDistribution() {
       <CardContent className="flex-1 pb-0">
         <ChartContainer
           config={chartConfig}
-          className="mx-auto aspect-square max-h-[250px] w-100 px-0"
+          className="mx-auto aspect-square max-h-[250px] text-[10px] lg:w-100"
         >
           <PieChart>
             <ChartTooltip

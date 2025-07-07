@@ -1,8 +1,8 @@
 import { Button } from "@/Components/ui/button";
 import { useForm } from "react-hook-form";
 
-import CodiLogo from "../assests/CodiLogo.png";
-import CodiLogoAside from "../assests/CodiLogoAside.png";
+import codiCashLogo from "../assests/codiCashLogo.png";
+import codiCashOficial from "../assests/codiCashOficial.png";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -36,7 +36,7 @@ export function Logon() {
   return (
     <div className="from-fuchia-500 flex h-screen bg-linear-60 to-purple-900">
       <div className="flex w-1/2 flex-col items-center justify-center">
-        <img src={CodiLogoAside} alt="Logo Codi Cash" />
+        <img src={codiCashLogo} alt="Logo Codi Cash" className="w-1/2" />
 
         <form
           onSubmit={handleSubmit(Logon)}
@@ -87,7 +87,7 @@ export function Logon() {
         </form>
       </div>
       <div className="flex w-1/2 items-center justify-center">
-        <img src={CodiLogo} alt="" className="h-[600px] w-[600px]" />
+        <img src={codiCashOficial} alt="" className="h-[600px] w-[600px]" />
       </div>
     </div>
   );

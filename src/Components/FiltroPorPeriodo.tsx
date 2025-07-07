@@ -2,14 +2,14 @@ import { Button } from "./ui/button";
 import { Funnel } from "lucide-react";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 
-type Filter = "week" | "month" | "year";
+type Filter = "semana" | "mes" | "ano";
 type Props = {
   value: Filter;
   onChange: (filter: Filter) => void;
 };
-//COmponente de filtro que exibe o grafico de acordo com o que foi selecionado no filtro
+//Componente de filtro que exibe o grafico de acordo com o que foi selecionado no filtro
 export function FiltroPorPeriodo({ value, onChange }: Props) {
-  const filters: Filter[] = ["week", "month", "year"];
+  const filters: Filter[] = ["semana", "mes", "ano"];
 
   return (
     <Popover>

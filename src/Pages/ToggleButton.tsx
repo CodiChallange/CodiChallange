@@ -3,8 +3,8 @@ import { ToggleGroup, ToggleGroupItem } from "@/Components/ui/toggle-group";
 import { useState } from "react";
 
 interface Props {
-  filter: "week" | "month" | "year";
-  setFilter: React.Dispatch<React.SetStateAction<"week" | "month" | "year">>;
+  filter: "semana" | "mes" | "ano";
+  setFilter: React.Dispatch<React.SetStateAction<"semana" | "mes" | "ano">>;
 }
 //Componente que exibe o gráfico com base no valor selecionado
 export function ToggleButton({ filter, setFilter }: Props) {
@@ -13,8 +13,8 @@ export function ToggleButton({ filter, setFilter }: Props) {
   );
 
   return (
-    <div className="flex flex-col items-center space-x-1">
-      <div className="flex w-328 justify-end">
+    <div className="space-x-1">
+      <div className="flex justify-end">
         <ToggleGroup
           type="single"
           value={chartType}
@@ -36,7 +36,7 @@ export function ToggleButton({ filter, setFilter }: Props) {
       </div>
 
       {/* Exibe o gráfico com base no valor selecionado */}
-      <div className="mt-4 h-auto w-328">
+      <div className="mt-4 h-auto">
         <Charts filter={filter} tipo={chartType} />
       </div>
     </div>

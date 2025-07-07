@@ -26,7 +26,7 @@ export function Relatorios() {
       <Aside />
 
       <div className="flex w-full flex-col gap-8 overflow-auto bg-gray-100 p-5">
-        <div className="flex items-center justify-between">
+        <header className="flex flex-col items-center justify-between lg:flex-row">
           {/* Text Area */}
           <div className="flex flex-col gap-1">
             <h1 className="text-4xl font-bold">Gestão de Equipe</h1>
@@ -54,9 +54,9 @@ export function Relatorios() {
               Exportar
             </button>
           </div>
-        </div>
+        </header>
 
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-4">
           <CardsReports
             title={"Vendas"}
             value={10000}
@@ -84,7 +84,7 @@ export function Relatorios() {
           />
         </div>
         <Tabs defaultValue="Vg" className="w-full text-black">
-          <TabsList className="flex h-fit w-full bg-gray-200">
+          <TabsList className="grid h-fit w-full grid-cols-2 bg-gray-200 lg:grid-cols-4">
             <TabsTrigger value="Vg">Visão Geral</TabsTrigger>
             <TabsTrigger value="Cp">Comparativo</TabsTrigger>
             <TabsTrigger value="Ds">Distribuição</TabsTrigger>
@@ -92,7 +92,7 @@ export function Relatorios() {
           </TabsList>
           {/* Visao Geral */}
           <TabsContent value="Vg">
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 gap-3 lg:grid-cols-2">
               <div>
                 <ChartSaleXEpxenses />
               </div>
@@ -110,7 +110,7 @@ export function Relatorios() {
           {/* Distribuição */}
           <TabsContent value="Ds">
             <div className="flex flex-col">
-              <div className="mb-6 grid grid-cols-2 gap-3">
+              <div className="mb-6 grid grid-cols-1 gap-3 lg:grid-cols-2">
                 <div>
                   <ChartExpenseDistribution />
                 </div>
@@ -122,57 +122,57 @@ export function Relatorios() {
               <div className="flex flex-col gap-4 rounded-lg bg-white p-3">
                 <h1 className="text-2xl font-bold">Detalhamento de Gastos</h1>
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="flex items-center justify-between rounded-lg border border-gray-300 px-5 py-1.5">
-                    <div className="flex items-center gap-3">
+                  <div className="flex flex-col items-center justify-between rounded-lg border border-gray-300 px-5 py-1.5 lg:flex-row">
+                    <div className="flex flex-col items-center gap-3 lg:flex-row">
                       <div className="h-4 w-4 rounded-[100%] bg-purple-500"></div>
                       <span className="font-semibold">Aluguel</span>
                     </div>
                     <span className="font-bold text-red-500">R$ 15.000,00</span>
                   </div>
-                  <div className="flex items-center justify-between rounded-lg border border-gray-300 px-5 py-1.5">
-                    <div className="flex items-center gap-3">
+                  <div className="flex flex-col items-center justify-between rounded-lg border border-gray-300 px-5 py-1.5 lg:flex-row">
+                    <div className="flex flex-col items-center gap-3 lg:flex-row">
                       <div className="h-4 w-4 rounded-[100%] bg-red-500"></div>
                       <span className="font-semibold">Folha de Pagamento</span>
                     </div>
                     <span className="font-bold text-red-500">R$ 15.000,00</span>
                   </div>
-                  <div className="flex items-center justify-between rounded-lg border border-gray-300 px-5 py-1.5">
-                    <div className="flex items-center gap-3">
+                  <div className="flex flex-col items-center justify-between rounded-lg border border-gray-300 px-5 py-1.5 lg:flex-row">
+                    <div className="flex flex-col items-center gap-3 lg:flex-row">
                       <div className="h-4 w-4 rounded-[100%] bg-yellow-500"></div>
                       <span className="font-semibold">Energia</span>
                     </div>
                     <span className="font-bold text-red-500">R$ 15.000,00</span>
                   </div>
-                  <div className="flex items-center justify-between rounded-lg border border-gray-300 px-5 py-1.5">
-                    <div className="flex items-center gap-3">
+                  <div className="flex flex-col items-center justify-between rounded-lg border border-gray-300 px-5 py-1.5 lg:flex-row">
+                    <div className="flex flex-col items-center gap-3 lg:flex-row">
                       <div className="h-4 w-4 rounded-[100%] bg-green-500"></div>
                       <span className="font-semibold">Internet</span>
                     </div>
                     <span className="font-bold text-red-500">R$ 15.000,00</span>
                   </div>
-                  <div className="flex items-center justify-between rounded-lg border border-gray-300 px-5 py-1.5">
-                    <div className="flex items-center gap-3">
+                  <div className="flex flex-col items-center justify-between rounded-lg border border-gray-300 px-5 py-1.5 lg:flex-row">
+                    <div className="flex flex-col items-center gap-3 lg:flex-row">
                       <div className="h-4 w-4 rounded-[100%] bg-blue-500"></div>
                       <span className="font-semibold">Manutenção</span>
                     </div>
                     <span className="font-bold text-red-500">R$ 15.000,00</span>
                   </div>
-                  <div className="flex items-center justify-between rounded-lg border border-gray-300 px-5 py-1.5">
-                    <div className="flex items-center gap-3">
+                  <div className="flex flex-col items-center justify-between rounded-lg border border-gray-300 px-5 py-1.5 lg:flex-row">
+                    <div className="flex flex-col items-center gap-3 lg:flex-row">
                       <div className="h-4 w-4 rounded-[100%] bg-cyan-500"></div>
                       <span className="font-semibold">Suprimentos</span>
                     </div>
                     <span className="font-bold text-red-500">R$ 15.000,00</span>
                   </div>
-                  <div className="flex items-center justify-between rounded-lg border border-gray-300 px-5 py-1.5">
-                    <div className="flex items-center gap-3">
+                  <div className="flex flex-col items-center justify-between rounded-lg border border-gray-300 px-5 py-1.5 lg:flex-row">
+                    <div className="flex flex-col items-center gap-3 lg:flex-row">
                       <div className="h-4 w-4 rounded-[100%] bg-emerald-500"></div>
                       <span className="font-semibold">Marketing</span>
                     </div>
                     <span className="font-bold text-red-500">R$ 15.000,00</span>
                   </div>
-                  <div className="flex items-center justify-between rounded-lg border border-gray-300 px-5 py-1.5">
-                    <div className="flex items-center gap-3">
+                  <div className="flex flex-col items-center justify-between rounded-lg border border-gray-300 px-5 py-1.5 lg:flex-row">
+                    <div className="flex flex-col items-center gap-3 lg:flex-row">
                       <div className="h-4 w-4 rounded-[100%] bg-gray-500"></div>
                       <span className="font-semibold">Outros</span>
                     </div>
@@ -189,7 +189,7 @@ export function Relatorios() {
                 <ChartTrendAnalysis />{" "}
               </div>
               {/* Cards Area */}
-              <div className="flex gap-3">
+              <div className="flex flex-col gap-3 lg:flex-row">
                 <div className="flex w-full flex-col gap-2 rounded-lg border border-green-300 bg-green-100 p-4">
                   <h3 className="font-bold text-green-900">
                     Crescimento de Receitas
