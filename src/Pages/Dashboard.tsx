@@ -22,9 +22,9 @@ import {
 import { FiltroPorPeriodo } from "@/Components/FiltroPorPeriodo";
 import { ToggleButton } from "./ToggleButton";
 
-type Filter = "week" | "month" | "year";
+type Filter = "semana" | "mes" | "ano";
 export function Dashboard() {
-  const [selectedFilter, setselectedFilter] = useState<Filter>("month");
+  const [selectedFilter, setselectedFilter] = useState<Filter>("mes");
 
   //Navegação do card ações rápidas
 
@@ -69,9 +69,9 @@ export function Dashboard() {
   const saldoLiquido = totalSale - totalExpense;
 
   return (
-    <div className="flex min-h-screen flex-col bg-gray-100 lg:flex-row">
+    <div className="flex h-screen bg-gray-100">
       <Aside />
-      <main className="w-full max-w-full flex-1 overflow-x-hidden px-4 py-6 lg:px-8">
+      <main className="w-full flex-1 overflow-x-hidden px-4 py-6 lg:px-8">
         <div className="m-8 flex items-center justify-between p-4">
           <div>
             <h1 className="text-2xl font-bold">Dashboard Financeiro</h1>
@@ -114,8 +114,8 @@ export function Dashboard() {
         </section>
         {/* Gráfico */}
 
-        <section className="mx-4 my-8 flex max-w-full flex-col overflow-x-auto rounded-lg border-2 border-purple-200 bg-purple-300 sm:p-6">
-          <div className="mb-4 flex w-full justify-end">
+        <section className="rounded-lg border-2 border-purple-200 bg-purple-300 sm:p-6">
+          <div className="mb-4 justify-end">
             <ToggleButton
               filter={selectedFilter}
               setFilter={setselectedFilter}

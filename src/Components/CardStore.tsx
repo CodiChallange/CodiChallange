@@ -1,4 +1,8 @@
-export function CardStore() {
+type cardPorps = {
+  open: () => void;
+};
+
+export function CardStore({ open }: cardPorps) {
   return (
     <div className="flex w-96 flex-col gap-3 rounded-lg bg-white p-5 shadow-lg transition-shadow duration-500 ease-in-out hover:shadow-2xl">
       {/* Header */}
@@ -38,7 +42,10 @@ export function CardStore() {
           <h1 className="font-bold">Valor:</h1>
           <span>R$ 58,56</span>
         </div>
-        <button className="cursor-pointer rounded-lg bg-gray-100 p-3 hover:bg-gray-200">
+        <button
+          onClick={open}
+          className="cursor-pointer rounded-lg bg-gray-100 p-3 hover:bg-gray-200"
+        >
           Detalhes
         </button>
       </footer>
