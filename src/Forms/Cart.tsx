@@ -23,7 +23,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 
 const formSchema = z.object({
-  product: z.enum(["product1", "product2", "product3"]{
+  product: z.enum(["product1", "product2", "product3"],{
     message: "O campo produto é obrigatório",
   }),
 
@@ -35,7 +35,7 @@ const formSchema = z.object({
     message: "O campo professor é obrigatório",
   }),
 
-  rotation: z.enum(["morning", "afternoon", "night"]{
+  rotation: z.enum(["morning", "afternoon", "night"],{
     message: "O campo turno é obrigatório",
   })
 
@@ -82,9 +82,11 @@ export function Cart() {
             Adicione produtos ao carrinho e registre uma nova venda
           </DialogDescription>
 
-          <form onSubmit={handleSubmit(addCart)}>
+          <form onSubmit={handleSubmit(addCart)}
+          className="w-full"
+          >
             <h1 className="mb-6">Adicionar produto</h1>
-            <div className="flex items-center gap-4">
+            <div className="flex justify-between">
               <div>
                 <Controller
                
@@ -109,6 +111,7 @@ export function Cart() {
                 <Input
                   type="number"
                   placeholder="Quantidade"
+                  min={0}
                   {...register("quantity")}
                   required
                 />
@@ -121,19 +124,19 @@ export function Cart() {
             </div>
             <Button
               type="button"
-              className="cursor-pointer bg-purple-500 hover:bg-purple-600 w-full"
+              className="mt-4 mb-4 cursor-pointer bg-purple-500 hover:bg-purple-600 w-full"
             >
               + Adicionar
             </Button>
 
-            <div className="flex gap-4 w-full">
+            <div className="flex mb-4 justify-between ">
               <div>
                 <Controller
                   name="rotation"
                   control={control}
                   render={({ field }) => (
                     <Select onValueChange={field.onChange}>
-                      <SelectTrigger className="w-1/2">
+                      <SelectTrigger>
                         <SelectValue placeholder="Selecione o turno" />
                       </SelectTrigger>
                       <SelectContent>
@@ -153,7 +156,7 @@ export function Cart() {
 
               <div>
                 <Input
-                className="w-1/2"
+                
                   type="text"
                   placeholder="Professor responsável"
                   {...register("professor")}
