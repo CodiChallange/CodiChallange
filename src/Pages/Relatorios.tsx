@@ -59,28 +59,25 @@ export function Relatorios() {
         <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-4">
           <CardsReports
             title={"Vendas"}
-            value={10000}
+            value={"10000"}
             color={"green"}
             icon={TrendingUp}
             bgColor={"green"}
-            percentage={20}
           />
           <CardsReports
             title={"Despesas"}
-            value={10000}
+            value={"10000"}
             color={"red"}
             icon={TrendingDown}
             bgColor={"red"}
-            percentage={20}
           />
 
           <CardsReports
             title={"Balanço"}
-            value={10000}
+            value={"10000"}
             color={"blue"}
             icon={TrendingUpDown}
             bgColor={"blue"}
-            percentage={20}
           />
         </div>
         <Tabs defaultValue="Vg" className="w-full text-black">
@@ -112,10 +109,10 @@ export function Relatorios() {
             <div className="flex flex-col">
               <div className="mb-6 grid grid-cols-1 gap-3 lg:grid-cols-2">
                 <div>
-                  <ChartExpenseDistribution />
+                  <ChartRevenueByCourseType />
                 </div>
                 <div>
-                  <ChartRevenueByCourseType />
+                  <ChartExpenseDistribution />
                 </div>
               </div>
               {/* Detalhamento de gastos */}

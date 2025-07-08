@@ -86,9 +86,7 @@ export function ChartExpenseDistribution() {
                     textAnchor={props.textAnchor}
                     dominantBaseline={props.dominantBaseline}
                     fill="hsla(var(--foreground))"
-                  >
-                    {payload.gastos}
-                  </text>
+                  ></text>
                 );
               }}
               nameKey="gastos"
