@@ -8,7 +8,14 @@ import PythonLogo from "../assests/PythonLogo.png";
 import ReactLogo from "../assests/ReactLogo.png";
 import FullstackLogo from "../assests/FullStackLogo.png";
 
-import { BookOpen, CircleDot, Clock, Star, UsersRound } from "lucide-react";
+import {
+  BookOpen,
+  CircleDot,
+  Clock,
+  Plus,
+  Star,
+  UsersRound,
+} from "lucide-react";
 import { CoursesForm } from "@/Forms/CoursesForm";
 
 export function Courses() {
@@ -25,12 +32,15 @@ export function Courses() {
             </p>
           </div>
           <div className="flex justify-end">
-            <CoursesForm
-              title={""}
-              description={""}
-              button={"Criar Curso"}
-              buttonName="Novo Curso"
-            />
+            <div className="flex rounded-lg bg-[#A243D2] px-5 py-3 text-white transition duration-[1s] hover:bg-purple-700">
+              <CoursesForm
+                title="Cadastre um novo curso"
+                description="Insira os dados do curso"
+                trigger="Novo curso"
+                Icon={Plus}
+                button="Adicionar"
+              />
+            </div>
           </div>
         </div>
         {/*Cards com os tipos de despesas*/}
