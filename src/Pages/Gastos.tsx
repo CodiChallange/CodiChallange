@@ -15,6 +15,7 @@ import {
   ChevronLeft,
   ChevronRight,
   FilterIcon,
+  Plus,
   Search,
   TrendingDown,
 } from "lucide-react";
@@ -134,7 +135,14 @@ export function Gastos() {
             </p>
           </div>
           <div className="flex justify-end">
-            <ExpensesForm />
+            <div className="flex rounded-lg bg-[#A243D2] px-5 py-3 text-white transition duration-[1s] hover:bg-purple-700">
+              <ExpensesForm
+                title="Cadastre sua nova despesa"
+                description="Insira os dados da despesa"
+                trigger="Novo gasto"
+                icon={Plus}
+              />
+            </div>
           </div>
         </div>
         {/*Cards com os tipos de despesas*/}

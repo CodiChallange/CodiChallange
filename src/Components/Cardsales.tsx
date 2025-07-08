@@ -83,7 +83,6 @@ export function CardSales({
                 title="Edite sua venda"
                 description="Insira os dados novos"
                 icon={SquarePen}
-                color="purple"
               />
             </button>
             {/*Botão de excluir o card*/}
