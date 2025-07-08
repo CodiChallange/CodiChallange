@@ -46,7 +46,6 @@ interface CoursesFormProps {
   trigger?: string;
   Icon?: React.ComponentType<IconBaseProps>;
   button?: string;
-  buttonName?: string;
 }
 
 export function CoursesForm({
