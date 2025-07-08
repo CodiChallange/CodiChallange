@@ -39,6 +39,7 @@ export function Courses() {
                 trigger="Novo curso"
                 Icon={Plus}
                 button="Adicionar"
+
               />
             </div>
           </div>

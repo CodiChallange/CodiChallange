@@ -8,6 +8,7 @@ import {
   ChartPie,
   BookOpen,
   Store,
+  LogOut,
 } from "lucide-react";
 import CodiIcon from "../assests/CodiLogoAside.png";
 import { Link, useLocation } from "react-router-dom";
@@ -60,6 +61,12 @@ export function Aside() {
       icon: <Settings size={22} />,
       label: "Configurações",
       path: "/configs",
+      count: "0",
+    },
+    {
+      icon: <LogOut />,
+      label: "Sair",
+      path: "/",
       count: "0",
     },
   ];

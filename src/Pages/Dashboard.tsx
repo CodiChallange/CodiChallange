@@ -74,8 +74,8 @@ export function Dashboard() {
       <main className="w-full flex-1 overflow-x-hidden px-4 py-6 lg:px-8">
         <div className="m-8 flex items-center justify-between p-4">
           <div>
-            <h1 className="text-2xl font-bold">Dashboard Financeiro</h1>
-            <p className="text-sm text-zinc-600">
+            <h1 className="text-4xl font-bold">Dashboard Financeiro</h1>
+            <p className="text-[18px] text-gray-500">
               Visão geral das finanças da Codi Academy
             </p>
           </div>
@@ -89,7 +89,7 @@ export function Dashboard() {
           </div>
         </div>
         {/* Cards de resumos */}
-        <section className="mx-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <section className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           <InfoCard
             iconMain={TrendingUp}
             iconSecundary={ChartNoAxesCombined}

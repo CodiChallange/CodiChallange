@@ -36,8 +36,6 @@ export function Logon() {
   return (
     <div className="from-fuchia-500 flex h-screen bg-linear-60 to-purple-900">
       <div className="flex w-1/2 flex-col items-center justify-center">
-        <img src={codiCashLogo} alt="Logo Codi Cash" className="w-1/2" />
-
         <form
           onSubmit={handleSubmit(Logon)}
           className="my-10 w-85 text-center text-amber-100"
@@ -86,8 +84,8 @@ export function Logon() {
           </Button>
         </form>
       </div>
-      <div className="flex w-1/2 items-center justify-center">
-        <img src={codiCashOficial} alt="" className="h-[600px] w-[600px]" />
+      <div className="flex flex-col items-center justify-center gap-2">
+        <img src={codiCashLogo} alt="" className="h-[580px] w-[580px]" />
       </div>
     </div>
   );
