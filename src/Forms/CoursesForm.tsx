@@ -45,7 +45,7 @@ interface CoursesFormProps {
   description: string;
   trigger?: string;
   Icon?: React.ComponentType<IconBaseProps>;
-  button: string;
+  button?: string;
   buttonName: string;
 }
 
@@ -85,7 +85,8 @@ export function CoursesForm({
       <Dialog>
         {/*Botão para abrir o modal*/}
         <DialogTrigger asChild>
-          <Button className="flex h-12 w-40 gap-2 rounded-lg bg-[#A243D2] px-5 py-3 text-white transition duration-[1s] hover:bg-purple-700">
+          <Button className="flex items-center">
+            <span className="text-xl">+</span>
             {buttonName}
           </Button>
         </DialogTrigger>
@@ -189,7 +190,7 @@ export function CoursesForm({
               {/*Botão de salvar*/}
               <Button
                 type="submit"
-                className="mt-4 cursor-pointer justify-between bg-purple-500 hover:bg-purple-600"
+                className="mt-4 flex cursor-pointer justify-between bg-purple-500 hover:bg-purple-600"
               >
                 {button}
               </Button>
