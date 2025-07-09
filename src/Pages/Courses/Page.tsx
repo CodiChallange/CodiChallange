@@ -24,23 +24,22 @@ export function Courses() {
       <Aside />
       <div className="flex w-full flex-col gap-2 overflow-auto p-5">
         {/*Header*/}
-        <div className="grid items-center sm:grid-cols-1 md:grid-cols-2">
+        <div className="flex flex-col lg:flex-row lg:items-center">
           <div className="flex flex-col gap-1">
             <h1 className="text-4xl font-bold">Cursos</h1>
             <p className="text-[18px] text-gray-500">
               Gerencie o catálogo de cursos da escola
             </p>
           </div>
-          <div className="flex justify-end">
-            <div className="flex rounded-lg bg-[#A243D2] px-5 py-3 text-white transition duration-[1s] hover:bg-purple-700">
-              <CoursesForm
-                title="Cadastre um novo curso"
-                description="Insira os dados do curso"
-                trigger="Novo curso"
-                Icon={Plus}
-                button="Adicionar"
-              />
-            </div>
+
+          <div className="flex rounded-lg bg-[#A243D2] px-5 py-3 text-white transition duration-[1s] hover:bg-purple-700">
+            <CoursesForm
+              title="Cadastre um novo curso"
+              description="Insira os dados do curso"
+              trigger="Novo curso"
+              Icon={Plus}
+              button="Adicionar"
+            />
           </div>
         </div>
         {/*Cards com os tipos de despesas*/}
