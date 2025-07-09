@@ -29,16 +29,16 @@ export function CardSales({
   return (
     <div>
       {/*card de edição da venda*/}
-      <Card className="bg-white p-2 transition duration-[0.5s] hover:bg-gray-100">
+      <Card className="bg-white p-4 transition duration-[0.5s] hover:bg-gray-100">
         {/*Header*/}
-        <div className="grid sm:grid-cols-1 md:grid-cols-2">
-          <div className="grid">
+        <header className="flex flex-col gap-4 lg:flex-row lg:justify-between">
+          <div className="flex flex-col">
             <h1 className="text-[18px] font-medium">{name}</h1>
             <p>{email}</p>
             <p>{phone}</p>
           </div>
           {/*content*/}
-          <div className="grid justify-end">
+          <div className="flex flex-col">
             <div
               className={`flex items-center justify-center rounded-2xl ${type === "Online" ? "h-7 w-14 bg-black" : "h-7 w-20 bg-gray-200 px-2"}`}
             >
@@ -48,33 +48,37 @@ export function CardSales({
                 {type}
               </span>
             </div>
-            <p className="flex items-start justify-center text-gray-500">
-              {data}
-            </p>
+            <p className="flex items-start text-gray-500">{data}</p>
           </div>
-        </div>
-        <div className="grid gap-4 text-sm sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5">
-          <div>
-            <p>Valor bruto</p>
-            <p className="text-[16px] font-bold text-green-600">
-              R$ {grossvalue}
-            </p>
-          </div>
-          <div>
-            <p> Desconto</p>
-            <p className="text-[16px] font-bold text-red-600">-R$ {discount}</p>
-          </div>
-          <div>
-            <p>Deduçoes</p>
-            <p className="text-[16px] font-bold text-red-600">
-              -R$ {deduction}
-            </p>
-          </div>
-          <div>
-            <p>Valor final</p>
-            <p className="text-[18px] font-bold text-purple-800">
-              R$ {finalvalue}
-            </p>
+        </header>
+
+        {/* Data Area */}
+        <main className="flex w-full flex-col justify-between gap-4 text-sm lg:flex-row lg:items-center">
+          <div className="grid w-4/5 grid-cols-1 gap-5 lg:grid-cols-4">
+            <div>
+              <p>Valor bruto</p>
+              <p className="text-[16px] font-bold text-green-600">
+                R$ {grossvalue}
+              </p>
+            </div>
+            <div>
+              <p> Desconto</p>
+              <p className="text-[16px] font-bold text-red-600">
+                -R$ {discount}
+              </p>
+            </div>
+            <div>
+              <p>Deduçoes</p>
+              <p className="text-[16px] font-bold text-red-600">
+                -R$ {deduction}
+              </p>
+            </div>
+            <div>
+              <p>Valor final</p>
+              <p className="text-[18px] font-bold text-purple-800">
+                R$ {finalvalue}
+              </p>
+            </div>
           </div>
           {/*Modal de edição do card*/}
           <div className="flex gap-1">
@@ -90,7 +94,7 @@ export function CardSales({
               <Trash2 />
             </button>
           </div>
-        </div>
+        </main>
       </Card>
     </div>
   );
