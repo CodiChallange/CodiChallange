@@ -1,7 +1,7 @@
-import { Card, CardContent, CardTitle } from "./ui/card";
+import { Card, CardContent, CardTitle } from "../ui/card";
 import type { IconBaseProps } from "react-icons";
 
-import type { colorTypes } from "./InfoCard";
+import type { colorTypes } from "../Dashboard/InfoCard";
 export type bgColorTypes =
   | "green"
   | "red"

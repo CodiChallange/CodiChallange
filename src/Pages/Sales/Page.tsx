@@ -1,5 +1,5 @@
 import { Aside } from "@/Components/Aside";
-import { CardSales } from "@/Components/Cardsales";
+import { CardSales } from "@/Components/Sales/Cardsales";
 import {
   Select,
   SelectContent,
@@ -7,7 +7,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/Components/ui/select";
-import { SalesForm } from "@/Forms/SalesForm";
+import { SalesForm } from "@/Components/Sales/SalesForm";
 import {
   ChevronLeft,
   ChevronRight,
@@ -33,7 +33,7 @@ type Vendas = {
   finalvalue: string;
 };
 
-export function Vendas() {
+export function Sales() {
   const [vendasList] = useState<Vendas[]>([
     {
       id: "1",
@@ -161,7 +161,6 @@ export function Vendas() {
                 description="Insira os dados da venda"
                 trigger="Nova venda"
                 icon={Plus}
-                
               />
             </div>
           </div>

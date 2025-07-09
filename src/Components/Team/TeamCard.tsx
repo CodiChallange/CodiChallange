@@ -1,5 +1,5 @@
 import { Calendar, Mail, Phone, SquarePen, Trash2 } from "lucide-react";
-import Logo from "../assests/CodiLogoAside.png";
+import Logo from "@/assests/CodiLogoAside.png";
 
 type cardProps = {
   name: string;

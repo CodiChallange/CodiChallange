@@ -11,16 +11,16 @@ import { Calendar, Download } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/Components/ui/tabs";
 import { Percent, Plus } from "lucide-react";
 
-import { CardsReports } from "@/Components/CardsReports";
+import { CardsReports } from "@/Components/Reports/CardsReports";
 import { TrendingDown, TrendingUp, TrendingUpDown } from "lucide-react";
-import { ChartSaleXEpxenses } from "@/Components/ChartSaleXExpenses";
-import { ChartProfitEvolution } from "@/Components/ChartProfitEvolution";
-import { ChartSaleXExpenseXProfit } from "@/Components/ChartSaleXExpenseXProfit";
-import { ChartExpenseDistribution } from "@/Components/ChartExpenseDistribution";
-import { ChartRevenueByCourseType } from "@/Components/ChartRevenueByCourseType";
-import { ChartTrendAnalysis } from "@/Components/ChartTrendAnalysis";
+import { ChartSaleXEpxenses } from "@/Components/Reports/ChartSaleXExpenses";
+import { ChartProfitEvolution } from "@/Components/Reports/ChartProfitEvolution";
+import { ChartSaleXExpenseXProfit } from "@/Components/Reports/ChartSaleXExpenseXProfit";
+import { ChartExpenseDistribution } from "@/Components/Reports/ChartExpenseDistribution";
+import { ChartRevenueByCourseType } from "@/Components/Reports/ChartRevenueByCourseType";
+import { ChartTrendAnalysis } from "@/Components/Reports/ChartTrendAnalysis";
 
-export function Relatorios() {
+export function Reports() {
   return (
     <div className="flex h-screen">
       <Aside />

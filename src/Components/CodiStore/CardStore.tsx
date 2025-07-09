@@ -31,7 +31,7 @@ export function CardStore({ open }: cardPorps) {
             <span className="font-bold">1x</span> Hamburguer
           </li>
           <li>
-            <span className="font-bold">1x</span> Suco
+            <span className="font-bold">1x</span> ...
           </li>
         </ul>
       </main>

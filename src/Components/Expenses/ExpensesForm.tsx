@@ -5,17 +5,17 @@ import {
   Dialog,
   DialogTitle,
   DialogDescription,
-} from "../Components/ui/dialog";
+} from "../ui/dialog";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../Components/ui/select";
+} from "../ui/select";
 
-import { Input } from "../Components/ui/input";
-import { Button } from "../Components/ui/button";
+import { Input } from "../ui/input";
+import { Button } from "../ui/button";
 
 import { z } from "zod";
 import { useForm, Controller } from "react-hook-form";

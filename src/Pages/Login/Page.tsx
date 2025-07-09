@@ -1,8 +1,7 @@
 import { Button } from "@/Components/ui/button";
 import { useForm } from "react-hook-form";
 
-import codiCashLogo from "../assests/codiCashLogo.png";
-import codiCashOficial from "../assests/codiCashOficial.png";
+import codiCashLogo from "../../assests/codiCashLogo.png";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -20,7 +19,7 @@ const formSchema = z.object({
 
 type formSchema = z.infer<typeof formSchema>;
 
-export function Logon() {
+export function Login() {
   const navigate = useNavigate();
 
   function handleNextDashboard() {
@@ -37,7 +36,7 @@ export function Logon() {
     <div className="from-fuchia-500 flex h-screen bg-linear-60 to-purple-900">
       <div className="flex w-1/2 flex-col items-center justify-center">
         <form
-          onSubmit={handleSubmit(Logon)}
+          onSubmit={handleSubmit(Login)}
           className="my-10 w-85 text-center text-amber-100"
         >
           <h1 className="mb-6 text-xl font-bold text-[#4b206d]">

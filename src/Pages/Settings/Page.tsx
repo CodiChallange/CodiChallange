@@ -22,8 +22,8 @@ import {
   ShieldAlert,
   User,
 } from "lucide-react";
-import Logo from "../assests/CodiLogoAside.png";
-import { CardSessoes } from "@/Components/CardSessoes";
+import Logo from "../../assests/CodiLogoAside.png";
+import { CardSessoes } from "@/Components/Settings/ActiveSessionCard";
 import { useState } from "react";
 
 const sessoesAtivas = [
@@ -89,7 +89,7 @@ const unidadesAtivas = [
   },
 ];
 
-export function Configs() {
+export function Settings() {
   const [selectedUnidade, setSelectedUnidade] = useState<string>("1");
   const unidadeSelecionada = unidadesAtivas.find(
     (unidade) => String(unidade.id) === selectedUnidade,

@@ -4,17 +4,17 @@ import {
   Dialog,
   DialogTitle,
   DialogDescription,
-} from "../Components/ui/dialog";
+} from "../ui/dialog";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../Components/ui/select";
+} from "../ui/select";
 
-import { Input } from "../Components/ui/input";
-import { Button } from "../Components/ui/button";
+import { Input } from "../ui/input";
+import { Button } from "../ui/button";
 
 import { z } from "zod";
 import { useForm, Controller } from "react-hook-form";
@@ -23,7 +23,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 
 const formSchema = z.object({
-  product: z.enum(["product1", "product2", "product3"],{
+  product: z.enum(["product1", "product2", "product3"], {
     message: "O campo produto é obrigatório",
   }),
 
@@ -35,10 +35,9 @@ const formSchema = z.object({
     message: "O campo professor é obrigatório",
   }),
 
-  rotation: z.enum(["morning", "afternoon", "night"],{
+  rotation: z.enum(["morning", "afternoon", "night"], {
     message: "O campo turno é obrigatório",
-  })
-
+  }),
 });
 
 type formSchema = z.infer<typeof formSchema>;
@@ -82,14 +81,11 @@ export function Cart() {
             Adicione produtos ao carrinho e registre uma nova venda
           </DialogDescription>
 
-          <form onSubmit={handleSubmit(addCart)}
-          className="w-full"
-          >
+          <form onSubmit={handleSubmit(addCart)} className="w-full">
             <h1 className="mb-6">Adicionar produto</h1>
             <div className="flex justify-between">
               <div>
                 <Controller
-               
                   name="product"
                   control={control}
                   render={({ field }) => (
@@ -124,12 +120,12 @@ export function Cart() {
             </div>
             <Button
               type="button"
-              className="mt-4 mb-4 cursor-pointer bg-purple-500 hover:bg-purple-600 w-full"
+              className="mt-4 mb-4 w-full cursor-pointer bg-purple-500 hover:bg-purple-600"
             >
               + Adicionar
             </Button>
 
-            <div className="flex mb-4 justify-between ">
+            <div className="mb-4 flex justify-between">
               <div>
                 <Controller
                   name="rotation"
@@ -156,7 +152,6 @@ export function Cart() {
 
               <div>
                 <Input
-                
                   type="text"
                   placeholder="Professor responsável"
                   {...register("professor")}
@@ -170,7 +165,7 @@ export function Cart() {
               </div>
             </div>
 
-            <Button className="cursor-pointer bg-purple-500 hover:bg-purple-600 w-full">
+            <Button className="w-full cursor-pointer bg-purple-500 hover:bg-purple-600">
               Registrar venda (0 itens)
             </Button>
           </form>

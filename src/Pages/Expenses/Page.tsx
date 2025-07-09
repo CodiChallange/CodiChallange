@@ -1,7 +1,7 @@
 import { Aside } from "@/Components/Aside";
-import { CardExpenses } from "@/Components/cardexpenses";
+import { CardExpenses } from "@/Components/Expenses/Cardexpenses";
 
-import { CardsReports } from "@/Components/CardsReports";
+import { CardsReports } from "@/Components/Reports/CardsReports";
 import {
   Select,
   SelectContent,
@@ -9,7 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/Components/ui/select";
-import { ExpensesForm } from "@/Forms/ExpensesForm";
+import { ExpensesForm } from "@/Components/Expenses/ExpensesForm";
 import {
   Calendar,
   ChevronLeft,
@@ -34,7 +34,7 @@ type Gastos = {
   value: string;
 };
 
-export function Gastos() {
+export function Expenses() {
   {
     /*Gastos cadastrados*/
   }

@@ -1,11 +1,11 @@
-import { CoursesForm } from "@/Forms/CoursesForm";
+import { CoursesForm } from "@/Components/Courses/CoursesFormModal";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "./ui/card";
+} from "../ui/card";
 
 import type { IconBaseProps } from "react-icons";
 import { SquarePen } from "lucide-react";

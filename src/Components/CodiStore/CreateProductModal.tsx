@@ -4,10 +4,10 @@ import {
   Dialog,
   DialogTitle,
   DialogDescription,
-} from "../Components/ui/dialog";
+} from "../../Components/ui/dialog";
 
-import { Input } from "../Components/ui/input";
-import { Button } from "../Components/ui/button";
+import { Input } from "../../Components/ui/input";
+import { Button } from "../../Components/ui/button";
 
 import { z } from "zod";
 import { useForm } from "react-hook-form";

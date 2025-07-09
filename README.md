@@ -41,14 +41,30 @@ npm run dev
 ├── src/
 │   ├── assets/
 │   ├── Components/
-│   │   ├── modal/
+│   │   ├── CodiStore/
+│   │   ├── Courses/
+│   │   ├── Dashboard/
+│   │   ├── Expenses/
+│   │   ├── Reports/
+│   │   ├── Sales/
+│   │   ├── Settings/
+│   │   ├── Team/
 │   │   ├── ui/
-│   ├── Forms/
 │   ├── http/
 │   ├── lib/
 │   ├── Pages/
+│   │   ├── CodiStore/
+│   │   ├── Courses/
+│   │   ├── Dashboard/
+│   │   ├── Expenses/
+│   │   ├── Login/
+│   │   ├── Reports/
+│   │   ├── Sales/
+│   │   ├── Settings/
+│   │   ├── Team/
 │   ├── Routes/
 │   ├── Services/
+│   │   ├── api/
 │   ├── App.tsx/
 │   ├── index.css/
 │   └── main.tsx

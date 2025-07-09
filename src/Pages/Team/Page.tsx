@@ -1,6 +1,6 @@
 import { Aside } from "@/Components/Aside";
-import { NewUserModal } from "@/Components/modal/NewUserModal";
-import { AlterarModal } from "@/Components/modal/EditUserModal";
+import { NewUserModal } from "@/Components/Team/NewUserModal";
+import { AlterarModal } from "@/Components/Team/EditUserModal";
 
 import {
   Select,
@@ -9,7 +9,7 @@ import {
   SelectContent,
   SelectValue,
 } from "@/Components/ui/select";
-import { UserCard } from "@/Components/TeamCard";
+import { UserCard } from "@/Components/Team/TeamCard";
 import { Search, UserPlus } from "lucide-react";
 import { useState } from "react";
 

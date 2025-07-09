@@ -7,11 +7,11 @@ import {
   SelectContent,
   SelectValue,
 } from "@/Components/ui/select";
-import { CardStore } from "@/Components/CardStore";
-import { CreateProduct } from "@/Forms/CreateProduct";
+import { CardStore } from "@/Components/CodiStore/CardStore";
+import { CreateProduct } from "@/Components/CodiStore/CreateProductModal";
 import { useState } from "react";
-import { CardDetails } from "@/Components/modal/CodiStoreDetails";
-import { Cart } from "@/Forms/Cart";
+import { CardDetails } from "@/Components/CodiStore/CodiStoreDetailsModal";
+import { Cart } from "@/Components/CodiStore/CartModal";
 
 export function CodiStore() {
   const [isOpenEdit, setIsOpenEdit] = useState(false);

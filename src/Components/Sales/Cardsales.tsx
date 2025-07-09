@@ -1,7 +1,7 @@
 import { SquarePen, Trash2 } from "lucide-react";
-import { Card } from "./ui/card";
+import { Card } from "../ui/card";
 
-import { SalesForm } from "@/Forms/SalesForm";
+import { SalesForm } from "@/Components/Sales/SalesForm";
 
 interface CardSalesProps {
   name: string;

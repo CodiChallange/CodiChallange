@@ -1,4 +1,4 @@
-import { Button } from "@/Components/Button";
+import { Button } from "@/Components/Dashboard/Button";
 import {
   Dialog,
   DialogContent,
@@ -89,7 +89,6 @@ export function CoursesForm({
             </div>
             {trigger}
           </button>
-
         </DialogTrigger>
 
         {/*Titulo e descrição do modal*/}

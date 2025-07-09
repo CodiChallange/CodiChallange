@@ -1,4 +1,4 @@
-import { InfoCard } from "@/Components/InfoCard";
+import { InfoCard } from "@/Components/Dashboard/InfoCard";
 import { Aside } from "@/Components/Aside";
 import {
   BanknoteArrowDown,
@@ -7,9 +7,9 @@ import {
   TrendingUp,
   TrendingUpDown,
 } from "lucide-react";
-import { Button } from "@/Components/Button";
+import { Button } from "@/Components/Dashboard/Button";
 
-import { RangeCalendar } from "@/Components/RangeCalendar";
+import { RangeCalendar } from "@/Components/Dashboard/RangeCalendar";
 
 import { useEffect, useState } from "react";
 
@@ -19,8 +19,8 @@ import {
   getTotalExpenses,
   type totalExpensesResponse,
 } from "@/http/getTotalExpenses";
-import { FiltroPorPeriodo } from "@/Components/FiltroPorPeriodo";
-import { ToggleButton } from "./ToggleButton";
+import { FiltroPorPeriodo } from "@/Components/Dashboard/FiltroPorPeriodo";
+import { ToggleButton } from "../../Components/Dashboard/ToggleButton";
 
 type Filter = "semana" | "mes" | "ano";
 export function Dashboard() {

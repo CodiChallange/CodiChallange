@@ -1,12 +1,12 @@
 import { Aside } from "@/Components/Aside";
 
-import { CardsReports } from "@/Components/CardsReports";
-import { CourseCard } from "@/Components/CourseCard";
-import JavascriptLogo from "../assests/JavaScriptLogo.png";
-import PhpLogo from "../assests/PhpLogo.png";
-import PythonLogo from "../assests/PythonLogo.png";
-import ReactLogo from "../assests/ReactLogo.png";
-import FullstackLogo from "../assests/FullStackLogo.png";
+import { CardsReports } from "@/Components/Reports/CardsReports";
+import { CourseCard } from "@/Components/Courses/CourseCard";
+import JavascriptLogo from "../../assests/JavaScriptLogo.png";
+import PhpLogo from "../../assests/PhpLogo.png";
+import PythonLogo from "../../assests/PythonLogo.png";
+import ReactLogo from "../../assests/ReactLogo.png";
+import FullstackLogo from "../../assests/FullStackLogo.png";
 
 import {
   BookOpen,
@@ -16,7 +16,7 @@ import {
   Star,
   UsersRound,
 } from "lucide-react";
-import { CoursesForm } from "@/Forms/CoursesForm";
+import { CoursesForm } from "@/Components/Courses/CoursesFormModal";
 
 export function Courses() {
   return (
@@ -39,7 +39,6 @@ export function Courses() {
                 trigger="Novo curso"
                 Icon={Plus}
                 button="Adicionar"
-
               />
             </div>
           </div>

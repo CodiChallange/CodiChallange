@@ -1,6 +1,6 @@
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { Funnel } from "lucide-react";
-import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
+import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 
 type Filter = "semana" | "mes" | "ano";
 type Props = {
