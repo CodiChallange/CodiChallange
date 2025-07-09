@@ -37,17 +37,6 @@ export function CardExpenses({
                 {fixed}
               </span>
             </div>
-            {/*<div
-              className={`w-fit ${
-                Appellant === "Recorrente"
-                  ? "m-3 flex w-24 items-center rounded-2xl border px-2"
-                  : ""
-              }`}
-            >
-              <span className={`${Appellant === "Recorrente" ? "" : ""}`}>
-                {Appellant}
-              </span>
-            </div>*/}
           </div>
 
           <h1 className="text-2xl font-bold text-red-600">R$ {value}</h1>
