@@ -33,15 +33,13 @@ export function Login() {
     resolver: zodResolver(formSchema),
   });
   return (
-    <div className="from-fuchia-500 flex h-screen flex-col bg-linear-60 to-purple-900 lg:flex-row">
+    <div className="flex h-screen flex-col bg-purple-900 lg:flex-row">
       <div className="flex flex-col items-center justify-center lg:w-1/2">
         <form
           onSubmit={handleSubmit(Login)}
           className="my-10 w-85 text-center text-amber-100"
         >
-          <h1 className="mb-6 text-xl font-bold text-[#4b206d]">
-            Faça seu logon
-          </h1>
+          <h1 className="mb-6 text-2xl font-bold text-white">Faça seu login</h1>
 
           <div className="flex h-14 items-center gap-3 rounded-lg border border-zinc-900 bg-zinc-800 px-3 py-2">
             <Mail />
@@ -77,7 +75,7 @@ export function Login() {
           <Button
             type="button"
             onClick={handleNextDashboard}
-            className="mt-5 h-12 w-full cursor-pointer bg-purple-500 hover:bg-purple-600"
+            className="mt-5 h-12 w-full cursor-pointer bg-emerald-600 text-xl hover:bg-emerald-700"
           >
             Login
           </Button>

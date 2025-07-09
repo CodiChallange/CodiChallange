@@ -147,7 +147,7 @@ export function Sales() {
       <Aside />
       <div className="flex w-full flex-col gap-2 overflow-auto p-5">
         {/*Header*/}
-        <div className="flex w-full flex-col items-center justify-between lg:flex-row">
+        <div className="flex w-full flex-col justify-between lg:flex-row lg:items-center">
           <div className="flex flex-col gap-1">
             <h1 className="text-4xl font-bold">Módulo de Vendas</h1>
             <p className="text-[18px] text-gray-500">
@@ -155,14 +155,12 @@ export function Sales() {
             </p>
           </div>
 
-          <div className="flex w-full rounded-lg bg-[#A243D2] px-5 py-3 text-white transition duration-[1s] hover:bg-purple-700 lg:w-fit">
-            <SalesForm
-              title="Cadastre sua nova venda"
-              description="Insira os dados da venda"
-              trigger="Nova venda"
-              icon={Plus}
-            />
-          </div>
+          <SalesForm
+            title="Cadastre sua nova venda"
+            description="Insira os dados da venda"
+            trigger="Nova venda"
+            icon={Plus}
+          />
         </div>
         {/*Input de pesquisa e select*/}
         <div className="flex w-full flex-col gap-4 rounded-lg bg-white p-5 shadow lg:flex-row">

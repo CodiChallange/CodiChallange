@@ -95,13 +95,12 @@ export function SalesForm({
   return (
     <div>
       <Dialog>
-        <DialogTrigger asChild>
-          <button className="flex items-center justify-center gap-2">
-            <div className="flex items-center justify-center">
-              {Icon && <Icon />}
-            </div>
+        <DialogTrigger asChild className="w-full">
+          <Button className="flex w-full items-center justify-center gap-2 bg-purple-500">
+            {Icon && <Icon />}
+
             {trigger}
-          </button>
+          </Button>
         </DialogTrigger>
 
         <DialogContent>
@@ -260,7 +259,6 @@ export function SalesForm({
           </form>
         </DialogContent>
       </Dialog>
-         
     </div>
   );
 }

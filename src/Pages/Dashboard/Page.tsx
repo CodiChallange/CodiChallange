@@ -35,7 +35,9 @@ export function Dashboard() {
     try {
       const result = await getTotalSales();
       setTotalSales(result);
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   }
   const totalSale = totalSales.reduce((acc, sales) => {
     return acc + sales.valor;
@@ -54,7 +56,9 @@ export function Dashboard() {
     try {
       const result = await getTotalExpenses();
       setTotalExpenses(result);
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   }
   const totalExpense = totalExpenses.reduce((acc, expenses) => {
     return acc + expenses.valor;
@@ -114,7 +118,7 @@ export function Dashboard() {
         </section>
         {/* Gráfico */}
 
-        <section className="rounded-lg border-2 border-purple-200 bg-purple-300 sm:p-6">
+        <section className="rounded-lg border-2 border-purple-200 bg-purple-100 sm:p-6">
           <div className="mb-4 justify-end">
             <ToggleButton
               filter={selectedFilter}
