@@ -46,7 +46,6 @@ interface CoursesFormProps {
   trigger?: string;
   Icon?: React.ComponentType<IconBaseProps>;
   button?: string;
-  buttonName: string;
 }
 
 export function CoursesForm({
@@ -55,7 +54,6 @@ export function CoursesForm({
   trigger,
   Icon: Icon,
   button,
-  buttonName,
 }: CoursesFormProps) {
   const {
     handleSubmit,
@@ -85,10 +83,13 @@ export function CoursesForm({
       <Dialog>
         {/*Botão para abrir o modal*/}
         <DialogTrigger asChild>
-          <Button className="flex items-center">
-            <span className="text-xl">+</span>
-            {buttonName}
-          </Button>
+          <button className="flex items-center justify-center gap-2">
+            <div className="flex items-center justify-center">
+              {Icon && <Icon />}
+            </div>
+            {trigger}
+          </button>
+
         </DialogTrigger>
 
         {/*Titulo e descrição do modal*/}

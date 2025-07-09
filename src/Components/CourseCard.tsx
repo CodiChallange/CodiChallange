@@ -8,6 +8,7 @@ import {
 } from "./ui/card";
 
 import type { IconBaseProps } from "react-icons";
+import { SquarePen } from "lucide-react";
 interface CourseCardProps {
   imageUrl: string;
   title: string;
@@ -80,13 +81,16 @@ export function CourseCard({
               R$ {price}
             </span>
           </CardDescription>
-          <CardDescription className="w-full">
-            <CoursesForm
-              title={""}
-              description={"Gerenciar Curso"}
-              button="Editar Curso"
-              buttonName={"Editar Curso"}
-            />
+          <CardDescription>
+            <button className="flex w-full items-center justify-center rounded-lg bg-[#A243D2] px-5 py-3 font-semibold text-white transition duration-[1s] hover:bg-purple-700">
+              <CoursesForm
+                trigger="Editar curso"
+                title="Editar dados do curso"
+                description="Insira os dados"
+                button="Salvar"
+                Icon={SquarePen}
+              />
+            </button>
           </CardDescription>
         </CardContent>
       </Card>

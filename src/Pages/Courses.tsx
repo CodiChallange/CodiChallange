@@ -32,12 +32,14 @@ export function Courses() {
             </p>
           </div>
           <div className="flex justify-end">
-            <div className="flex">
+            <div className="flex rounded-lg bg-[#A243D2] px-5 py-3 text-white transition duration-[1s] hover:bg-purple-700">
               <CoursesForm
-                title={""}
-                description={""}
-                button={"Criar Curso"}
-                buttonName=" Novo Curso"
+                title="Cadastre um novo curso"
+                description="Insira os dados do curso"
+                trigger="Novo curso"
+                Icon={Plus}
+                button="Adicionar"
+
               />
             </div>
           </div>
