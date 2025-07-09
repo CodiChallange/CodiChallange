@@ -71,8 +71,8 @@ export function Dashboard() {
   return (
     <div className="flex h-screen bg-gray-100">
       <Aside />
-      <main className="w-full flex-1 overflow-x-hidden px-4 py-6 lg:px-8">
-        <div className="m-8 flex items-center justify-between p-4">
+      <main className="w-full flex-1 overflow-x-hidden py-6 lg:px-8">
+        <div className="flex flex-col items-center justify-between gap-4 p-4 lg:flex-row">
           <div>
             <h1 className="text-4xl font-bold">Dashboard Financeiro</h1>
             <p className="text-[18px] text-gray-500">
@@ -80,7 +80,7 @@ export function Dashboard() {
             </p>
           </div>
           {/* Filter por periodo e por data selecionada */}
-          <div className="mr-8 flex flex-row gap-2 sm:flex">
+          <div className="mr-8 flex flex-col gap-2 lg:flex-row">
             <FiltroPorPeriodo
               value={selectedFilter}
               onChange={setselectedFilter}
@@ -89,7 +89,7 @@ export function Dashboard() {
           </div>
         </div>
         {/* Cards de resumos */}
-        <section className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-4">
           <InfoCard
             iconMain={TrendingUp}
             iconSecundary={ChartNoAxesCombined}
@@ -123,7 +123,7 @@ export function Dashboard() {
           </div>
         </section>
         {/* Ações Rápidas */}
-        <section className="m-8 flex flex-col rounded-lg border-2 border-purple-200 bg-purple-100 p-4 sm:p-6">
+        <section className="mt-6 flex flex-col rounded-lg border-2 border-purple-200 bg-purple-100 p-4 sm:p-6">
           <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
             <h3 className="text-xl font-semibold text-[#A243D2]">
               Ações Rápidas
