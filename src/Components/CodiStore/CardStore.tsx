@@ -4,7 +4,7 @@ type cardPorps = {
 
 export function CardStore({ open }: cardPorps) {
   return (
-    <div className="flex w-96 flex-col gap-3 rounded-lg bg-white p-5 shadow-lg transition-shadow duration-500 ease-in-out hover:shadow-2xl">
+    <div className="flex w-full flex-col gap-3 rounded-lg bg-white p-5 shadow-lg transition-shadow duration-500 ease-in-out hover:shadow-2xl lg:w-96">
       {/* Header */}
       <header className="border-b">
         <h1>Venda #0000</h1>

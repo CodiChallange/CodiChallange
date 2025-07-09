@@ -60,7 +60,7 @@ export function CodiStore() {
         </div>
         {/* Cards Area */}
         <main>
-          <div className="grid grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
             {[...Array(10)].map(() => (
               <CardStore open={handleOpenModal} />
             ))}

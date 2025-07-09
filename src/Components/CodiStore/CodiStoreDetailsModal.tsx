@@ -5,7 +5,7 @@ type modalProps = {
 };
 export function CardDetails({ open }: modalProps) {
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black/50">
+    <div className="fixed inset-0 flex items-center justify-center bg-black/50 p-3">
       <div className="relative flex w-full max-w-xl flex-col gap-7 rounded-2xl bg-white p-10">
         {/* Header */}
         <header className="flex items-center justify-between">
