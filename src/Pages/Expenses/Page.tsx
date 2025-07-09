@@ -127,22 +127,21 @@ export function Expenses() {
       <Aside />
       <div className="flex w-full flex-col gap-2 overflow-auto p-5">
         {/*Header*/}
-        <div className="grid items-center sm:grid-cols-1 md:grid-cols-2">
+        <div className="flex flex-col justify-between lg:flex-row lg:items-center">
           <div className="flex flex-col gap-1">
             <h1 className="text-4xl font-bold">Módulo de Gastos</h1>
             <p className="text-[18px] text-gray-500">
               Gerencie despesas fixas e variáveis
             </p>
           </div>
-          <div className="flex justify-end">
-            <div className="flex rounded-lg bg-[#A243D2] px-5 py-3 text-white transition duration-[1s] hover:bg-purple-700">
-              <ExpensesForm
-                title="Cadastre sua nova despesa"
-                description="Insira os dados da despesa"
-                trigger="Novo gasto"
-                icon={Plus}
-              />
-            </div>
+
+          <div className="flex rounded-lg bg-[#A243D2] px-5 py-3 text-white transition duration-[1s] hover:bg-purple-700">
+            <ExpensesForm
+              title="Cadastre sua nova despesa"
+              description="Insira os dados da despesa"
+              trigger="Novo gasto"
+              icon={Plus}
+            />
           </div>
         </div>
         {/*Cards com os tipos de despesas*/}
@@ -170,8 +169,8 @@ export function Expenses() {
           />
         </section>
         {/*Inputs de pesquisa e select*/}
-        <div className="flex w-full gap-4 rounded-lg bg-white p-5 shadow">
-          <div className="flex w-5/6 items-center gap-3 rounded-lg border px-3 py-2">
+        <div className="flex w-full flex-col gap-4 rounded-lg bg-white p-5 shadow lg:flex-row">
+          <div className="flex w-full items-center gap-3 rounded-lg border px-3 py-2 lg:w-5/6">
             <Search />
             <input
               type="text"
@@ -180,7 +179,7 @@ export function Expenses() {
             />
           </div>
           {/*Select e filtro do tipo de despesa*/}
-          <div className="h-full w-1/6">
+          <div className="h-full w-full lg:w-1/6">
             <Select
               value={selectedfixed}
               onValueChange={(value) => setSelectedfixed(value)}
