@@ -26,7 +26,7 @@ type modalProps = {
 
 export function AlterarModal({ close, user }: modalProps) {
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black/50">
+    <div className="fixed inset-0 flex items-center justify-center bg-black/50 p-3">
       <div className="relative w-full max-w-xl rounded-2xl bg-white p-10">
         <div className="mb-6 flex items-center justify-between text-black">
           <h1 className="text-xl font-semibold">Editar colaborador</h1>
