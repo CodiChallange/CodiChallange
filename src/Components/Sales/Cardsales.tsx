@@ -84,6 +84,7 @@ export function CardSales({
           <div className="flex gap-1">
             <button className="flex h-9 w-9 items-center justify-center rounded-sm border bg-white transition duration-[0.5s] hover:bg-gray-300">
               <SalesForm
+                active
                 title="Edite sua venda"
                 description="Insira os dados novos"
                 icon={SquarePen}

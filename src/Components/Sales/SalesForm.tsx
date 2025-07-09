@@ -29,6 +29,7 @@ interface Salesprops {
   description?: string;
   trigger?: string;
   icon?: React.ComponentType<IconBaseProps>;
+  active?: boolean;
 }
 
 const formSchema = z.object({
@@ -66,6 +67,7 @@ export function SalesForm({
   description,
   trigger,
   icon: Icon,
+  active,
 }: Salesprops) {
   const {
     handleSubmit,
@@ -96,7 +98,9 @@ export function SalesForm({
     <div>
       <Dialog>
         <DialogTrigger asChild className="w-full">
-          <Button className="flex w-full items-center justify-center gap-2 bg-purple-500">
+          <Button
+            className={`flex w-full items-center justify-center gap-2 ${active ? "border bg-white text-black" : "bg-purple-500"}`}
+          >
             {Icon && <Icon />}
 
             {trigger}
