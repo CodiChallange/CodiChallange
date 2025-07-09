@@ -30,7 +30,7 @@ export function RangeCalendar() {
         <Button
           variant="outline"
           className={cn(
-            "w-[14rem] justify-start text-left font-bold whitespace-nowrap",
+            "w-full justify-start text-left font-bold whitespace-nowrap lg:w-[14rem]",
             !date.from && "text-muted-foreground",
           )}
         >

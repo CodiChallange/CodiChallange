@@ -71,7 +71,7 @@ export function Dashboard() {
   return (
     <div className="flex h-screen bg-gray-100">
       <Aside />
-      <main className="w-full flex-1 overflow-x-hidden py-6 lg:px-8">
+      <main className="flex w-full flex-col gap-2 overflow-auto p-5">
         <div className="flex flex-col items-center justify-between gap-4 p-4 lg:flex-row">
           <div>
             <h1 className="text-4xl font-bold">Dashboard Financeiro</h1>
@@ -80,7 +80,7 @@ export function Dashboard() {
             </p>
           </div>
           {/* Filter por periodo e por data selecionada */}
-          <div className="mr-8 flex flex-col gap-2 lg:flex-row">
+          <div className="flex flex-col gap-2 lg:flex-row">
             <FiltroPorPeriodo
               value={selectedFilter}
               onChange={setselectedFilter}
