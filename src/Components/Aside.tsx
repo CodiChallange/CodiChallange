@@ -104,7 +104,7 @@ export function Aside() {
 
         {/* Menu */}
         <nav className="flex-1 px-2 py-4">
-          <ul className="flex flex-col gap-2">
+          <ul className="flex flex-col lg:gap-2">
             {menuItems.map((item, index) => (
               <li key={index}>
                 <Link
@@ -117,7 +117,7 @@ export function Aside() {
                 >
                   <span>{item.icon}</span>
                   {isOpen && (
-                    <div className="flex w-full items-center justify-between">
+                    <div className="flex w-full items-center justify-between text-[11px] lg:text-sm">
                       <span className="font-bold">{item.label}</span>
                       {item.count == "0" ? (
                         <span className="hidden">{item.count} </span>
