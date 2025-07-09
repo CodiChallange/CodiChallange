@@ -33,8 +33,8 @@ export function Login() {
     resolver: zodResolver(formSchema),
   });
   return (
-    <div className="from-fuchia-500 flex h-screen bg-linear-60 to-purple-900">
-      <div className="flex w-1/2 flex-col items-center justify-center">
+    <div className="from-fuchia-500 flex h-screen flex-col bg-linear-60 to-purple-900 lg:flex-row">
+      <div className="flex flex-col items-center justify-center lg:w-1/2">
         <form
           onSubmit={handleSubmit(Login)}
           className="my-10 w-85 text-center text-amber-100"
@@ -83,8 +83,12 @@ export function Login() {
           </Button>
         </form>
       </div>
-      <div className="flex flex-col items-center justify-center gap-2">
-        <img src={codiCashLogo} alt="" className="h-[580px] w-[580px]" />
+      <div className="flex items-center justify-center">
+        <img
+          src={codiCashLogo}
+          alt=""
+          className="h-72 object-cover lg:h-[580px] lg:w-[580px]"
+        />
       </div>
     </div>
   );
