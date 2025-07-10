@@ -95,12 +95,20 @@ export function SalesForm({
   return (
     <div>
       <Dialog>
-        <DialogTrigger asChild className="w-full">
-          <Button className="flex w-full items-center justify-center gap-2 bg-purple-500">
-            {Icon && <Icon />}
+        <DialogTrigger asChild>
+          <button
+            className={`${
+              trigger === "Nova venda"
+                ? "bg-[#A243D2] px-5 py-3 text-white transition duration-[1s] hover:bg-purple-700"
+                : "flex h-9 w-9 items-center justify-center rounded-sm border bg-white transition duration-[0.5s] hover:bg-gray-300"
+            } flex items-center justify-center gap-2 rounded-lg`}
+          >
+            <div className="flex items-center justify-center">
+              {Icon && <Icon />}
+            </div>
 
             {trigger}
-          </Button>
+          </button>
         </DialogTrigger>
 
         <DialogContent>

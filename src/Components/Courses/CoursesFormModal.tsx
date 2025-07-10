@@ -83,10 +83,9 @@ export function CoursesForm({
       <Dialog>
         {/*Botão para abrir o modal*/}
         <DialogTrigger asChild>
-          <button className="flex items-center justify-center gap-2">
-            <div className="flex items-center justify-center">
-              {Icon && <Icon />}
-            </div>
+          <button className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#A243D2] px-5 py-3 text-white transition duration-[1s] hover:bg-purple-700">
+            {Icon && <Icon />}
+
             {trigger}
           </button>
         </DialogTrigger>

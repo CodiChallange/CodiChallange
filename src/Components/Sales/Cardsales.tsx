@@ -82,13 +82,12 @@ export function CardSales({
           </div>
           {/*Modal de edição do card*/}
           <div className="flex gap-1">
-            <button className="flex h-9 w-9 items-center justify-center rounded-sm border bg-white transition duration-[0.5s] hover:bg-gray-300">
-              <SalesForm
-                title="Edite sua venda"
-                description="Insira os dados novos"
-                icon={SquarePen}
-              />
-            </button>
+            <SalesForm
+              title="Edite sua venda"
+              description="Insira os dados novos"
+              icon={SquarePen}
+            />
+
             {/*Botão de excluir o card*/}
             <button className="flex h-9 w-9 items-center justify-center rounded-sm border bg-white transition duration-[0.5s] hover:bg-gray-300">
               <Trash2 />
