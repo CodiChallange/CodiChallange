@@ -24,7 +24,7 @@ export function Courses() {
       <Aside />
       <div className="flex w-full flex-col gap-2 overflow-auto p-5">
         {/*Header*/}
-        <div className="flex flex-col lg:flex-row lg:items-center">
+        <div className="flex flex-col justify-between lg:flex-row lg:items-center">
           <div className="flex flex-col gap-1">
             <h1 className="text-4xl font-bold">Cursos</h1>
             <p className="text-[18px] text-gray-500">
@@ -32,15 +32,13 @@ export function Courses() {
             </p>
           </div>
 
-          <div className="flex rounded-lg bg-[#A243D2] px-5 py-3 text-white transition duration-[1s] hover:bg-purple-700">
-            <CoursesForm
-              title="Cadastre um novo curso"
-              description="Insira os dados do curso"
-              trigger="Novo curso"
-              Icon={Plus}
-              button="Adicionar"
-            />
-          </div>
+          <CoursesForm
+            title="Cadastre um novo curso"
+            description="Insira os dados do curso"
+            trigger="Novo curso"
+            Icon={Plus}
+            button="Adicionar"
+          />
         </div>
         {/*Cards com os tipos de despesas*/}
         <section className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-4">

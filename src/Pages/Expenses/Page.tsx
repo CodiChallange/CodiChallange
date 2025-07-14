@@ -135,14 +135,12 @@ export function Expenses() {
             </p>
           </div>
 
-          <div className="flex rounded-lg bg-[#A243D2] px-5 py-3 text-white transition duration-[1s] hover:bg-purple-700">
-            <ExpensesForm
-              title="Cadastre sua nova despesa"
-              description="Insira os dados da despesa"
-              trigger="Novo gasto"
-              icon={Plus}
-            />
-          </div>
+          <ExpensesForm
+            title="Cadastre sua nova despesa"
+            description="Insira os dados da despesa"
+            trigger="Novo gasto"
+            icon={Plus}
+          />
         </div>
         {/*Cards com os tipos de despesas*/}
         <section className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">

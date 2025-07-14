@@ -48,15 +48,12 @@ export function CardExpenses({
           </div>
           {/*Modal de edição de gasto*/}
           <div className="flex gap-1">
-            <button className="flex h-9 w-9 items-center justify-center rounded-sm border bg-white transition duration-[0.5s] hover:bg-gray-300">
-              <button className="flex h-9 w-9 items-center justify-center rounded-sm border bg-white transition duration-[0.5s] hover:bg-gray-300">
-                <ExpensesForm
-                  title="Edite sua despesa"
-                  description="Insira os dados novos"
-                  icon={SquarePen}
-                />
-              </button>
-            </button>
+            <ExpensesForm
+              title="Edite sua despesa"
+              description="Insira os dados novos"
+              icon={SquarePen}
+            />
+
             {/*Botão de excluir o card*/}
             <button className="flex h-9 w-9 items-center justify-center rounded-sm border bg-white transition duration-[0.5s] hover:bg-gray-300">
               <Trash2 />
