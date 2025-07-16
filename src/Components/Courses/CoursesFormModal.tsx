@@ -106,7 +106,7 @@ export function CoursesForm({
               <div>
                 <label htmlFor="">Insira uma imagem</label>
                 <div className="rounded-md border p-2">
-                  <input type="file" placeholder="Adicione a imagem do curso" />
+                  <input type="file" className="w-full" />
                 </div>
               </div>
 
@@ -138,7 +138,7 @@ export function CoursesForm({
 
               {/*Inputs de nome e descrição do curso*/}
               <div className="grid gap-3">
-                <div>
+                <div className="">
                   <label htmlFor="">Nome do curso</label>
                   <Input
                     type="text"

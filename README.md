@@ -105,4 +105,4 @@ Siga os passos abaixo:
 ---
 
 > Feito com 💙 por  
-> [Eduardo Hill Fávero](https://github.com/EduardoHill) • [Jander Figueiredo](https://github.com/Janderff) • [Lucas Crisostomo](https://github.com/cr1sostomo) • [Gabriel](https://github.com/HiiroHK) • [Vanessa](https://github.com/vanessamuels) • [Hellisson](https://github.com/EduardoHill) • [Max](https://github.com/Janderff) • [Raila](https://github.com/cr1sostomo)
+> [Eduardo Hill Fávero](https://github.com/EduardoHill) • [Jander Figueiredo](https://github.com/Janderff) • [Lucas Crisostomo](https://github.com/cr1sostomo) • [Gabriel](https://github.com/HiiroHK) • [Vanessa](https://github.com/vanessamuels) • [Hellisson](https://github.com/EduardoHill) • [Max](https://github.com/maxhonorio) • [Raila](https://github.com/cr1sostomo)

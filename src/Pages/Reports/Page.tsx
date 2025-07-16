@@ -26,7 +26,7 @@ export function Reports() {
       <Aside />
 
       <div className="flex w-full flex-col gap-8 overflow-auto bg-gray-100 p-5">
-        <header className="flex flex-col items-center justify-between lg:flex-row">
+        <header className="flex flex-col justify-between lg:flex-row lg:items-center">
           {/* Text Area */}
           <div className="flex flex-col gap-1">
             <h1 className="text-4xl font-bold">Relátorios</h1>
@@ -37,7 +37,7 @@ export function Reports() {
           {/* Filter Area */}
           <div className="flex flex-col items-center gap-4 lg:flex-row">
             <Select>
-              <SelectTrigger className="w-[200px] items-center border border-gray-300 shadow-lg">
+              <SelectTrigger className="w-full items-center border border-gray-300 shadow-lg lg:w-[200px]">
                 <SelectValue placeholder=" 6meses" />
               </SelectTrigger>
               <SelectContent>
@@ -49,7 +49,7 @@ export function Reports() {
                 </SelectItem>
               </SelectContent>
             </Select>
-            <button className="flex cursor-pointer items-center justify-center gap-3 rounded-lg border border-gray-300 px-2 py-1.5 text-[14px] shadow-lg">
+            <button className="flex w-full cursor-pointer items-center justify-center gap-3 rounded-lg border border-gray-300 px-2 py-1.5 text-[14px] shadow-lg">
               <Download size={16} />
               Exportar
             </button>

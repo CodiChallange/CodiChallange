@@ -76,7 +76,7 @@ export function Dashboard() {
     <div className="flex h-screen bg-gray-100">
       <Aside />
       <main className="flex w-full flex-col gap-2 overflow-auto p-5">
-        <div className="flex flex-col items-center justify-between gap-4 p-4 lg:flex-row">
+        <header className="flex flex-col items-center justify-between gap-4 lg:flex-row">
           <div>
             <h1 className="text-4xl font-bold">Dashboard Financeiro</h1>
             <p className="text-[18px] text-gray-500">
@@ -91,7 +91,7 @@ export function Dashboard() {
             />
             <RangeCalendar />
           </div>
-        </div>
+        </header>
         {/* Cards de resumos */}
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-4">
           <InfoCard

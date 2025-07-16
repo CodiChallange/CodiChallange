@@ -10,7 +10,7 @@ import {
   Store,
   LogOut,
 } from "lucide-react";
-import CodiIcon from "../assests/CodiLogoAside.png";
+import CodiIcon from "../assests/codiCashLogo1.png";
 import { Link, useLocation } from "react-router-dom";
 
 type pathProps = {
@@ -88,7 +88,7 @@ export function Aside() {
           {isOpen ? (
             <div className="flex items-center gap-3">
               <button onClick={() => setIsOpen(!isOpen)}>
-                <img src={CodiIcon} alt="" className="h-[40px] w-[40px]" />
+                <img src={CodiIcon} alt="" className="h-[80px] w-[80px]" />
               </button>
               <div className="flex flex-col items-baseline">
                 <h1 className="flex items-center justify-center gap-2 text-[18px] font-bold text-[#A243D2]">
@@ -98,7 +98,11 @@ export function Aside() {
               </div>
             </div>
           ) : (
-            <img src={CodiIcon} alt="" className="h-[40px] w-[40px]" />
+            <img
+              src={CodiIcon}
+              alt=""
+              className="h-[100px] w-[100px] object-cover"
+            />
           )}
         </div>
 

@@ -22,14 +22,14 @@ export function CodiStore() {
     <div className="flex h-screen">
       <Aside />
       <div className="flex w-full flex-col gap-8 overflow-auto bg-gray-100 p-5">
-        <header className="flex flex-col items-center justify-between gap-4 lg:flex-row">
+        <header className="flex w-full flex-col items-center justify-between gap-4 lg:flex-row">
           <div className="flex flex-col gap-1">
             <h1 className="text-4xl font-bold">Codi Store</h1>
             <p className="text-[18px] text-gray-500">
               Gerencie as vendas da lojinha de comidas
             </p>
           </div>
-          <div className="flex gap-2">
+          <div className="flex w-full flex-col justify-end gap-2 lg:flex-row">
             <CreateProduct />
             <Cart />
           </div>
