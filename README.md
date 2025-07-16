@@ -1,13 +1,15 @@
-# Nome do Projeto
+# Codi Cash
 
 Dashbord de controle financeiro feito para o Codi Challange Frontend de 2025 da turma noturna da unidade Rio branco
 
-## 🛠️ Tecnologias Utilizadas
+## 🚀 Tecnologias
 
-- [React](https://reactjs.org/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Vite](https://vitejs.dev/)
+Essas foram as tecnologias utilizadas no projeto:
+
+- [![React](https://img.shields.io/badge/-React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+- [![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+- [![Tailwind CSS](https://img.shields.io/badge/-TailwindCSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+- [![Vite](https://img.shields.io/badge/-Vite-646CFF?style=for-the-badge&logo=vite&logoColor=FFD62E)](https://vitejs.dev/)
 
 ## 🚀 Como rodar o projeto
 
@@ -27,6 +29,9 @@ cd CodiCHallange
 
 # Instale as dependências
 npm install
+
+#Inicie o servidor do banco de dados
+npx json-server --watch mock/db.json
 
 # Inicie o servidor de desenvolvimento
 npm run dev
@@ -82,9 +87,9 @@ npm run dev
 
 ## 📸 Demonstração
 
-![Demonstração do Projeto]()
-![Demonstração do Projeto]()
-![Demonstração do Projeto]()
+![Demonstração do Projeto](/src/assests/PreviewLogin.png)
+![Demonstração do Projeto](/src/assests/PreviewDashboard.png)
+![Demonstração do Projeto](/src/assests/PreviewMobile.png)
 
 ## 🤝 Contribuição
 
