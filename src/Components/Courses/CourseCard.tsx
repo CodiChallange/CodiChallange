@@ -37,7 +37,7 @@ export function CourseCard({
 }: CourseCardProps) {
   return (
     <>
-      <Card className="relative flex w-76 flex-col gap-4 overflow-hidden">
+      <Card className="relative flex w-full flex-col gap-4 overflow-hidden lg:w-76">
         <CardHeader className="w-full border">
           <img
             src={imageUrl}

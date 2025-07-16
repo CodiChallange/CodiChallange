@@ -29,13 +29,13 @@ export function Reports() {
         <header className="flex flex-col items-center justify-between lg:flex-row">
           {/* Text Area */}
           <div className="flex flex-col gap-1">
-            <h1 className="text-4xl font-bold">Gestão de Equipe</h1>
+            <h1 className="text-4xl font-bold">Relátorios</h1>
             <p className="text-[18px] text-gray-500">
-              Gerencie membros da equipe e suas informações
+              Relatorios gerais da filial
             </p>
           </div>
           {/* Filter Area */}
-          <div className="flex items-center gap-4">
+          <div className="flex flex-col items-center gap-4 lg:flex-row">
             <Select>
               <SelectTrigger className="w-[200px] items-center border border-gray-300 shadow-lg">
                 <SelectValue placeholder=" 6meses" />

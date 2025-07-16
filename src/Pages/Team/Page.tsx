@@ -208,10 +208,10 @@ export function Team() {
               Gerencie membros da equipe e suas informações
             </p>
           </div>
-          <div className="">
+          <div className="w-full lg:w-fit">
             <button
               onClick={handleOpenModalNew}
-              className="flex cursor-pointer gap-2 rounded-lg bg-[#A243D2] px-5 py-3 text-white"
+              className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-[#A243D2] px-5 py-3 text-white"
             >
               <UserPlus />
               <span>Novo Membro</span>
