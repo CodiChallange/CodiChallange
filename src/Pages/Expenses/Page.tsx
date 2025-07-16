@@ -20,6 +20,7 @@ import {
   TrendingDown,
 } from "lucide-react";
 import { useState } from "react";
+import { FiltroPorPeriodo } from "@/Components/Dashboard/FiltroPorPeriodo";
 
 {
   /*Tipos de dados de gastos*/
@@ -33,8 +34,9 @@ type Gastos = {
   Appellant: string;
   value: string;
 };
-
+type Filter = "semana" | "mes" | "ano";
 export function Expenses() {
+  const [selectedFilter, setselectedFilter] = useState<Filter>("mes");
   {
     /*Gastos cadastrados*/
   }
@@ -176,6 +178,10 @@ export function Expenses() {
               className="w-full outline-none"
             />
           </div>
+          <FiltroPorPeriodo
+            value={selectedFilter}
+            onChange={setselectedFilter}
+          />
           {/*Select e filtro do tipo de despesa*/}
           <div className="h-full w-full lg:w-1/6">
             <Select

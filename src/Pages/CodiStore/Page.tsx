@@ -12,8 +12,10 @@ import { CreateProduct } from "@/Components/CodiStore/CreateProductModal";
 import { useState } from "react";
 import { CardDetails } from "@/Components/CodiStore/CodiStoreDetailsModal";
 import { Cart } from "@/Components/CodiStore/CartModal";
-
+import { FiltroPorPeriodo } from "@/Components/Dashboard/FiltroPorPeriodo";
+type Filter = "semana" | "mes" | "ano";
 export function CodiStore() {
+  const [selectedFilter, setselectedFilter] = useState<Filter>("mes");
   const [isOpenEdit, setIsOpenEdit] = useState(false);
   function handleOpenModal() {
     setIsOpenEdit(!isOpenEdit);
@@ -44,6 +46,10 @@ export function CodiStore() {
               className="w-full outline-none"
             />
           </div>
+          <FiltroPorPeriodo
+            value={selectedFilter}
+            onChange={setselectedFilter}
+          />
           <div className="h-full md:w-full lg:w-1/6">
             <Select>
               <SelectTrigger className="flex w-full p-5">

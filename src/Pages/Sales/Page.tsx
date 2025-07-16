@@ -16,6 +16,7 @@ import {
   Plus,
 } from "lucide-react";
 import { useState } from "react";
+import { FiltroPorPeriodo } from "@/Components/Dashboard/FiltroPorPeriodo";
 
 {
   /*Tipo dos daos de vendas*/
@@ -32,8 +33,9 @@ type Vendas = {
   deduction: string;
   finalvalue: string;
 };
-
+type Filter = "semana" | "mes" | "ano";
 export function Sales() {
+  const [selectedFilter, setselectedFilter] = useState<Filter>("mes");
   const [vendasList] = useState<Vendas[]>([
     {
       id: "1",
@@ -172,6 +174,10 @@ export function Sales() {
               className="w-full outline-none"
             />
           </div>
+          <FiltroPorPeriodo
+            value={selectedFilter}
+            onChange={setselectedFilter}
+          />
           {/*select e filtro do tipo de venda*/}
           <div className="h-full w-full lg:w-1/6">
             <Select
