@@ -1,5 +1,5 @@
 import { Aside } from "@/Components/Aside";
-import { Search } from "lucide-react";
+import { ChevronLeft, ChevronRight, Search } from "lucide-react";
 import {
   Select,
   SelectItem,
@@ -13,6 +13,7 @@ import { useState } from "react";
 import { CardDetails } from "@/Components/CodiStore/CodiStoreDetailsModal";
 import { Cart } from "@/Components/CodiStore/CartModal";
 import { FiltroPorPeriodo } from "@/Components/Dashboard/FiltroPorPeriodo";
+import { RangeCalendar } from "@/Components/Dashboard/RangeCalendar";
 type Filter = "semana" | "mes" | "ano";
 export function CodiStore() {
   const [selectedFilter, setselectedFilter] = useState<Filter>("mes");
@@ -50,6 +51,7 @@ export function CodiStore() {
             value={selectedFilter}
             onChange={setselectedFilter}
           />
+          <RangeCalendar />
           <div className="h-full md:w-full lg:w-1/6">
             <Select>
               <SelectTrigger className="flex w-full p-5">
@@ -72,8 +74,14 @@ export function CodiStore() {
             ))}
           </div>
         </main>
+        {/*Botões de paginação*/}
+        <div className="mt-1 mr-1 flex justify-end gap-1">
+          <ChevronLeft className="h-10 w-10 rounded-[8px] border-2 transition duration-[2s] hover:bg-gray-400" />
+          <ChevronRight className="h-10 w-10 rounded-[8px] border-2 transition duration-[2s] hover:bg-gray-400" />
+        </div>
       </div>
       <div>{isOpenEdit && <CardDetails open={handleOpenModal} />}</div>
+      {/*Botões de paginação*/}
     </div>
   );
 }

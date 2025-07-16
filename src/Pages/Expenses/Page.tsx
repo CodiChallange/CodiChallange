@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { FiltroPorPeriodo } from "@/Components/Dashboard/FiltroPorPeriodo";
+import { RangeCalendar } from "@/Components/Dashboard/RangeCalendar";
 
 {
   /*Tipos de dados de gastos*/
@@ -182,6 +183,7 @@ export function Expenses() {
             value={selectedFilter}
             onChange={setselectedFilter}
           />
+          <RangeCalendar />
           {/*Select e filtro do tipo de despesa*/}
           <div className="h-full w-full lg:w-1/6">
             <Select

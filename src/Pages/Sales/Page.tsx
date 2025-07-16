@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { FiltroPorPeriodo } from "@/Components/Dashboard/FiltroPorPeriodo";
+import { RangeCalendar } from "@/Components/Dashboard/RangeCalendar";
 
 {
   /*Tipo dos daos de vendas*/
@@ -178,6 +179,7 @@ export function Sales() {
             value={selectedFilter}
             onChange={setselectedFilter}
           />
+          <RangeCalendar />
           {/*select e filtro do tipo de venda*/}
           <div className="h-full w-full lg:w-1/6">
             <Select

@@ -10,6 +10,8 @@ import FullstackLogo from "../../assests/FullStackLogo.png";
 
 import {
   BookOpen,
+  ChevronLeft,
+  ChevronRight,
   CircleDot,
   Clock,
   Plus,
@@ -142,6 +144,11 @@ export function Courses() {
             price={299}
           />
         </section>
+        {/*Botões de paginação*/}
+        <div className="mt-1 mr-1 flex justify-end gap-1">
+          <ChevronLeft className="h-10 w-10 rounded-[8px] border-2 transition duration-[2s] hover:bg-gray-400" />
+          <ChevronRight className="h-10 w-10 rounded-[8px] border-2 transition duration-[2s] hover:bg-gray-400" />
+        </div>
       </div>
     </div>
   );

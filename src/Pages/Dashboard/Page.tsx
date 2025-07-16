@@ -97,21 +97,21 @@ export function Dashboard() {
           <InfoCard
             iconMain={TrendingUp}
             iconSecundary={ChartNoAxesCombined}
-            name="  Receitas Consolidadas"
+            name="  Total de Vendas"
             value={totalSale}
             color="green"
           />
           <InfoCard
             iconMain={TrendingDown}
             iconSecundary={BanknoteArrowDown}
-            name="  Despesas Consolidads"
+            name="  Total de Despesas"
             value={totalExpense}
             color="red"
           />
           <InfoCard
             iconMain={TrendingUpDown}
             iconSecundary={BanknoteArrowDown}
-            name="Resultado Consolidado"
+            name="Saldo Líquido"
             value={saldoLiquido}
             color="blue"
           />

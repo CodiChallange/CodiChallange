@@ -83,7 +83,7 @@ export function CoursesForm({
       <Dialog>
         {/*Botão para abrir o modal*/}
         <DialogTrigger asChild>
-          <button className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#A243D2] px-5 py-3 text-white transition duration-[1s] hover:bg-purple-700">
+          <button className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-[#A243D2] px-5 py-3 text-white transition duration-[1s] hover:bg-purple-700">
             {Icon && <Icon />}
 
             {trigger}
@@ -144,6 +144,7 @@ export function CoursesForm({
                     type="text"
                     placeholder="Nome do curso"
                     className="rounded-md border border-black p-3"
+                    required
                     {...register("title")}
                   />
                   {errors?.title && (
@@ -159,6 +160,7 @@ export function CoursesForm({
                     type="text"
                     placeholder="Descrição"
                     className="rounded-md border border-black p-3"
+                    required
                     {...register("description")}
                   />
                   {errors?.description && (
