@@ -7,7 +7,7 @@ interface Props {
   setFilter: React.Dispatch<React.SetStateAction<"semana" | "mes" | "ano">>;
 }
 //Componente que exibe o gráfico com base no valor selecionado
-export function ToggleButton({ filter, setFilter }: Props) {
+export function ToggleButton({ filter /*setFilter*/ }: Props) {
   const [chartType, setChartType] = useState<"barChart" | "lineChart">(
     "barChart",
   );
@@ -23,14 +23,14 @@ export function ToggleButton({ filter, setFilter }: Props) {
           }}
         >
           <ToggleGroupItem value="barChart" className="bg-purple-500">
-            Bar Chart
+            Gráfico de Barras
           </ToggleGroupItem>
           <ToggleGroupItem
-            className="bg-purple-500"
+            className="bg-purple-500 text-black"
             value="lineChart"
             disabled={chartType === "barChart" ? false : true}
           >
-            Line Chart
+            Gráfico de Linhas
           </ToggleGroupItem>
         </ToggleGroup>
       </div>
