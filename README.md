@@ -1,44 +1,86 @@
 # Codi Cash
 
-Dashbord de controle financeiro feito para o Codi Challange Frontend de 2025 da turma noturna da unidade Rio branco
+![Status do Projeto: Em Desenvolvimento](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
 
-## 🚀 Tecnologias
+COLOCAR UMA IMAGEM DA LOGO DA CODI CASH!
 
-Essas foram as tecnologias utilizadas no projeto:
+O **Codi Cash** é um dashboard de controle financeiro desenvolvido pelo time **Codi Devs RB** (turma noturna da unidade Codi Academy Rio Branco) como parte do Codi Challenge Frontend de 2025. A aplicação permite o gerenciamento completo de despesas, vendas, equipe e folha de pagamento de forma intuitiva e eficiente.
 
-- [![React](https://img.shields.io/badge/-React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
-- [![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-- [![Tailwind CSS](https://img.shields.io/badge/-TailwindCSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
-- [![Vite](https://img.shields.io/badge/-Vite-646CFF?style=for-the-badge&logo=vite&logoColor=FFD62E)](https://vitejs.dev/)
+---
 
-## 🚀 Como rodar o projeto
+### 📋 Tabela de Conteúdos
 
-### Pré-requisitos
+1.  [Sobre o Projeto](#-sobre-o-projeto)
+2.  [Funcionalidades](#-funcionalidades)
+3.  [Demonstração](#-demonstração)
+4.  [Tecnologias](#-tecnologias)
+5.  [Como Rodar o Projeto](#-como-rodar-o-projeto)
+6.  [Estrutura de Pastas](#-estrutura-de-pastas)
+7.  [Contribuição](#-contribuição)
+8.  [Licença](#-licença)
+9.  [Contribuidores](#-contribuidores)
 
-- [Node.js](https://nodejs.org/) instalado
-- [Git](https://git-scm.com/) instalado
+---
 
-### Passo a passo
+### 🎯 Sobre o Projeto
+
+Este projeto foi criado para solucionar a necessidade de um controle financeiro centralizado e de fácil visualização para as franquias da Codi Academy. Com o Codi Cash, gestores podem tomar decisões mais assertivas baseadas em dados claros e atualizados sobre as finanças da empresa.
+
+### ✨ Funcionalidades
+
+-   ✅ **Dashboard Principal**: Visualização rápida dos principais indicadores financeiros.
+-   ✅ **Controle de Gastos**: Adicione, edite e categorize todas as despesas.
+-   ✅ **Controle de Vendas**: Registre vendas e acompanhe a receita.
+-   ✅ **Gerenciamento de Equipe**: Administre os membros da equipe e suas funções.
+-   ✅ **Folha de Pagamento**: Calcule e gerencie os salários da equipe.
+-   🚧 Banco de Dados _(em desenvolvimento)_
+
+### 📸 Demonstração
+
+| Tela de Login | Dashboard Principal | Responsivo |
+| :-----------: | :-----------------: | :--------: |
+| <img src="./docs/assets/PreviewLogin.png" alt="Tela de Login" width="250"/> | <img src="./docs/assets/PreviewDashboard.png" alt="Dashboard Principal" width="250"/> | <img src="./docs/assets/PreviewMobile.png" alt="Versão Mobile" width="250"/> |
+
+### 🚀 Tecnologias
+
+-   [![React](https://img.shields.io/badge/-React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+-   [![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+-   [![Tailwind CSS](https://img.shields.io/badge/-TailwindCSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+-   [![Vite](https://img.shields.io/badge/-Vite-646CFF?style=for-the-badge&logo=vite&logoColor=FFD62E)](https://vitejs.dev/)
+
+### ⚡ Como Rodar o Projeto
+
+#### Pré-requisitos
+
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+-   [Node.js](https://nodejs.org/)
+-   [Git](https://git-scm.com/)
+-   Um gerenciador de pacotes como [NPM](https://www.npmjs.com/).
+
+#### Passo a passo
 
 ```bash
-# Clone o repositório
-git clone https://github.com/CodiChallange/CodiChallange.git
+# Clone este repositório
+$ git clone [https://github.com/CodiChallange/CodiChallange.git](https://github.com/CodiChallange/CodiChallange.git)
 
 # Acesse a pasta do projeto
-cd CodiCHallange
+$ cd CodiChallange
 
 # Instale as dependências
-npm install
+$ npm install
 
-#Inicie o servidor do banco de dados
-npx json-server --watch mock/db.json
+# Inicie o servidor do banco de dados (em um terminal)
+$ npx json-server --watch mock/db.json
 
-# Inicie o servidor de desenvolvimento
-npm run dev
+# Inicie o servidor de desenvolvimento (em outro terminal)
+$ npm run dev
+
+# O servidor iniciará na porta 5173. Acesse http://localhost:5173
 ```
 
 ## 📂 Estrutura de Pastas
 
+O projeto está estruturado da seguinte forma:
 ```
 ├── mock/
 │   ├── db.json/
@@ -73,36 +115,25 @@ npm run dev
 │   ├── App.tsx/
 │   ├── index.css/
 │   └── main.tsx
-└── .gitignore
-...
+│   .gitignore
+└── ...
 ```
 
-## 📌 Funcionalidades
+## 🙌 Contribuição
 
-- ✅ Controle de Gastos
-- ✅ Controle de Vendas
-- ✅ Gerenciamento de Equipe
-- ✅ Folha de Pagamento
-- 🚧 Banco de Dados _(em desenvolvimento)_
+Contribuições são o que tornam a comunidade de código aberto um lugar incrível para aprender, inspirar e criar. Qualquer contribuição que você fizer será muito apreciada!
 
-## 📸 Demonstração
+  **1.** Faça um fork do projeto.
+  **2.** Crie uma nova branch `(git checkout -b feature/sua-feature)`.
+  **3.** Faça o commit das suas alterações `(git commit -m 'feat: Adiciona sua feature')`.
+  **4.** Envie para a branch original `(git push origin feature/sua-feature)`.
+  **5.** Abra um Pull Request.
 
-![Demonstração do Projeto](/src/assests/PreviewLogin.png)
-![Demonstração do Projeto](/src/assests/PreviewDashboard.png)
-![Demonstração do Projeto](/src/assests/PreviewMobile.png)
+## 📄 Licença
 
-## 🤝 Contribuição
+Este projeto está sob a licença MIT. Veja o arquivo LICENSE.md para mais detalhes. (EDITAR/FAZER)
 
-Contribuições são bem-vindas!  
-Siga os passos abaixo:
+## 💜 Contribuidores
 
-1. Faça um fork do projeto
-2. Crie uma branch com sua feature: `git checkout -b minha-feature`
-3. Faça commit das suas alterações: `git commit -m 'feat: Minha nova feature'`
-4. Envie para o repositório remoto: `git push origin minha-feature`
-5. Abra um Pull Request
-
----
-
-> Feito com 💙 por  
-> [Eduardo Hill](https://github.com/EduardoHill) • [Jander Figueiredo](https://github.com/Janderff) • [Lucas Crisostomo](https://github.com/cr1sostomo) • [Gabriel Souza](https://github.com/HiiroHK) • [Vanessa Samuel](https://github.com/vanessamuels) • [Hellisson Roberto](https://github.com/HelissonRobertoSilva08) • [Max Honório](https://github.com/maxhonorio) • [Raila Guia](https://github.com/cr1sostomo)
+Feito com muito empenho pela equipe **Codi Devs RB**, composta por:  
+> • [Eduardo Hill](https://github.com/EduardoHill) • [Gabriel Souza](https://github.com/HiiroHK) • [Hellisson Roberto](https://github.com/HelissonRobertoSilva08) • [Jander Figueiredo](https://github.com/Janderff) • [Lucas Crisostomo](https://github.com/cr1sostomo) • [Max Honório](https://github.com/maxhonorio) • [Raila Guia](https://github.com/railaguia) • [Vanessa Samuel](https://github.com/vanessamuels)
