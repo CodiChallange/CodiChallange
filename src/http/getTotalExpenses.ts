@@ -1,4 +1,4 @@
-import { api } from "@/services/api/ApiConfig";
+import { api } from "@/Services/api/ApiConfig";
 
 export interface totalExpensesResponse {
   id: string;
