@@ -170,7 +170,7 @@ export function Expenses() {
           />
         </section>
         {/*Inputs de pesquisa e select*/}
-        <div className="flex w-full flex-col gap-4 rounded-lg bg-white p-5 shadow lg:flex-row">
+        <div className="flex w-full flex-col gap-4 rounded-lg bg-white p-5 shadow lg:flex-row lg:items-center">
           <div className="flex w-full items-center gap-3 rounded-lg border px-3 py-2 lg:w-5/6">
             <Search />
             <input
@@ -190,7 +190,7 @@ export function Expenses() {
               value={selectedfixed}
               onValueChange={(value) => setSelectedfixed(value)}
             >
-              <SelectTrigger className="flex w-full p-5">
+              <SelectTrigger className="flex w-full cursor-pointer p-5">
                 <FilterIcon />
                 <SelectValue placeholder="Todas as categorias" />
               </SelectTrigger>

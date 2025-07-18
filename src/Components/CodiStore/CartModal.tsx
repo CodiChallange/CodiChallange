@@ -71,7 +71,7 @@ export function Cart() {
     <div>
       <Dialog>
         <DialogTrigger asChild>
-          <Button className="flex h-12 w-full gap-2 rounded-lg bg-[#A243D2] px-5 py-3 text-white transition duration-[1s] hover:bg-purple-700 lg:w-40">
+          <Button className="flex h-12 w-full cursor-pointer gap-2 rounded-lg bg-[#A243D2] px-5 py-3 text-white transition duration-[1s] hover:bg-purple-700 lg:w-40">
             + Nova venda
           </Button>
         </DialogTrigger>

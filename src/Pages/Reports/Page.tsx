@@ -37,7 +37,7 @@ export function Reports() {
           {/* Filter Area */}
           <div className="flex flex-col items-center gap-4 lg:flex-row">
             <Select>
-              <SelectTrigger className="w-full items-center border border-gray-300 shadow-lg lg:w-[200px]">
+              <SelectTrigger className="w-full cursor-pointer items-center border border-gray-300 shadow-lg lg:w-[200px]">
                 <SelectValue placeholder=" 6meses" />
               </SelectTrigger>
               <SelectContent>

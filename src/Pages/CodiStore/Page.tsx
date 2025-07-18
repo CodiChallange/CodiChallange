@@ -38,7 +38,7 @@ export function CodiStore() {
           </div>
         </header>
         {/* Inputs */}
-        <div className="flex w-full flex-col gap-4 rounded-lg bg-white p-5 shadow lg:flex-row">
+        <div className="flex w-full flex-col gap-4 rounded-lg bg-white p-5 shadow lg:flex-row lg:items-center">
           <div className="flex items-center gap-3 rounded-lg border px-3 py-2 md:w-full lg:w-5/6">
             <Search />
             <input
@@ -54,7 +54,7 @@ export function CodiStore() {
           <RangeCalendar />
           <div className="h-full md:w-full lg:w-1/6">
             <Select>
-              <SelectTrigger className="flex w-full p-5">
+              <SelectTrigger className="flex w-full cursor-pointer p-5">
                 <SelectValue placeholder="Turnos" />
               </SelectTrigger>
               <SelectContent>

@@ -389,7 +389,7 @@ export function Settings() {
                     value={selectedUnidade}
                     onValueChange={(value) => setSelectedUnidade(value)}
                   >
-                    <SelectTrigger className="w-full">
+                    <SelectTrigger className="w-full cursor-pointer p-3">
                       <SelectValue placeholder="Unidades" />
                     </SelectTrigger>
                     <SelectContent>

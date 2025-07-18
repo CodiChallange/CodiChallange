@@ -236,7 +236,7 @@ export function Team() {
               value={selectedCargo}
               onValueChange={(value) => setSelectedCargo(value)}
             >
-              <SelectTrigger className="flex w-full p-5">
+              <SelectTrigger className="flex w-full cursor-pointer p-5">
                 <SelectValue placeholder="Todos os cargos" />
               </SelectTrigger>
               <SelectContent>
